@@ -9,3 +9,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home');
 });
+
+Route::get('/service', function () {
+    return view('service');
+})->name('service');
+
+
+
+

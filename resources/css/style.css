@@ -1,0 +1,11 @@
+.carousel-inner img {
+    object-fit: cover;
+    height: 100%;
+}
+  
+.about-img {
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+  

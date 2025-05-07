@@ -1,0 +1,25 @@
+.navbar {
+    background-color: #000 !important;
+}
+
+.navbar .nav-link {
+    color: #fff !important;
+}
+
+.nav-link.active {
+    border-bottom: 2px solid #ff7f00;
+    font-weight: bold;
+}
+
+.navbar .nav-link:hover {
+    color: #f39c12 !important; /* kuning/oranye */
+}
+
+.navbar-brand {
+    color: #fff !important;
+    font-weight: bold;
+}
+
+.text-orange {
+    color: #ff7f00 !important; /* oranye */
+}

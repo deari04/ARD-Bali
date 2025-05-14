@@ -14,16 +14,18 @@
                 'GATHERING BALI' => 'gathering',
                 'ADVENTURE BALI' => 'adventure',
                 'TOUR BALI' => 'tour',
-                'GALA DINNER BALI' => 'gala-dinner',
-                'EVENT PRODUCTION BALI' => 'event-production',
+                'GALA DINNER BALI' => 'GalaDinner',
+                'EVENT PRODUCTION BALI' => 'eventproduction',
                 'MICE BALI' => 'mice',
-                'MUSIC EVENT' => 'music-event',
+                'MUSIC EVENT' => 'music',
                 'MULTIMEDIA BALI' => 'multimedia',
-                'ARTIS MANAGEMENT' => 'artis-management',
-                'SHOW MANAGEMENT BALI' => 'show-management',
-                'SEWA TRANSPORTASI BALI' => 'sewa-transportasi',
-                'TOUR GUIDE BALI' => 'tour-guide',
-                'LAUNCHING PRODUK BALI' => 'launching-produk'
+                'TALENT MANAGEMENT' => 'artismanagement',
+                'SHOW MANAGEMENT BALI' => 'showmanagement',
+                'SEWA TRANSPORTASI BALI' => 'transportasi',
+                'TOUR GUIDE BALI' => 'tourguide',
+                'LAUNCHING PRODUK BALI' => 'launchingproduk',
+                'REKOMENDASI RESTO BALI' => 'restobali',
+                'REKOMENDASI HOTEL BALI' => 'hotelbali'
             ];
         @endphp
 

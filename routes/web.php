@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OutbondController;
 use App\Http\Controllers\gatheringController;
 use App\Http\Controllers\adventureController;
+use App\Http\Controllers\tourController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -42,4 +43,5 @@ Route::get('/layanan/{slug}', function ($slug) {
 Route::get('/outbond', [OutbondController::class, 'index']);
 Route::get('/gathering', [gatheringController::class, 'index']);
 Route::get('/adventure', [adventureController::class, 'index'])->name('adventure');
+Route::get('/tour', [tourController::class, 'index']);
 

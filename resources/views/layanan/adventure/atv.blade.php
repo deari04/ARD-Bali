@@ -5,8 +5,8 @@
 <!-- Hero Section -->
 <div class="bg-dark text-white text-center py-5" style="background: url('/images/adventure-bg.jpg') center/cover no-repeat;">
     <div class="container">
-        <h1 class="display-4 fw-bold">PAKET GATHERING BALI</h1>
-        <p class="lead">Berbagai Pilihan Paket Gathering untuk Anda.</p>
+        <h1 class="display-4 fw-bold">ATV BALI</h1>
+        <p class="lead">Berbagai Rekomendasi Lokasi ATV untuk Anda.</p>
     </div>
 </div>
 
@@ -15,14 +15,13 @@
     <div class="row">
         @php
             $layanan = [
-                'PAKET FAMILY GATHERING DI BALI',
-                'PAKET GATHERING DI BALI',
-                'PAKET GATHERING CORPORATE DI BALI',
-                'PAKET GATHERING GOVERMENT DI BALI',
-                'PAKET GATHERING MAHASISWA DI BALI',
-                'PAKET GATHERING KOMUNITAS DI BALI'
+                 'ATV UBUD',
+                'ATV PANTAI ',
+                'ATV GIANYAR',
+                'ATV ULUWATU'
+
             ];
-        $noWa = '6287824565254'; // Ganti dengan nomor WhatsApp kamu
+       $noWa = '6287824565254'; // Ganti dengan nomor WhatsApp kamu
         @endphp
 
         @foreach ($layanan as $nama)

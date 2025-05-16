@@ -14,6 +14,11 @@ use App\Http\Controllers\artismanagementController;
 use App\Http\Controllers\showmanagementController;
 use App\Http\Controllers\transportasiController;
 use App\Http\Controllers\launchingprodukController;
+use App\Http\Controllers\raftingController;
+use App\Http\Controllers\atvController;
+use App\Http\Controllers\paintballController;
+use App\Http\Controllers\watersportController;
+use App\Http\Controllers\vwController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -47,6 +52,19 @@ Route::get('/layanan/{slug}', function ($slug) {
     abort(404);
 })->name('layanan.show');
 
+Route::get('/layanan/adventure/{slug}', function ($slug) {
+    $allowed = [
+        'rafting', 'atv', 'paintball', 'watersport', 'vw'
+    ];
+
+    if (!in_array($slug, $allowed)) {
+        abort(404);
+    }
+
+    $viewPath = 'layanan.adventure.' . $slug;
+
+    return view($viewPath);
+});
 
 
 Route::get('/outbond', [OutbondController::class, 'index']);
@@ -63,3 +81,8 @@ Route::get('/showmanagement', [showmanagementController::class, 'index']);
 Route::get('/transportasi', [transportasiController::class, 'index']);
 Route::get('/tourguide', [tourguideController::class, 'index']);
 Route::get('/launchingproduk', [launchingprodukController::class, 'index']);
+Route::get('/rafting', [raftingController::class, 'index']);
+Route::get('/atv', [atvController::class, 'index']);
+Route::get('/paintball', [paintballController::class, 'index']);
+Route::get('/watersport', [watersportController::class, 'index']);
+Route::get('/vw', [vwController::class, 'index']);

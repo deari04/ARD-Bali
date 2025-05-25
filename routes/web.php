@@ -33,6 +33,10 @@ Route::get('/service', function () {
     return view('service');
 })->name('service');
 
+Route::get('/location', function () {
+    return view('location');
+})->name('location');
+
 Route::get('/layanan/{slug}', function ($slug) {
     $allowed = [
         'outbond', 'gathering', 'adventure', 'tour',

@@ -18,19 +18,19 @@
                         Service
                     </a>
                 </li>
-                {{-- <li class="nav-item">
+                <li class="nav-item">
                     <a class="nav-link {{ request()->routeIs('location') ? 'active text-warning' : '' }}" href="{{ route('location') }}">
                         Location
                     </a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link {{ request()->routeIs('contact') ? 'active text-warning' : '' }}" href="{{ route('contact') }}">
                         Contact Us
                     </a>
                 </li> --}}
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link" href="#">Location</a>
-                  </li>
+                  </li> --}}
                   <li class="nav-item">
                     <a class="nav-link" href="#">Contact Us</a>
                   </li>

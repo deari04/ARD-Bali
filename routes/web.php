@@ -16,9 +16,11 @@ use App\Http\Controllers\transportasiController;
 use App\Http\Controllers\launchingprodukController;
 use App\Http\Controllers\raftingController;
 use App\Http\Controllers\atvController;
+use App\Http\Controllers\tourguideController;
 use App\Http\Controllers\paintballController;
 use App\Http\Controllers\watersportController;
 use App\Http\Controllers\vwController;
+
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -32,6 +34,10 @@ Route::get('/', function () {
 Route::get('/service', function () {
     return view('service');
 })->name('service');
+
+Route::get('/gallery', function () {
+    return view('gallery');
+})->name('gallery');
 
 Route::get('/location', function () {
     return view('location');
@@ -90,3 +96,4 @@ Route::get('/atv', [atvController::class, 'index']);
 Route::get('/paintball', [paintballController::class, 'index']);
 Route::get('/watersport', [watersportController::class, 'index']);
 Route::get('/vw', [vwController::class, 'index']);
+

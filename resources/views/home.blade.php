@@ -60,7 +60,8 @@
     </div>
     <div class="col-md-7">
       <h2 class="fw-bold">Tentang Kami</h2>
-      <p class="text-muted">ARD ORGANIZER BALI adalah penyedia layanan profesional untuk Outbond, Tour, dan Gathering di Bali. Kami berkomitmen memberikan pengalaman terbaik yang menyenangkan, aman, dan penuh petualangan. Dipercaya oleh banyak perusahaan dan komunitas.</p>
+      <p class="text-muted">ARD ORGANIZER BALI  adalah perusahaan yang bergerak melayani penyelenggaraan Event atau penyedia jasa event dalam sekala besar maupun kecil. <br>
+        Dengan pelayanan yang mengutamakan kenyamanan dan menjadi sarana konsultasi bagi klien untuk berbagi ide-ide kreatif, konsep inovatif, dan bekerja professional memfasilitasi kebutuhan serta kepuasan klien sebagai mitra bisnis.</p>
     </div>
   </div>
 </div>

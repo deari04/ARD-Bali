@@ -64,12 +64,11 @@
         <!-- Peta di kiri -->
         <div class="col-md-6">
             <h4 class="mb-3 text-primary fw-semibold">Alamat:</h4>
-            <p class="mb-4 text-secondary">Jalan Sunset Road No.88, Kuta, Bali, Indonesia</p>
-
+            <p class="mb-4 text-secondary">Jl. Pulau Saelus Gg. IV No.8 Br. Pande Kelurahan. Pedungan Kecamatan Denpasar SelatanDenpasar - Bali</p>
             <div class="card-map">
                 <div class="ratio ratio-16x9">
                     <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.9878123456!2d115.163456!3d-8.721234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd2471234567890%3A0x1234567890abcdef!2sJalan%20Sunset%20Road%2088%2C%20Kuta!5e0!3m2!1sen!2sid!4v1234567890"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.0777215352646!2d115.20674247456853!3d-8.684159188435641!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa417a19b66a03f5f%3A0x8b2d6f754ae8dc8!2sARD%20BALI%20(TOUR%20BALI%2CGATHERING%2COUTBOUND%2CMICE%2CWISATA%20BALI)!5e0!3m2!1sid!2sid!4v1749626881485!5m2!1sid!2sid"
                         width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>

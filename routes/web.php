@@ -20,6 +20,8 @@ use App\Http\Controllers\tourguideController;
 use App\Http\Controllers\paintballController;
 use App\Http\Controllers\watersportController;
 use App\Http\Controllers\vwController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminAuthController;
 
 
 // Route::get('/', function () {
@@ -97,3 +99,9 @@ Route::get('/paintball', [paintballController::class, 'index']);
 Route::get('/watersport', [watersportController::class, 'index']);
 Route::get('/vw', [vwController::class, 'index']);
 
+Route::middleware(['auth:admin'])->group(function () {
+    Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+});
+Route::get('/admin/login', [AdminAuthController::class, 'showLoginForm'])->name('admin.login');
+Route::post('/admin/login', [AdminAuthController::class, 'login']);
+Route::post('/admin/logout', [AdminAuthController::class, 'logout'])->name('admin.logout');

@@ -3,8 +3,9 @@
 namespace Database\Seeders;
 
 use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Admin; // Tambahkan ini
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,11 +14,21 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+        // Tambah Admin
+        Admin::create([
+            'name' => 'Admin',
+            'email' => 'ARDbali2025@gmail.com',
+            'password' => Hash::make('ARDbali2025'),
         ]);
+
+        // Tambah User Biasa
+        User::create([
+            'name' => 'User Biasa',
+            'email' => 'user@example.com',
+            'password' => Hash::make('password'),
+        ]);
+
+        // Jika kamu punya seeder lain untuk admin detail, bisa panggil
+        // $this->call(AdminSeeder::class);
     }
 }

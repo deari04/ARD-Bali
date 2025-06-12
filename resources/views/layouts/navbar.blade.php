@@ -19,6 +19,11 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link {{ request()->routeIs('gallery') ? 'active text-warning' : '' }}" href="{{ route('gallery') }}">
+                        Gallery
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link {{ request()->routeIs('location') ? 'active text-warning' : '' }}" href="{{ route('location') }}">
                         Location
                     </a>

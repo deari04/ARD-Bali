@@ -1,4 +1,4 @@
-{{-- footer --}}
+{{-- footer
 
 <div class="footer mt-4">
     <div class="container-fluid">
@@ -16,4 +16,4 @@
     </div>
 </div>
 
-
+ --}}

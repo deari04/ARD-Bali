@@ -22,6 +22,9 @@ use App\Http\Controllers\watersportController;
 use App\Http\Controllers\vwController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminAuthController;
+use App\Http\Controllers\KontenController;
+use App\Http\Controllers\GalleryAController;
+
 
 
 // Route::get('/', function () {
@@ -105,3 +108,12 @@ Route::middleware(['auth:admin'])->group(function () {
 Route::get('/admin/login', [AdminAuthController::class, 'showLoginForm'])->name('admin.login');
 Route::post('/admin/login', [AdminAuthController::class, 'login']);
 Route::post('/admin/logout', [AdminAuthController::class, 'logout'])->name('admin.logout');
+
+Route::prefix('admin')->group(function () {
+    Route::get('/konten', [KontenController::class, 'index'])->name('konten.index');
+    Route::post('/konten/store', [KontenController::class, 'store'])->name('konten.store');
+    Route::post('/konten/update/{id}', [KontenController::class, 'update'])->name('konten.update');
+    Route::delete('/konten/delete/{id}', [KontenController::class, 'destroy'])->name('konten.destroy');
+});
+
+Route::get('/admin/gallery', [GalleryAController::class, 'index'])->name('gallery.index');

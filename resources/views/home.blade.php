@@ -28,7 +28,13 @@
 <div class="container content-overlay mt-4 mb-5">
 
   {{-- Carousel --}}
-  <div id="carouselExample" class="carousel slide mb-5" data-bs-ride="carousel" data-bs-interval="3000">
+  <div id="carouselExample" class="carousel slide mb-5" data-bs-ride="carousel" data-bs-interval="5000">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+
     <div class="carousel-inner rounded-4 overflow-hidden" style="height: 400px;">
       <div class="carousel-item active">
         <img src="https://images.pexels.com/photos/235829/pexels-photo-235829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="d-block w-100 h-100 object-fit-cover" alt="slide">
@@ -55,16 +61,22 @@
 {{-- Container About --}}
 <div class="container content-overlay mb-5">
   <div class="row align-items-center">
+    {{-- Kolom gambar --}}
     <div class="col-md-5 mb-4 mb-md-0">
-      <img src="https://images.pexels.com/photos/31829947/pexels-photo-31829947/free-photo-of-close-up-of-monstera-leaves-with-dew-drops.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" class="img-fluid rounded-4 shadow" style="height: 350px; object-fit: cover; width: 100%;" alt="About Image">
+      <img src="{{ asset('assets/images/team.jpeg') }}" class="img-fluid rounded-4 shadow" style="height: 350px; object-fit: cover; width: 100%;" alt="our Team">
     </div>
+    
+    {{-- Kolom teks --}}
     <div class="col-md-7">
       <h2 class="fw-bold">Tentang Kami</h2>
-      <p class="text-muted">ARD ORGANIZER BALI  adalah perusahaan yang bergerak melayani penyelenggaraan Event atau penyedia jasa event dalam sekala besar maupun kecil. <br>
-        Dengan pelayanan yang mengutamakan kenyamanan dan menjadi sarana konsultasi bagi klien untuk berbagi ide-ide kreatif, konsep inovatif, dan bekerja professional memfasilitasi kebutuhan serta kepuasan klien sebagai mitra bisnis.</p>
+      <p class="text-muted">
+        ARD ORGANIZER BALI adalah perusahaan yang bergerak melayani penyelenggaraan Event atau penyedia jasa event dalam sekala besar maupun kecil. <br>
+        Dengan pelayanan yang mengutamakan kenyamanan dan menjadi sarana konsultasi bagi klien untuk berbagi ide-ide kreatif, konsep inovatif, dan bekerja profesional memfasilitasi kebutuhan serta kepuasan klien sebagai mitra bisnis.
+      </p>
     </div>
   </div>
 </div>
+
 
 {{-- Container Services --}}
 <div class="container content-overlay mb-5">
@@ -73,7 +85,7 @@
     {{-- Outbond --}}
     <div class="col-md-4">
       <div class="card h-100 shadow-sm border-0 rounded-4 hover-shadow">
-        <img src="https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img-top rounded-top-4" style="height: 220px; object-fit: cover;" alt="Outbond Bali">
+        <img src="{{ asset('assets/images/Outbond.jpg') }}" class="card-img-top rounded-top-4" style="height: 220px; object-fit: cover;" alt="Outbond Bali">
         <div class="card-body d-flex flex-column">
           <h5 class="card-title text-uppercase">Outbond Bali</h5>
           <p class="card-text flex-grow-1">Kami menyediakan layanan Outbond Bali yang menyenangkan dan penuh petualangan.</p>
@@ -85,7 +97,7 @@
     {{-- Tour --}}
     <div class="col-md-4">
       <div class="card h-100 shadow-sm border-0 rounded-4 hover-shadow">
-        <img src="https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img-top rounded-top-4" style="height: 220px; object-fit: cover;" alt="Tour Bali">
+        <img src="{{ asset('assets/images/Tour.jpeg') }}" class="card-img-top rounded-top-4" style="height: 220px; object-fit: cover;" alt="Tour Bali">
         <div class="card-body d-flex flex-column">
           <h5 class="card-title text-uppercase">Tour Bali</h5>
           <p class="card-text flex-grow-1">Nikmati tour terbaik di Bali dengan layanan dan destinasi pilihan kami.</p>
@@ -97,7 +109,7 @@
     {{-- Gathering --}}
     <div class="col-md-4">
       <div class="card h-100 shadow-sm border-0 rounded-4 hover-shadow">
-        <img src="https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=600" class="card-img-top rounded-top-4" style="height: 220px; object-fit: cover;" alt="Gathering Bali">
+        <img src="{{ asset('assets/images/Gathering.jpg') }}" class="card-img-top rounded-top-4" style="height: 220px; object-fit: cover;" alt="Gathering Bali">
         <div class="card-body d-flex flex-column">
           <h5 class="card-title text-uppercase">Gathering Bali</h5>
           <p class="card-text flex-grow-1">Layanan gathering perusahaan dan komunitas yang seru dan berkesan di Bali.</p>

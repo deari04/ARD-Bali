@@ -25,6 +25,7 @@
                 'OUTBOUND TABANAN',
                 'OUTBOUND GWK',
                 'OUTBOUND ULUWATU',
+                'OUTBOND INDOOR',
                 'OUTBOUND PANTAI PANDAWA',
                 'OUTBOUND PANTAI KUTA',
                 'OUTBOUND PANTAI NUSA DUA',
@@ -38,12 +39,40 @@
                 'OUTBOUND PANTAI DREAMLAND',
                 'OUTBOUND PANTAI LOVINA BULELENG'
             ];
-        $noWa = '6287824565254'; // Ganti dengan nomor WhatsApp kamu
+
+            $gambar = [
+                'OUTBOUND BEDUGUL' => 'bedugul.jpg',
+                'OUTBOUND UBUD' => 'ubud.jpg',
+                'OUTBOUND KINTAMANI' => 'kintamani.jpg',
+                'OUTBOUND DENPASAR' => 'denpasar.jpg',
+                'OUTBOUND GIANYAR' => 'gianyar.jpg',
+                'OUTBOUND KUTA' => 'kuta.jpg',
+                'OUTBOUND NUSA PENIDA' => 'nusa-penida.jpg',
+                'OUTBOUND TABANAN' => 'tabanan.jpg',
+                'OUTBOUND GWK' => 'gwk.jpg',
+                'OUTBOUND ULUWATU' => 'uluwatu.jpg',
+                'OUTBOND INDOOR' => 'indoor.jpg',
+                'OUTBOUND PANTAI PANDAWA' => 'pandawa.JPG',
+                'OUTBOUND PANTAI KUTA' => 'kuta.jpg',
+                'OUTBOUND PANTAI NUSA DUA' => 'nusa-dua.jpg',
+                'OUTBOUND PANTAI JIMBARAN' => 'jimbaran.jpg',
+                'OUTBOUND PANTAI JERMAN' => 'jerman.jpg',
+                'OUTBOUND PANTAI ULUWATU' => 'uluwatu.JPG',
+                'OUTBOUND PANTAI SANUR' => 'pantai-sanur.jpg',
+                'OUTBOUND PANTAI PADANG PADANG' => 'padang-padang.JPG',
+                'OUTBOUND PANTAI MENGIAT' => 'mengiat.JPG',
+                'OUTBOUND PANTAI MELASTI' => 'melasti.jpg',
+                'OUTBOUND PANTAI DREAMLAND' => 'dreamland.jpg',
+                'OUTBOUND PANTAI LOVINA BULELENG' => 'lovina-buleleng.jpg'
+            ];
+
+            $noWa = '6287824565254'; // Ganti dengan nomor WhatsApp kamu
         @endphp
 
         @foreach ($layanan as $nama)
             @php
                 $pesan = "Halo, saya tertarik dengan layanan $nama";
+                $fileGambar = $gambar[$nama] ?? 'default.jpg';
             @endphp
 
             <div class="col-md-4 mb-4">
@@ -53,7 +82,11 @@
                    data-text="{{ $pesan }}">
                     <div class="card shadow-sm border-0 h-100">
                         <div class="position-relative">
-                            <img src="https://picsum.photos/seed/{{ urlencode($nama) }}/600/400" class="card-img-top" alt="{{ $nama }}">
+                            <img src="{{ asset('assets/images/' . $fileGambar) }}"
+                                 onerror="this.onerror=null; this.src='{{ asset('assets/images/default.jpg') }}';"
+                                 class="card-img-top"
+                                 alt="{{ $nama }}">
+
                             <div class="position-absolute top-0 start-0 bg-danger text-white px-2 py-1 fw-bold small">
                                 OUTBOND
                             </div>
@@ -89,7 +122,5 @@
         });
     });
 </script>
-
-
 
 @endsection

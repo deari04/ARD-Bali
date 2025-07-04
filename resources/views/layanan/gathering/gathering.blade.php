@@ -22,12 +22,24 @@
                 'PAKET GATHERING MAHASISWA DI BALI',
                 'PAKET GATHERING KOMUNITAS DI BALI'
             ];
-        $noWa = '6287824565254'; // Ganti dengan nomor WhatsApp kamu
+
+            // Mapping gambar sesuai layanan
+            $gambar = [
+                'PAKET FAMILY GATHERING DI BALI' => 'family.jpg',
+                'PAKET GATHERING DI BALI' => 'gathering-bali.jpg',
+                'PAKET GATHERING CORPORATE DI BALI' => 'corporate.jpg',
+                'PAKET GATHERING GOVERMENT DI BALI' => 'goverment.jpg',
+                'PAKET GATHERING MAHASISWA DI BALI' => 'mahasiswa.JPG',
+                'PAKET GATHERING KOMUNITAS DI BALI' => 'komunitas.JPG'
+            ];
+
+            $noWa = '6287824565254';
         @endphp
 
         @foreach ($layanan as $nama)
             @php
                 $pesan = "Halo, saya tertarik dengan layanan $nama";
+                $fileGambar = $gambar[$nama] ?? 'default.jpg'; // fallback jika gambar tidak ditemukan
             @endphp
 
             <div class="col-md-4 mb-4">
@@ -37,9 +49,13 @@
                    data-text="{{ $pesan }}">
                     <div class="card shadow-sm border-0 h-100">
                         <div class="position-relative">
-                            <img src="https://picsum.photos/seed/{{ urlencode($nama) }}/600/400" class="card-img-top" alt="{{ $nama }}">
+                            <img src="{{ asset('assets/images/' . $fileGambar) }}"
+                                 onerror="this.onerror=null; this.src='{{ asset('assets/images/default.jpg') }}';"
+                                 class="card-img-top"
+                                 alt="{{ $nama }}">
+
                             <div class="position-absolute top-0 start-0 bg-danger text-white px-2 py-1 fw-bold small">
-                                OUTBOND
+                                GATHERING
                             </div>
                             <div class="position-absolute top-0 end-0 bg-white text-danger px-2 py-1 fw-bold small">
                                 GROUP EVENT

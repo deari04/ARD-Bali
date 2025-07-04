@@ -22,12 +22,23 @@
                 'PAKET TOUR MAHASISWA DI BALI',
                 'PAKET TOUR KOMUNITAS DI BALI'
             ];
+
+            // Mapping gambar sesuai layanan
+            $gambar = [
+                'PAKET FAMILY TOUR DI BALI' => 'family-tour.jpg',
+                'PAKET TOUR DI BALI' => 'tour-bali.jpeg',
+                'PAKET TOUR CORPORATE DI BALI' => 'corporate-tour.jpg',
+                'PAKET TOUR GOVERMENT DI BALI' => 'goverment.jpg',
+                'PAKET TOUR MAHASISWA DI BALI' => 'mahasiswa.JPG',
+                'PAKET TOUR KOMUNITAS DI BALI' => 'komunitas.JPG'
+            ];
         $noWa = '6287824565254'; // Ganti dengan nomor WhatsApp kamu
         @endphp
 
         @foreach ($layanan as $nama)
             @php
                 $pesan = "Halo, saya tertarik dengan layanan $nama";
+                $fileGambar = $gambar[$nama] ?? 'default.jpg';
             @endphp
 
             <div class="col-md-4 mb-4">
@@ -37,7 +48,10 @@
                    data-text="{{ $pesan }}">
                     <div class="card shadow-sm border-0 h-100">
                         <div class="position-relative">
-                            <img src="https://picsum.photos/seed/{{ urlencode($nama) }}/600/400" class="card-img-top" alt="{{ $nama }}">
+                            <img src="{{ asset('assets/images/' . $fileGambar) }}"
+                                 onerror="this.onerror=null; this.src='{{ asset('assets/images/default.jpg') }}';"
+                                 class="card-img-top"
+                                 alt="{{ $nama }}">
                             <div class="position-absolute top-0 start-0 bg-danger text-white px-2 py-1 fw-bold small">
                                 OUTBOND
                             </div>

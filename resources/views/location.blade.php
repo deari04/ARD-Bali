@@ -63,8 +63,8 @@
     <div class="row g-4 align-items-center">
         <!-- Peta di kiri -->
         <div class="col-md-6">
-            <h4 class="mb-3 text-primary fw-semibold">Alamat:</h4>
-            <p class="mb-4 text-secondary">Jl. Pulau Saelus Gg. IV No.8 Br. Pande Kelurahan. Pedungan Kecamatan Denpasar SelatanDenpasar - Bali</p>
+            <h4 class="mb-3 text-primary fw-semibold">AlAMAT:</h4>
+            <h6 class="mb-4 text-secondary">Jl. Pulau Saelus Gg. IV No.8 Br. Pande Kelurahan. Pedungan Kecamatan Denpasar SelatanDenpasar - Bali</h6>
             <div class="card-map">
                 <div class="ratio ratio-16x9">
                     <iframe

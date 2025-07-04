@@ -46,7 +46,6 @@
 
             <form method="POST" action="{{ route('admin.login') }}">
                 @csrf
-
                 {{-- Email --}}
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>

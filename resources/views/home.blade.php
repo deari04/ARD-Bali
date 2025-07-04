@@ -25,7 +25,7 @@
 </style>
 
 {{-- Wrapper utama --}}
-<div class="container content-overlay mt-4 mb-5">
+<div class="container content-overlay mt-4 mb-4">
 
   {{-- Carousel --}}
   <div id="carouselExample" class="carousel slide mb-5" data-bs-ride="carousel" data-bs-interval="5000">
@@ -128,4 +128,14 @@
     </div>
   </div>
 </div>
+
+
+{{-- Container Our Client --}}
+<div class="container content-overlay mb-5">
+  <div class="row align-items-center">
+    <h1 class="fw-bold align-items-center text-center">Our Client</h1>
+    <img src="{{ asset('assets/images/Client.png') }}" alt="">
+  </div>
+</div>
+
 @endsection

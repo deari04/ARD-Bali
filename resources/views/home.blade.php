@@ -89,7 +89,11 @@
         <div class="card-body d-flex flex-column">
           <h5 class="card-title text-uppercase">Outbond Bali</h5>
           <p class="card-text flex-grow-1">Kami menyediakan layanan Outbond Bali yang menyenangkan dan penuh petualangan.</p>
-          <a href="{{ url('/layanan/outbond') }}" class="btn btn-outline-success mt-auto rounded-pill">Pesan Sekarang</a>
+          {{-- <a href="{{ url('/layanan/outbond') }}" class="btn btn-outline-success mt-auto rounded-pill">Pesan Sekarang</a> --}}
+          <a href="https://wa.me/6281234567890?text=Halo,%20saya%20tertarik%20dengan%20layanan%20Tour%20Bali" target="_blank" class="btn btn-outline-success mt-auto rounded-pill">
+            Pesan Sekarang
+          </a>
+
         </div>
       </div>
     </div>
@@ -101,7 +105,11 @@
         <div class="card-body d-flex flex-column">
           <h5 class="card-title text-uppercase">Tour Bali</h5>
           <p class="card-text flex-grow-1">Nikmati tour terbaik di Bali dengan layanan dan destinasi pilihan kami.</p>
-          <a href="{{ url('/layanan/tour') }}" class="btn btn-outline-success mt-auto rounded-pill">Pesan Sekarang</a>
+          {{-- <a href="{{ url('/layanan/tour') }}" class="btn btn-outline-success mt-auto rounded-pill">Pesan Sekarang</a> --}}
+          <a href="https://wa.me/6281234567890?text=Halo,%20saya%20tertarik%20dengan%20layanan%20Tour%20Bali" target="_blank" class="btn btn-outline-success mt-auto rounded-pill">
+            Pesan Sekarang
+          </a>
+
         </div>
       </div>
     </div>
@@ -113,7 +121,10 @@
         <div class="card-body d-flex flex-column">
           <h5 class="card-title text-uppercase">Gathering Bali</h5>
           <p class="card-text flex-grow-1">Layanan gathering perusahaan dan komunitas yang seru dan berkesan di Bali.</p>
-          <a href="{{ url('/layanan/gathering') }}" class="btn btn-outline-success mt-auto rounded-pill">Pesan Sekarang</a>
+          {{-- <a href="{{ url('/layanan/gathering') }}" class="btn btn-outline-success mt-auto rounded-pill">Pesan Sekarang</a> --}}
+          <a href="https://wa.me/6281234567890?text=Halo,%20saya%20tertarik%20dengan%20layanan%20Gathering%20Bali" target="_blank" class="btn btn-outline-success mt-auto rounded-pill">
+            Pesan Sekarang
+          </a>
         </div>
       </div>
     </div>

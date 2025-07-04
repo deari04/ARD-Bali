@@ -48,18 +48,6 @@
                             Location
                         </a>
                     </li>
-
-                    <li class="nav-item">
-    @if(Auth::guard('admin')->check())
-        <a class="nav-link {{ request()->routeIs('admin.dashboard') ? 'active text-warning' : '' }}" href="{{ route('admin.dashboard') }}" title="Admin Panel">
-            <i class="bi bi-person-circle fs-5 text-white"></i>
-        </a>
-    @else
-        <a class="nav-link" href="{{ route('admin.login') }}" title="Login Admin">
-            <i class="bi bi-box-arrow-in-right fs-5 text-white"></i>
-        </a>
-    @endif
-</li>
                 </ul>
             </div>
         </div>

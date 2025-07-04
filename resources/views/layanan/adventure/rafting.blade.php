@@ -15,12 +15,12 @@
     <div class="row">
         @php
             $layanan = [
-                 'RAFTING SUNGAI AYUNG UBUD',
+                'RAFTING SUNGAI AYUNG UBUD',
                 'RAFTING SUNGAI TELAGA WAJA BALI',
                 'RAFTING SUNGAI PETANU BALI',
                 'RAFTING SUNGAI MELANGIT  BALI'
-
             ];
+            
        $noWa = '6287824565254'; // Ganti dengan nomor WhatsApp kamu
         @endphp
 

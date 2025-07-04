@@ -18,17 +18,35 @@
         'PAINTBALL BALI' => 'paintball',
         'WATERSPORT TANJUNG BENOA BALI' => 'watersport',
         'VW SAFARI BALI' => 'vw',
-        'JEEP TOUR BALI' => 'jeep',
+        'JEEP TOUR KINTAMANI' => 'jeep',
         'OFFROAD BALI' => 'offroad',
         'RIVER TUBING BALI' => 'river',
         'BUGGY RIDE BALI' => 'buggy',
         'PARAGLIDING' => 'paragliding',
         'MOTOCROSS BALI' => 'motocross',
-        'cycling BALI' => 'cycling',
+        'CYCLING BALI' => 'cycling',
         'AMAZING RACE' => 'race',
         'TREASUR HUNT BALI' => 'treasur',
         'STAND UP PADDLE' => 'standup'
     ];
+
+            $gambar = [
+                'RAFTING BALI' => 'rafting.jpg',
+                'ATV BALI' => 'atv.jpg',
+                'PAINTBALL BALI' => 'paintball.JPG',
+                'WATERSPORT TANJUNG BENOA BALI' => 'watersport.JPG',
+                'VW SAFARI BALI' => 'vw.jpg',
+                'JEEP TOUR KINTAMANI' => 'jeep-kintamani.jpg',
+                'OFFROAD BALI' => 'offroad.jpg',
+                'RIVER TUBING BALI' => 'river.jpg',
+                'BUGGY RIDE BALI' => 'buggy.jpg',
+                'PARAGLIDING' => 'paragliding.jpg',
+                'MOTOCROSS BALI' => 'motocross.jpg',
+                'CYCLING BALI' => 'cycling.jpg',
+                'AMAZING RACE' => 'race.jpg',
+                'TREASUR HUNT BALI' => 'treasur.jpg',
+                'STAND UP PADDLE' => 'standup.jpg'
+            ];
 
     $layanan_aktif = ['rafting', 'atv', 'paintball', 'watersport', 'vw'];
     $layanan_wa = ['jeep', 'offroad', 'river', 'buggy', 'paragliding', 'motocross', 'cycling', 'race', 'treasur', 'standup'];
@@ -41,6 +59,7 @@
             $isAktif = in_array($slug, $layanan_aktif);
             $isWa = in_array($slug, $layanan_wa);
             $pesan = "Halo, saya tertarik dengan layanan $nama";
+            $fileGambar = $gambar[$nama] ?? 'default.jpg';
         @endphp
 
         <div class="col-md-4 mb-4">
@@ -52,7 +71,10 @@
 
             <div class="card shadow-sm border-0 h-100 {{ !$isAktif && !$isWa ? 'opacity-75' : '' }}">
                 <div class="position-relative">
-                    <img src="https://picsum.photos/seed/{{ urlencode($nama) }}/600/400" class="card-img-top" alt="{{ $nama }}">
+                            <img src="{{ asset('assets/images/' . $fileGambar) }}"
+                                 onerror="this.onerror=null; this.src='{{ asset('assets/images/default.jpg') }}';"
+                                 class="card-img-top"
+                                 alt="{{ $nama }}">
                     <div class="position-absolute top-0 start-0 bg-danger text-white px-2 py-1 fw-bold small">
                         ADVENTURE
                     </div>

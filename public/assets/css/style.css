@@ -49,27 +49,20 @@
     text-decoration: none;
 }
 
-/* 
-  body {
-    background-image: url('https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=1600');
-    background-size: cover;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-position: center;
-  }
+/* Grid layanan lainnya */
+.text-primary:hover {
+    text-decoration: underline;
+    color: #0a58ca !important;
+}
 
-  .content-overlay {
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 50px 20px;
-    border-radius: 15px;
-    backdrop-filter: blur(3px);
-  }
+.service-box {
+  transition: all 0.2s ease-in-out;
+}
 
-  .hover-shadow:hover {
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-    transform: translateY(-5px);
-    transition: all 0.3s ease-in-out;
-  } */
+.service-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
 
 .footer {
     background-color: #333;

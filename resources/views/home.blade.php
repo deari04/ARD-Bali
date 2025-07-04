@@ -138,6 +138,57 @@
       </a>
     </div>
   </div>
+
+{{-- Daftar Layanan ARD Bali (Grid Box Style) --}}
+<div class="container my-5">
+  <h4 class="text-center fw-bold mb-4">Layanan Lainnya dari ARD Bali</h4>
+  <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3">
+  @php
+    $services = [
+      ['name' => 'Adventure', 'url' => '/layanan/adventure'],
+      ['name' => 'Gala Dinner', 'url' => '/layanan/GalaDinner'],
+      ['name' => 'Event Production', 'url' => '/layanan/eventproduction'],
+      ['name' => 'MICE', 'url' => '/layanan/mice'],
+      ['name' => 'Music Event', 'url' => '/layanan/music'],
+      ['name' => 'Multimedia', 'url' => '/layanan/multimedia'],
+      ['name' => 'Artis Management', 'url' => '/layanan/artismanagement'],
+      ['name' => 'Show Management', 'url' => '/layanan/showmanagement'],
+      ['name' => 'Transportasi', 'url' => '/layanan/transportasi'],
+      ['name' => 'Tour Guide', 'url' => '/layanan/tourguide'],
+      ['name' => 'Launching Produk', 'url' => '/layanan/launchingproduk'],
+    ];
+  @endphp
+
+    @foreach ($services as $service)
+    <div class="col">
+      <a href="{{ url($service['url']) }}" class="text-decoration-none">
+        <div class="service-box shadow-sm rounded-4 text-center py-4 px-2 h-100 bg-white border border-light hover-shadow">
+          <span class="fw-semibold text-primary">{{ $service['name'] }}</span>
+        </div>
+      </a>
+    </div>
+    @endforeach
+  </div>
+</div>
+
+</div>
+
+
+{{-- Container Video YouTube --}}
+<div class="container content-overlay mb-5">
+  <h2 class="text-center fw-bold mb-4">Our Youtube? (belum fix)</h2>
+  <div class="row justify-content-center g-4">
+    <div class="col-md-6">
+      <div class="ratio ratio-16x9 rounded-4 shadow-sm">
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" title="YouTube video 1" allowfullscreen></iframe>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="ratio ratio-16x9 rounded-4 shadow-sm">
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" title="YouTube video 2" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
 </div>
 
 
@@ -145,7 +196,45 @@
 <div class="container content-overlay mb-5">
   <div class="row align-items-center">
     <h1 class="fw-bold align-items-center text-center">Our Client</h1>
+    gambar klien yang diajak kerja sama
     <img src="{{ asset('assets/images/Client.png') }}" alt="">
+  </div>
+</div>
+
+
+{{-- Container Lokasi --}}
+
+<div class="container content-overlay mb-5">
+  <h2 class="fw-bold text-center mb-4">Lokasi ARD Bali (belum fix)</h2>
+  
+  <div class="row align-items-center">
+    
+    {{-- Kolom Map --}}
+    <div class="col-md-6 mb-4 mb-md-0">
+      <div class="ratio ratio-16x9 rounded-4 shadow-sm">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!..." 
+          width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+        </iframe>
+      </div>
+    </div>
+
+    {{-- Kolom Tulisan --}}
+    <div class="col-md-6">
+      <h5 class="fw-semibold">Kunjungi Kami (belum fix)</h5>
+      <p class="text-muted">
+        (Tulisan ini bisa diisi dengan kata-kata sambutan, penjelasan lokasi, atau info tambahan).
+      </p>
+
+      <ul class="list-unstyled">
+        ini contoh saja
+        <li><strong>Alamat:</strong> Jl. Contoh Lokasi No.88, Denpasar, Bali</li>
+        <li><strong>Telepon:</strong> +62 812-3456-7890</li>
+        <li><strong>Email:</strong> info@ardbali.co.id</li>
+        <li><strong>Jam Kerja:</strong> Senin - Sabtu (08.00 - 17.00)</li>
+      </ul>
+    </div>
+
   </div>
 </div>
 

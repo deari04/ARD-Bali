@@ -56,6 +56,12 @@
     </button>
   </div>
 
+  {{-- Tagline Section --}}
+<div class="container text-center my-4 tagline-section">
+  <h5 class="fw-bold text-dark">OUTBOUND BALI | TOUR BALI | EVENT ORGANIZER BALI</h5>
+  <p class="text-muted mb-0">OUTBOUND BALI | TOUR & TRAVEL | GATHERING | MICE | SHOW MANAGEMENT | PRIVATE TOUR | ARTIST MANAGEMENT | ENTERTAINMENT | EVENT EQUIPMENT | MULTIMEDIA</p>
+</div>
+
 </div> {{-- End wrapper carousel --}}
 
 {{-- Container About --}}

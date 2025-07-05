@@ -24,6 +24,15 @@
     color: #ff7f00 !important; /* oranye */
 }
 
+.tagline-section h5 {
+  font-size: 1.2rem;
+}
+
+.tagline-section p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
 .whatsapp-float {
     position: fixed;
     bottom: 40px;

@@ -201,9 +201,8 @@
 {{-- Container Our Client --}}
 <div class="container content-overlay mb-5">
   <div class="row align-items-center">
-    <h1 class="fw-bold align-items-center text-center">Klien Kami</h1>
-    <h4 class="fw-bold align-items-center text-center">gambar client</h4>
-    <img src="{{ asset('assets/images/Client.png') }}" alt="">
+    <h2 class="fw-bold align-items-center text-center mb-4">Klien Kami</h2>
+    <img src="{{ asset('assets/images/Client.jpg') }}" alt="Our Client">
   </div>
 </div>
 
@@ -211,7 +210,7 @@
 {{-- Container Lokasi --}}
 
 <div class="container content-overlay mb-5">
-  <h1 class="fw-bold text-center mb-4">Lokasi ARD Bali</h1>
+  <h2 class="fw-bold text-center mb-4">Lokasi ARD Bali</h2>
   <div class="row align-items-center">
     {{-- Kolom Map --}}
     <div class="col-md-6 mb-4 mb-md-0">

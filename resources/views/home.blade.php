@@ -182,7 +182,7 @@
 
 {{-- Container Video YouTube --}}
 <div class="container content-overlay mb-5">
-  <h2 class="text-center fw-bold mb-4">Our Youtube? (belum fix)</h2>
+  <h2 class="text-center fw-bold mb-4">Youtube</h2>
   <div class="row justify-content-center g-4">
     <div class="col-md-6">
       <div class="ratio ratio-16x9 rounded-4 shadow-sm">
@@ -201,8 +201,8 @@
 {{-- Container Our Client --}}
 <div class="container content-overlay mb-5">
   <div class="row align-items-center">
-    <h1 class="fw-bold align-items-center text-center">Our Client</h1>
-    gambar klien yang diajak kerja sama
+    <h1 class="fw-bold align-items-center text-center">Klien Kami</h1>
+    <h4 class="fw-bold align-items-center text-center">gambar client</h4>
     <img src="{{ asset('assets/images/Client.png') }}" alt="">
   </div>
 </div>
@@ -211,15 +211,13 @@
 {{-- Container Lokasi --}}
 
 <div class="container content-overlay mb-5">
-  <h2 class="fw-bold text-center mb-4">Lokasi ARD Bali (belum fix)</h2>
-  
+  <h1 class="fw-bold text-center mb-4">Lokasi ARD Bali</h1>
   <div class="row align-items-center">
-    
     {{-- Kolom Map --}}
     <div class="col-md-6 mb-4 mb-md-0">
       <div class="ratio ratio-16x9 rounded-4 shadow-sm">
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!..." 
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.0777215352646!2d115.20674247456853!3d-8.684159188435641!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa417a19b66a03f5f%3A0x8b2d6f754ae8dc8!2sARD%20BALI%20(TOUR%20BALI%2CGATHERING%2COUTBOUND%2CMICE%2CWISATA%20BALI)!5e0!3m2!1sid!2sid!4v1749626881485!5m2!1sid!2sid"
           width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
         </iframe>
       </div>
@@ -227,17 +225,15 @@
 
     {{-- Kolom Tulisan --}}
     <div class="col-md-6">
-      <h5 class="fw-semibold">Kunjungi Kami (belum fix)</h5>
-      <p class="text-muted">
+      <h5 class="fw-semibold mb-4">Kunjungi Kami</h5>
+      {{-- <p class="text-muted">
         (Tulisan ini bisa diisi dengan kata-kata sambutan, penjelasan lokasi, atau info tambahan).
-      </p>
+      </p> --}}
 
       <ul class="list-unstyled">
-        ini contoh saja
-        <li><strong>Alamat:</strong> Jl. Contoh Lokasi No.88, Denpasar, Bali</li>
-        <li><strong>Telepon:</strong> +62 812-3456-7890</li>
-        <li><strong>Email:</strong> info@ardbali.co.id</li>
-        <li><strong>Jam Kerja:</strong> Senin - Sabtu (08.00 - 17.00)</li>
+        <li><strong>Alamat:</strong> Jl. Pulau Saelus Gg. IV No.8 Br. Pande Kelurahan. Pedungan Kecamatan Denpasar Selatan. Denpasar - Bali</li>
+        <li><strong>Telepon:</strong> +62 82120233079</li>
+        <li><strong>Email:</strong> infoarindra@gmail.com</li>
       </ul>
     </div>
 

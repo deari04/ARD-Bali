@@ -2,13 +2,13 @@
 
 @section('content')
 <style>
-  body {
+  /* body {
     background-image: url('https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=1600');
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-position: center;
-  }
+  } */
 
   .content-overlay {
     background-color: rgba(255, 255, 255, 0.9);
@@ -37,10 +37,11 @@
 
     <div class="carousel-inner rounded-4 overflow-hidden" style="height: 400px;">
       <div class="carousel-item active">
-        <img src="https://images.pexels.com/photos/235829/pexels-photo-235829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="d-block w-100 h-100 object-fit-cover" alt="slide">
+        <img src="{{ asset('assets/images/Outbond.jpg') }}" class="d-block w-100 h-100 object-fit-contain" alt="slide">
       </div>
       <div class="carousel-item">
-        <img src="https://images.pexels.com/photos/388415/pexels-photo-388415.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="d-block w-100 h-100 object-fit-cover" alt="slide">
+        {{-- <img src="https://images.pexels.com/photos/388415/pexels-photo-388415.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="d-block w-100 h-100 object-fit-cover" alt="slide"> --}}
+        <img src="{{ asset('assets/images/slide-2.jpg') }}" class="d-block w-100 h-100 object-fit-contain" alt="slide">
       </div>
       <div class="carousel-item">
         <img src="https://images.pexels.com/photos/464321/pexels-photo-464321.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="d-block w-100 h-100 object-fit-cover" alt="slide">
@@ -147,7 +148,7 @@
 
 {{-- Daftar Layanan ARD Bali (Grid Box Style) --}}
 <div class="container my-5">
-  <h4 class="text-center fw-bold mb-4">Layanan Lainnya dari ARD Bali</h4>
+  {{-- <h4 class="text-center fw-bold mb-4">Layanan Lainnya dari ARD Bali</h4> --}}
   <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3">
   @php
     $services = [

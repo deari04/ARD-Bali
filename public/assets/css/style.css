@@ -58,6 +58,9 @@
   transform: scale(1.15); /* Membesar sedikit tanpa merusak bentuk */
 }
 
+.rounded-circle {
+  background-color: #ff7f00;
+}
 
 .wa-chat-box {
   display: none;
@@ -93,7 +96,14 @@
     padding: 15px 0;
 }
 
-
+  body {
+    /* background-image: url('https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=1600'); */
+    background-image: url('/assets/images/background.png');
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
 
 .text-body {
     color: orange !important;

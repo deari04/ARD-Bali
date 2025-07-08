@@ -71,23 +71,23 @@
 </style>
 
 <div class="container py-5">
-    <div class="text-center">
+    <div class="text-center mb-5 bg-white bg-opacity-75 p-3 rounded">
         <h1 class="gallery-title">Galeri Publik</h1>
-        <p class="gallery-description">Lihat dan unggah momen terbaikmu. Semua orang bisa berpartisipasi!</p>
+        <p class="text-muted gallery-description">Lihat dan unggah momen terbaikmu. Semua orang bisa berpartisipasi!</p>
     </div>
 
     <!-- Grid Galeri -->
     {{-- data dummy sementara --}}
     @php
         $galeri = [
-            ['nama' => 'pemandangan', 'komentar' => 'Pemandangan yang luar biasa!', 'user' => 'Dewi', 'email' => 'dewi@example.com'],
-            ['nama' => 'pantai', 'komentar' => 'Senja di pantai memang selalu indah.', 'user' => 'Budi', 'email' => 'budi@gmail.com'],
-            ['nama' => 'gunung', 'komentar' => 'Gunungnya bikin tenang banget!', 'user' => 'Sari', 'email' => 'sari@domain.com'],
-            ['nama' => 'taman', 'komentar' => 'Taman yang asri dan hijau.', 'user' => 'Eka', 'email' => 'eka@domain.com'],
+            ['nama' => 'atv-gallery', 'komentar' => 'Pengalaman atv yang luar biasa!', 'user' => 'Dewi'],
+            ['nama' => 'pantai-gallery', 'komentar' => 'Pantai memang selalu indah.', 'user' => 'Budi'],
+            ['nama' => 'bedugul-gallery', 'komentar' => 'Seru banget!', 'user' => 'Sari'],
+            ['nama' => 'banana-boat', 'komentar' => 'bikin deg deg ser', 'user' => 'Eka'],
         ];
     @endphp
 
-    <div class="d-flex justify-content-center">
+    {{-- <div class="d-flex justify-content-center">
         <div class="gallery-grid mb-5" style="max-width: 1100px; width: 100%;">
             @foreach ($galeri as $item)
                 <div class="gallery-card">
@@ -99,7 +99,28 @@
                 </div>
             @endforeach
         </div>
+    </div> --}}
+
+
+    <div class="d-flex justify-content-center">
+    <div class="gallery-grid mb-5" style="max-width: 1100px; width: 100%;">
+        @foreach ($galeri as $item)
+        <div class="gallery-card">
+            <img 
+            src="{{ asset('assets/images/' . $item['nama'] . '.jpg') }}" 
+            alt="{{ $item['nama'] }}" 
+            class="img-fluid rounded shadow-sm mb-2"
+            style="width: 100%; height: auto; object-fit: cover;"
+            >
+            <div class="gallery-comment">
+            <div><strong>{{ $item['user'] }}</strong></div>
+            <div>Komentar: {{ $item['komentar'] }}</div>
+            </div>
+        </div>
+        @endforeach
     </div>
+    </div>
+
 
 
     <!-- Form Upload -->

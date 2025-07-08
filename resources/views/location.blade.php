@@ -54,17 +54,17 @@
     }
 </style>
 
-<div class="container py-5">
+<div class="container mb-5 bg-white bg-opacity-75 p-3 rounded py-5">
     <div class="text-center mb-5">
         <h1 class="section-title">LOKASI KAMI & CONTACT US</h1>
-        <p class="section-subtitle">Temukan lokasi kami dan hubungi kami untuk informasi lebih lanjut</p>
+        <p class="section-subtitle text-muted">Temukan lokasi kami dan hubungi kami untuk informasi lebih lanjut</p>
     </div>
 
     <div class="row g-4 align-items-center">
         <!-- Peta di kiri -->
         <div class="col-md-6">
             <h4 class="mb-3 text-primary fw-semibold">AlAMAT:</h4>
-            <h6 class="mb-4 text-secondary">Jl. Pulau Saelus Gg. IV No.8 Br. Pande Kelurahan. Pedungan Kecamatan Denpasar SelatanDenpasar - Bali</h6>
+            <h6 class="mb-4 text-secondary text-muted">Jl. Pulau Saelus Gg. IV No.8 Br. Pande Kelurahan. Pedungan Kecamatan Denpasar SelatanDenpasar - Bali</h6>
             <div class="card-map">
                 <div class="ratio ratio-16x9">
                     <iframe

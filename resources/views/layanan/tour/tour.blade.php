@@ -20,7 +20,8 @@
                 'PAKET TOUR CORPORATE DI BALI',
                 'PAKET TOUR GOVERMENT DI BALI',
                 'PAKET TOUR MAHASISWA DI BALI',
-                'PAKET TOUR KOMUNITAS DI BALI'
+                'PAKET TOUR KOMUNITAS DI BALI',
+                'PAKET TOUR BOAT BALI'
             ];
 
             // Mapping gambar sesuai layanan
@@ -30,7 +31,8 @@
                 'PAKET TOUR CORPORATE DI BALI' => 'corporate-tour.jpg',
                 'PAKET TOUR GOVERMENT DI BALI' => 'goverment.jpg',
                 'PAKET TOUR MAHASISWA DI BALI' => 'mahasiswa.JPG',
-                'PAKET TOUR KOMUNITAS DI BALI' => 'komunitas.JPG'
+                'PAKET TOUR KOMUNITAS DI BALI' => 'komunitas.JPG',
+                'PAKET TOUR BOAT BALI' => 'beat-boat.jpg'
             ];
         $noWa = '6287824565254'; // Ganti dengan nomor WhatsApp kamu
         @endphp

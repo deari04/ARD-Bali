@@ -138,18 +138,17 @@
   </div>
 
   {{-- Tombol Selengkapnya --}}
-  <div class="row mt-5">
+  {{-- <div class="row mt-5">
     <div class="col-12">
       <a href="{{ url('/service') }}" class="d-block text-center w-100 py-3 rounded-pill bg-light text-primary fw-bold text-decoration-none shadow-sm">
         Selengkapnya
       </a>
     </div>
-  </div>
+  </div> --}}
 
 {{-- Daftar Layanan ARD Bali (Grid Box Style) --}}
-<div class="container my-5">
+<div class="container my-5 text-center">
   {{-- <h4 class="text-center fw-bold mb-4">Layanan Lainnya dari ARD Bali</h4> --}}
-  <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3">
   @php
     $services = [
       ['name' => 'Adventure', 'url' => '/layanan/adventure'],
@@ -166,17 +165,18 @@
     ];
   @endphp
 
-    @foreach ($services as $service)
-    <div class="col">
-      <a href="{{ url($service['url']) }}" class="text-decoration-none">
-        <div class="service-box shadow-sm rounded-4 text-center py-4 px-2 h-100 bg-white border border-light hover-shadow">
-          <span class="fw-semibold text-primary">{{ $service['name'] }}</span>
-        </div>
+  <div class="d-flex flex-wrap justify-content-center align-items-center gap-2">
+    @foreach ($services as $index => $service)
+      <a href="{{ url($service['url']) }}" class="text-decoration-none text-primary fw-semibold px-2">
+        {{ $service['name'] }}
       </a>
-    </div>
+      @if ($index !== count($services) - 1)
+        <span class="text-muted">|</span>
+      @endif
     @endforeach
   </div>
 </div>
+
 
 </div>
 

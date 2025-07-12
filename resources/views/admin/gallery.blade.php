@@ -1,4 +1,4 @@
-@extends('layouts.app')
+{{-- @extends('layouts.admin')
 
 @section('content')
 <!-- Chart.js CDN -->
@@ -186,4 +186,22 @@
         
     });
 </script>
+@endsection --}}
+
+@extends('layouts.admin')
+
+@section('content')
+<div class="content-wrapper">
+  <div class="content-header">
+    <div class="container-fluid">
+      <h1 class="m-0">Gallery</h1>
+    </div>
+  </div>
+
+  <section class="content">
+    <div class="container-fluid">
+      <p>Konten gallery akan muncul di sini.</p>
+    </div>
+  </section>
+</div>
 @endsection

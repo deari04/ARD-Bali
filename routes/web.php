@@ -107,7 +107,7 @@ Route::get('/resto', [restoController::class, 'index']);
 Route::get('/outbond', [hotelController::class, 'index']);
 
 Route::middleware(['auth:admin'])->group(function () {
-    Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
 });
 Route::get('/admin/login', [AdminAuthController::class, 'showLoginForm'])->name('admin.login');
 Route::post('/admin/login', [AdminAuthController::class, 'login']);
@@ -121,3 +121,13 @@ Route::prefix('admin')->group(function () {
 });
 
 Route::get('/admin/gallery', [GalleryAController::class, 'index'])->name('gallery.index');
+
+// Route::prefix('admin')->middleware(['auth:admin'])->group(function () {
+//     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+//     Route::get('/services', [AdminController::class, 'services'])->name('admin.services');
+//     Route::get('/gallery', [AdminController::class, 'gallery'])->name('gallery.index');
+//     Route::get('/clients', [AdminController::class, 'clients'])->name('admin.clients');
+//     Route::get('/comments', [AdminController::class, 'comments'])->name('admin.comments');
+//     Route::get('/users', [AdminController::class, 'users'])->name('admin.users');
+//     Route::get('/settings', [AdminController::class, 'settings'])->name('admin.settings');
+// });

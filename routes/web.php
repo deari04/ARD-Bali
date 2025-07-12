@@ -24,6 +24,8 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\KontenController;
 use App\Http\Controllers\GalleryAController;
+use App\Http\Controllers\restoController;
+use App\Http\Controllers\hotelController;
 
 
 
@@ -54,7 +56,7 @@ Route::get('/layanan/{slug}', function ($slug) {
         'GalaDinner', 'eventproduction', 'mice',
         'music', 'multimedia', 'artismanagement',
         'showmanagement', 'transportasi', 'tourguide',
-        'launchingproduk'
+        'launchingproduk', 'resto', 'hotel'
     ];
 
     if (in_array($slug, $allowed)) {
@@ -101,6 +103,8 @@ Route::get('/atv', [atvController::class, 'index']);
 Route::get('/paintball', [paintballController::class, 'index']);
 Route::get('/watersport', [watersportController::class, 'index']);
 Route::get('/vw', [vwController::class, 'index']);
+Route::get('/resto', [restoController::class, 'index']);
+Route::get('/outbond', [hotelController::class, 'index']);
 
 Route::middleware(['auth:admin'])->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');

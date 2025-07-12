@@ -2,6 +2,16 @@
 
 @section('content')
 
+<style>
+    .img-fixed {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        border-top-left-radius: 0.375rem; /* mengikuti Bootstrap rounded img */
+        border-top-right-radius: 0.375rem;
+    }
+</style>
+
 <!-- Hero Section -->
 <div class="bg-dark text-white text-center py-5" style="background: url('/images/adventure-bg.jpg') center/cover no-repeat;">
     <div class="container">
@@ -72,9 +82,9 @@
             <div class="card shadow-sm border-0 h-100 {{ !$isAktif && !$isWa ? 'opacity-75' : '' }}">
                 <div class="position-relative">
                             <img src="{{ asset('assets/images/' . $fileGambar) }}"
-                                 onerror="this.onerror=null; this.src='{{ asset('assets/images/default.jpg') }}';"
-                                 class="card-img-top"
-                                 alt="{{ $nama }}">
+                     onerror="this.onerror=null; this.src='{{ asset('assets/images/default.jpg') }}';"
+                     class="card-img-top img-fixed"
+                     alt="{{ $nama }}">
                     <div class="position-absolute top-0 start-0 bg-danger text-white px-2 py-1 fw-bold small">
                         ADVENTURE
                     </div>

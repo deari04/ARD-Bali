@@ -2,6 +2,15 @@
 
 @section('content')
 
+<style>
+    .img-fixed {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        border-top-left-radius: 0.375rem; /* mengikuti Bootstrap rounded img */
+        border-top-right-radius: 0.375rem;
+    }
+</style>
 <!-- Hero Section -->
 <div class="bg-dark text-white text-center py-5" style="background: url('/images/adventure-bg.jpg') center/cover no-repeat;">
     <div class="container">

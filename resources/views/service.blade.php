@@ -25,8 +25,8 @@
                 'SEWA TRANSPORTASI BALI' => 'transportasi',
                 'TOUR GUIDE BALI' => 'tourguide',
                 'LAUNCHING PRODUK BALI' => 'launchingproduk',
-                'REKOMENDASI RESTO BALI' => 'restobali',
-                'REKOMENDASI HOTEL BALI' => 'hotelbali'
+                'REKOMENDASI RESTO BALI' => 'resto',
+                'REKOMENDASI HOTEL BALI' => 'hotel'
             ];
         @endphp
 

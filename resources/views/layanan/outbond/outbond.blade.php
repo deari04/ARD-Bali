@@ -2,6 +2,17 @@
 
 @section('content')
 
+<style>
+    .img-fixed {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        border-top-left-radius: 0.375rem; /* mengikuti Bootstrap rounded img */
+        border-top-right-radius: 0.375rem;
+    }
+</style>
+
+
 <!-- Hero Section -->
 <div class="bg-dark text-white text-center py-5" style="background: url('/images/adventure-bg.jpg') center/cover no-repeat;">
     <div class="container">
@@ -75,31 +86,32 @@
                 $fileGambar = $gambar[$nama] ?? 'default.jpg';
             @endphp
 
-            <div class="col-md-4 mb-4">
-                <a href="#"
-                   class="wa-link text-decoration-none text-dark"
-                   data-phone="{{ $noWa }}"
-                   data-text="{{ $pesan }}">
-                    <div class="card shadow-sm border-0 h-100">
-                        <div class="position-relative">
-                            <img src="{{ asset('assets/images/' . $fileGambar) }}"
-                                 onerror="this.onerror=null; this.src='{{ asset('assets/images/default.jpg') }}';"
-                                 class="card-img-top"
-                                 alt="{{ $nama }}">
+           <div class="col-md-4 mb-4">
+    <a href="#"
+       class="wa-link text-decoration-none text-dark"
+       data-phone="{{ $noWa }}"
+       data-text="{{ $pesan }}">
+        <div class="card shadow-sm border-0 h-100">
+            <div class="position-relative">
+                <img src="{{ asset('assets/images/' . $fileGambar) }}"
+                     onerror="this.onerror=null; this.src='{{ asset('assets/images/default.jpg') }}';"
+                     class="card-img-top img-fixed"
+                     alt="{{ $nama }}">
 
-                            <div class="position-absolute top-0 start-0 bg-danger text-white px-2 py-1 fw-bold small">
-                                OUTBOND
-                            </div>
-                            <div class="position-absolute top-0 end-0 bg-white text-danger px-2 py-1 fw-bold small">
-                                GROUP EVENT
-                            </div>
-                        </div>
-                        <div class="card-body text-center">
-                            <h5 class="card-title fw-bold text-danger">{{ $nama }}</h5>
-                        </div>
-                    </div>
-                </a>
+                <div class="position-absolute top-0 start-0 bg-danger text-white px-2 py-1 fw-bold small">
+                    OUTBOND
+                </div>
+                <div class="position-absolute top-0 end-0 bg-white text-danger px-2 py-1 fw-bold small">
+                    GROUP EVENT
+                </div>
             </div>
+            <div class="card-body text-center">
+                <h5 class="card-title fw-bold text-danger">{{ $nama }}</h5>
+            </div>
+        </div>
+    </a>
+</div>
+
         @endforeach
     </div>
 </div>

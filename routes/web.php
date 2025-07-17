@@ -22,10 +22,13 @@ use App\Http\Controllers\watersportController;
 use App\Http\Controllers\vwController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminAuthController;
-use App\Http\Controllers\KontenController;
 use App\Http\Controllers\GalleryAController;
 use App\Http\Controllers\restoController;
 use App\Http\Controllers\hotelController;
+
+use App\Http\Controllers\Admin\GalleryController;
+use App\Http\Controllers\Admin\LocationController;
+
 
 
 
@@ -106,28 +109,38 @@ Route::get('/vw', [vwController::class, 'index']);
 Route::get('/resto', [restoController::class, 'index']);
 Route::get('/outbond', [hotelController::class, 'index']);
 
-Route::middleware(['auth:admin'])->group(function () {
-Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
-});
-Route::get('/admin/login', [AdminAuthController::class, 'showLoginForm'])->name('admin.login');
-Route::post('/admin/login', [AdminAuthController::class, 'login']);
-Route::post('/admin/logout', [AdminAuthController::class, 'logout'])->name('admin.logout');
 
-Route::prefix('admin')->group(function () {
-    Route::get('/konten', [KontenController::class, 'index'])->name('konten.index');
-    Route::post('/konten/store', [KontenController::class, 'store'])->name('konten.store');
-    Route::post('/konten/update/{id}', [KontenController::class, 'update'])->name('konten.update');
-    Route::delete('/konten/delete/{id}', [KontenController::class, 'destroy'])->name('konten.destroy');
+
+// Route login dan logout tidak perlu auth middleware
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::get('/login', [AdminAuthController::class, 'showLoginForm'])->name('login');
+    Route::post('/login', [AdminAuthController::class, 'login']);
 });
 
-Route::get('/admin/gallery', [GalleryAController::class, 'index'])->name('gallery.index');
+// Route::get('/login', function () {
+//     return redirect()->route('admin.login');
+// })->name('login');
 
-// Route::prefix('admin')->middleware(['auth:admin'])->group(function () {
-//     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
-//     Route::get('/services', [AdminController::class, 'services'])->name('admin.services');
-//     Route::get('/gallery', [AdminController::class, 'gallery'])->name('gallery.index');
-//     Route::get('/clients', [AdminController::class, 'clients'])->name('admin.clients');
-//     Route::get('/comments', [AdminController::class, 'comments'])->name('admin.comments');
-//     Route::get('/users', [AdminController::class, 'users'])->name('admin.users');
-//     Route::get('/settings', [AdminController::class, 'settings'])->name('admin.settings');
-// });
+
+// Semua route yang perlu login admin
+Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(function () {
+    Route::post('/logout', [AdminAuthController::class, 'logout'])->name('logout');
+
+    // Dashboard
+    Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
+
+    // Gallery CRUD
+    Route::resource('gallery', GalleryController::class);
+    Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery');
+
+    // Konten layanan
+    // Route::get('/service', [ServiceController::class, 'index'])->name('service.index');
+    // Route::get('/konten', [KontenController::class, 'index'])->name('konten.index');
+    // Route::post('/konten/store', [KontenController::class, 'store'])->name('konten.store');
+    // Route::post('/konten/update/{id}', [KontenController::class, 'update'])->name('konten.update');
+    // Route::delete('/konten/delete/{id}', [KontenController::class, 'destroy'])->name('konten.destroy');
+
+    // Location page
+    Route::get('/location', [LocationController::class, 'index'])->name('location');
+    
+});

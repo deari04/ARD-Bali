@@ -10,4 +10,6 @@ class AdminController extends Controller
     {
         return view('admin.dashboard'); // Pastikan view ini ada di resources/views/admin/dashboard.blade.php
     }
+
+    
 }

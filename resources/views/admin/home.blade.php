@@ -1,6 +1,6 @@
 @extends('layouts.admin')
-@extends('admin.blade')
+@include('admin.sidebar')
 
-@section('name')
+@section('content')
     
 @endsection

@@ -1,4 +1,7 @@
 @extends('layouts.admin')
+<!-- Main Sidebar Container -->
+@include('admin.sidebar')
+
 
 @section('content')
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -20,54 +23,6 @@
     </ul>
   </nav>
   <!-- /.navbar -->
-
-    <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <!-- Brand Logo -->
-    <a href="" class="brand-link">
-        <h2 class="brand-text font-weight-light text-center">ARD Bali</h2>
-    </a>
-
-    <!-- Sidebar -->
-    <div class="sidebar">
-        <!-- Sidebar Menu -->
-        <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <li class="nav-item menu-open">
-            <a href="#" class="nav-link active">
-                <i class="nav-icon fas fa-tachometer-alt"></i>
-                <p>
-                Dashboard
-                <i class="right fas fa-angle-left"></i>
-                </p>
-            </a>
-            </li>
-            <li class="nav-header">EXAMPLES</li>
-            <li class="nav-item">
-            <a href="#" class="nav-link">
-                <i class="fas fa-circle nav-icon"></i>
-                <p>Level 1</p>
-            </a>
-            </li>
-            <li class="nav-header">LABELS</li>
-            <li class="nav-item">
-            <a href="#" class="nav-link">
-                <i class="nav-icon far fa-circle text-warning"></i>
-                <p>Warning</p>
-            </a>
-            </li>
-            <li class="nav-item">
-            <a href="#" class="nav-link">
-                <i class="nav-icon far fa-circle text-info"></i>
-                <p>Informational</p>
-            </a>
-            </li>
-        </ul>
-        </nav>
-        <!-- /.sidebar-menu -->
-    </div>
-    <!-- /.sidebar -->
-    </aside>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -91,7 +46,9 @@
 
     <!-- Main content -->
     <section class="content">
-      
+      <div class="p-2">
+        <p>Konten dashboard akan muncul di sini.</p>
+      </div>
     </section>
     <!-- /.content -->
   </div>

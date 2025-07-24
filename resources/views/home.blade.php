@@ -109,6 +109,39 @@
 </div>
 
 
+<div class="container content-overlay my-5" id="why-ard-bali">
+  <div class="row align-items-center">
+    <div class="col-12 text-center mb-4">
+      <h2 class="fw-bold">Why ARD Bali</h2>
+    </div>
+    <div class="col-12">
+        <ul class="list-unstyled p-4">
+          <li class="mb-3">
+            <h5 class="fw-semibold mb-1">Penyedia Jasa Event Terbaik</h5>
+            <p class="text-muted mb-0">Momentum kami ciptakan agar waktu yang telah kalian luangkan menjadi sangat berkesan. Totalitas pelayanan dan event yang menyenangkan adalah prioritas kami.</p>
+          </li>
+          <li class="mb-3">
+            <h5 class="fw-semibold mb-1">Creative Thinking</h5>
+            <p class="text-muted mb-0">Berpikir kreatif adalah kunci utama tim kami untuk menciptakan karya yang unik dan menarik.</p>
+          </li>
+          <li class="mb-3">
+            <h5 class="fw-semibold mb-1">Solid TeamWork</h5>
+            <p class="text-muted mb-0">Tim yang kompak dan berpengalaman siap membantu kelancaran acara dari awal sampai akhir dengan dedikasi tinggi.</p>
+          </li>
+          <li class="mb-3">
+            <h5 class="fw-semibold mb-1">Fun</h5>
+            <p class="text-muted mb-0">Kami menghadirkan rangkaian acara yang menyenangkan agar momen Anda penuh kesan positif.</p>
+          </li>
+          <li class="mb-3">
+            <h5 class="fw-semibold mb-1">Reliable</h5>
+            <p class="text-muted mb-0">Kami adalah partner terpercaya yang selalu hadir dengan solusi tepat dan komitmen penuh.</p>
+          </li>
+        </ul>
+    </div>
+  </div>
+</div>
+
+
 
 
 <div class="container content-overlay mb-5">
@@ -288,7 +321,7 @@
   <li>
     <strong>WhatsApp:</strong>
     <a href="https://wa.me/6281214251202" target="_blank" class="text-primary text-decoration-none">
-      ++62 812-1425-1202
+      +62 812-1425-1202
     </a>
   </li>
 

@@ -9,10 +9,13 @@ class Gallery extends Model
 {
     use HasFactory;
 
-    // Kolom yang boleh diisi secara massal
     protected $fillable = [
-        'nama',
-        'komentar',
-        'foto_galeri',
+        'title',
+        'image_path',
+        'description',
+        'uploaded_by',
+        'visitor_name',
+        'is_approved',
     ];
 }
+

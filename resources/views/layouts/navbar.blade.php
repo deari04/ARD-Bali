@@ -28,6 +28,7 @@
 {{-- ✅ Navbar Transparan yang berubah saat scroll --}}
 <nav id="mainNavbar" class="navbar navbar-expand-lg navbar-dark shadow fixed-top navbar-transparent">
   <div class="container-fluid position-relative">
+    {{-- Sosial Media Kiri --}}
     <div class="d-flex align-items-center">
       <a href="https://www.instagram.com/ardorganizer_bali?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="text-light me-3" target="_blank"><i class="bi bi-instagram fs-5"></i></a>
       <a href="https://www.tiktok.com/@ardorganizer_bali?is_from_webapp=1&sender_device=pc" class="text-light me-3" target="_blank"><i class="bi bi-tiktok fs-5"></i></a>
@@ -35,12 +36,14 @@
       <a href="https://x.com/" class="text-light me-3" target="_blank"><i class="bi bi-twitter fs-5"></i></a>
     </div>
 
+    {{-- Logo Tengah --}}
     <div class="position-absolute top-50 start-50 translate-middle">
       <a class="navbar-brand text-warning fw-bold fs-4" href="{{ route('home') }}">
         <img src="{{ asset('assets/images/LogoARD.png') }}" alt="ard-bali-logo" style="height: 40px;">
       </a>
     </div>
 
+    {{-- Menu Kanan --}}
     <div class="d-flex">
       <button class="navbar-toggler me-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,7 +62,10 @@
   </div>
 </nav>
 
-
+{{-- ✅ Konten halaman --}}
+{{-- <main>
+  @yield('content')
+</main> --}}
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

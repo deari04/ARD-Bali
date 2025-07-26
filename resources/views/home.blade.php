@@ -244,18 +244,22 @@
 <div class="container content-overlay mb-5">
   <h2 class="text-center fw-bold mb-4">Youtube</h2>
   <div class="row justify-content-center g-4">
-    <div class="col-md-6">
-      <div class="ratio ratio-16x9 rounded-4 shadow-sm">
-        <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" title="YouTube video 1" allowfullscreen></iframe>
+    @foreach ($youtubeLinks as $link)
+      @if ($link->youtube_id)
+      <div class="col-md-6">
+        <div class="ratio ratio-16x9 rounded-4 shadow-sm">
+          <iframe 
+            src="https://www.youtube.com/embed/{{ $link->youtube_id }}" 
+            title="{{ $link->title }}" 
+            allowfullscreen>
+          </iframe>
+        </div>
       </div>
-    </div>
-    <div class="col-md-6">
-      <div class="ratio ratio-16x9 rounded-4 shadow-sm">
-        <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" title="YouTube video 2" allowfullscreen></iframe>
-      </div>
-    </div>
+      @endif
+    @endforeach
   </div>
 </div>
+
 
 <div class="d-flex justify-content-center mt-n4">
   <!-- Lingkaran luar putih -->

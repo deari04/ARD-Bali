@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OutbondController;
 use App\Http\Controllers\gatheringController;
@@ -28,6 +29,8 @@ use App\Http\Controllers\hotelController;
 
 use App\Http\Controllers\Admin\DashboardGalleryController;
 use App\Http\Controllers\Admin\LocationController;
+use App\Http\Controllers\Admin\AdminYoutubeController;
+
 
 
 
@@ -36,10 +39,7 @@ use App\Http\Controllers\Admin\LocationController;
 //     return view('welcome');
 // });
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
-
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/service', function () {
     return view('service');
@@ -116,9 +116,6 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::post('/login', [AdminAuthController::class, 'login']);
 });
 
-// Route::get('/login', function () {
-//     return redirect()->route('admin.login');
-// })->name('login');
 
 
 Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(function () {
@@ -130,15 +127,13 @@ Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(functi
     Route::put('/gallery/{id}', [DashboardGalleryController::class, 'update'])->name('gallery.update');
     Route::delete('/gallery/{id}', [DashboardGalleryController::class, 'destroy'])->name('gallery.destroy');
 
-
-
-
-    // Konten layanan
-    // Route::get('/service', [ServiceController::class, 'index'])->name('service.index');
-    // Route::get('/konten', [KontenController::class, 'index'])->name('konten.index');
-    // Route::post('/konten/store', [KontenController::class, 'store'])->name('konten.store');
-    // Route::post('/konten/update/{id}', [KontenController::class, 'update'])->name('konten.update');
-    // Route::delete('/konten/delete/{id}', [KontenController::class, 'destroy'])->name('konten.destroy');
+    // YouTube Link
+    Route::get('/youtube', [\App\Http\Controllers\Admin\AdminYoutubeController::class, 'index'])->name('youtube.index');
+    Route::get('/youtube/create', [\App\Http\Controllers\Admin\AdminYoutubeController::class, 'create'])->name('youtube.create');
+    Route::post('/youtube', [\App\Http\Controllers\Admin\AdminYoutubeController::class, 'store'])->name('youtube.store');
+    Route::get('/youtube/{id}/edit', [\App\Http\Controllers\Admin\AdminYoutubeController::class, 'edit'])->name('youtube.edit');
+    Route::put('/youtube/{id}', [\App\Http\Controllers\Admin\AdminYoutubeController::class, 'update'])->name('youtube.update');
+    Route::delete('/youtube/{id}', [\App\Http\Controllers\Admin\AdminYoutubeController::class, 'destroy'])->name('youtube.destroy');
 
     // Location page
     Route::get('/location', [LocationController::class, 'index'])->name('location');

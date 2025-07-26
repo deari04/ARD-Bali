@@ -30,6 +30,7 @@ use App\Http\Controllers\hotelController;
 use App\Http\Controllers\Admin\DashboardGalleryController;
 use App\Http\Controllers\Admin\LocationController;
 use App\Http\Controllers\Admin\AdminYoutubeController;
+use App\Http\Controllers\Admin\AdminInstagramStoryController;
 
 
 
@@ -134,6 +135,14 @@ Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(functi
     Route::get('/youtube/{id}/edit', [\App\Http\Controllers\Admin\AdminYoutubeController::class, 'edit'])->name('youtube.edit');
     Route::put('/youtube/{id}', [\App\Http\Controllers\Admin\AdminYoutubeController::class, 'update'])->name('youtube.update');
     Route::delete('/youtube/{id}', [\App\Http\Controllers\Admin\AdminYoutubeController::class, 'destroy'])->name('youtube.destroy');
+
+    // Instagram Story
+    Route::get('/instagram', [\App\Http\Controllers\Admin\AdminInstagramStoryController::class, 'index'])->name('instagram.index');
+    Route::get('/instagram/create', [\App\Http\Controllers\Admin\AdminInstagramStoryController::class, 'create'])->name('instagram.create');
+    Route::post('/instagram', [\App\Http\Controllers\Admin\AdminInstagramStoryController::class, 'store'])->name('instagram.store');
+    Route::get('/instagram/{id}/edit', [\App\Http\Controllers\Admin\AdminInstagramStoryController::class, 'edit'])->name('instagram.edit');
+    Route::put('/instagram/{id}', [\App\Http\Controllers\Admin\AdminInstagramStoryController::class, 'update'])->name('instagram.update');
+    Route::delete('/instagram/{id}', [\App\Http\Controllers\Admin\AdminInstagramStoryController::class, 'destroy'])->name('instagram.destroy');
 
     // Location page
     Route::get('/location', [LocationController::class, 'index'])->name('location');

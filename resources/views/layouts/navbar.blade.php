@@ -51,7 +51,7 @@
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link {{ request()->routeIs('home') ? 'active text-warning' : '' }}" href="{{ route('home') }}">Home</a></li>
           <li class="nav-item"><a class="nav-link {{ request()->routeIs('service') ? 'active text-warning' : '' }}" href="{{ route('service') }}">Service</a></li>
-          <li class="nav-item"><a class="nav-link {{ request()->routeIs('gallery') ? 'active text-warning' : '' }}" href="{{ route('gallery') }}">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link {{ request()->routeIs('gallery') ? 'active text-warning' : '' }}" href="{{ route('galeri.index') }}">Gallery</a></li>
           <li class="nav-item"><a class="nav-link {{ request()->routeIs('location') ? 'active text-warning' : '' }}" href="{{ route('location') }}">Location</a></li>
         </ul>
       </div>

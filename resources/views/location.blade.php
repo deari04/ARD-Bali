@@ -2,10 +2,6 @@
 
 @section('content')
 <style>
-    body {
-        scroll-padding-top: 80px; /* Untuk anchor scroll */
-    }
-
     .section-title {
         font-size: 2.5rem;
         font-weight: 700;
@@ -60,8 +56,8 @@
     }
 </style>
 
-<!-- Container dengan margin-top agar tidak tertutup navbar -->
-<div class="container container-lg bg-white bg-opacity-75 p-3 rounded py-5 mb-5" style="max-width: 1140px; margin-top: 90px;">
+{{-- <div class="container mb-5 bg-white bg-opacity-75 p-3 rounded py-5"> --}}
+<div class="container mb-5 bg-white bg-opacity-75 p-3 rounded py-5">
     <div class="text-center mb-5">
         <h1 class="section-title">LOKASI KAMI & CONTACT US</h1>
         <p class="section-subtitle text-muted">Temukan lokasi kami dan hubungi kami untuk informasi lebih lanjut</p>

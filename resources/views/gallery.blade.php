@@ -2,6 +2,10 @@
 
 @section('content')
 <style>
+    .main-container {
+        margin-top: 90px; /* agar tidak tertutup navbar fixed-top */
+    }
+
     .gallery-title {
         font-size: 2.5rem;
         font-weight: 700;
@@ -93,7 +97,7 @@
 </style>
 
 <!-- Judul -->
-<div class="container py-5">
+<div class="container py-5 main-container">
     <div class="text-center mb-5 bg-white bg-opacity-75 p-3 rounded">
         <h1 class="gallery-title">Galeri Publik</h1>
         <p class="text-muted gallery-description">Lihat dan unggah momen terbaikmu. Semua orang bisa berpartisipasi!</p>

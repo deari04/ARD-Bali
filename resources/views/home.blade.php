@@ -261,22 +261,21 @@
 </div>
 
 
-<div class="d-flex justify-content-center mt-n4">
-  <!-- Lingkaran luar putih -->
-  <div class="rounded-circle bg-white shadow d-flex justify-content-center align-items-center"
-       style="width: 180px; height: 180px; margin-top: 10px; margin-bottom: 30px;">
-       
-    <!-- Lingkaran dalam hitam -->
-    <a href="https://www.instagram.com/stories/highlights/18007382972709905/" 
-       target="_blank" class="text-decoration-none">
-      <div class="rounded-circle bg-dark d-flex justify-content-center align-items-center"
-           style="width: 170px; height: 170px;">
-        <span class="text-primary fw-bold" style="font-size: 1.8rem;">TESTIMONI</span>
-      </div>
-    </a>
-    
-  </div>
-</div>
+ {{-- SECTION TESTIMONI INSTAGRAM STORY --}}
+@if($instagramStory && $instagramStory->is_active)
+    <div class="d-flex justify-content-center mt-n4">
+        <a href="{{ $instagramStory->story_url }}" target="_blank" class="text-decoration-none">
+            <div class="rounded-circle bg-white shadow d-flex justify-content-center align-items-center"
+                 style="width: 180px; height: 180px; margin-top: 10px; margin-bottom: 30px; transition: 0.3s;">
+                 
+                <div class="rounded-circle bg-dark d-flex justify-content-center align-items-center"
+                     style="width: 170px; height: 170px;">
+                    <span class="text-primary fw-bold" style="font-size: 1.8rem;">TESTIMONI</span>
+                </div>
+            </div>
+        </a>
+    </div>
+@endif
 
 
 

@@ -60,6 +60,13 @@
     </a>
 </li>
 
+<!-- Instagram Story -->
+        <li class="nav-item">
+            <a href="{{ route('admin.instagram.index') }}" class="nav-link {{ request()->routeIs('admin.story.*') ? 'active' : '' }}">
+                <i class="nav-icon fab fa-instagram"></i>
+                <p>Instagram Story</p>
+            </a>
+        </li>
 
 
 

@@ -280,8 +280,6 @@
 
 
 
-
-
 {{-- Container Our Client --}}
 <div class="container content-overlay mb-5">
   <div class="row align-items-center">
@@ -293,59 +291,81 @@
 
 {{-- Container Lokasi --}}
 
-<div class="container content-overlay mb-5">
-  <h2 class="fw-bold text-center mb-4">Lokasi ARD Bali</h2>
-  <div class="row align-items-center">
-    {{-- Kolom Map --}}
-    <div class="col-md-6 mb-4 mb-md-0">
-      <div class="ratio ratio-16x9 rounded-4 shadow-sm">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.0777215352646!2d115.20674247456853!3d-8.684159188435641!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa417a19b66a03f5f%3A0x8b2d6f754ae8dc8!2sARD%20BALI%20(TOUR%20BALI%2CGATHERING%2COUTBOUND%2CMICE%2CWISATA%20BALI)!5e0!3m2!1sid!2sid!4v1749626881485!5m2!1sid!2sid"
-          width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
-        </iframe>
-      </div>
+@php
+  use App\Models\Location;
+  $lokasi = Location::latest()->first(); // atau where('id', 1)
+@endphp
+
+<section class="py-5">
+  <div class="container content-overlay">
+    <div class="shadow-sm rounded-4 overflow-hidden">
+      
+        {{-- Judul --}}
+        <h2 class="card-title text-center fw-bold mb-5">
+          {{ $lokasi->title ?? 'Lokasi ARD Bali' }}
+        </h2>
+
+        <div class="row g-4">
+          {{-- Google Maps --}}
+          <div class="col-md-6">
+            <div class="ratio ratio-16x9 rounded-4 border">
+              <iframe
+                src="{{ $lokasi->maps_embed_url }}"
+                allowfullscreen
+                loading="lazy"
+                class="w-100 h-100 border-0">
+              </iframe>
+            </div>
+          </div>
+
+          {{-- Kontak --}}
+          <div class="col-md-6 d-flex flex-column justify-content-center">
+            <h5 class="fw-semibold mb-4">Kunjungi Kami</h5>
+            <ul class="list-unstyled">
+              @if($lokasi->address)
+                <li class="mb-3">
+                  <i class="bi bi-geo-alt-fill text-primary me-2"></i>
+                  <strong>Alamat:</strong> {{ $lokasi->address }}
+                </li>
+              @endif
+
+              @if($lokasi->whatsapp)
+                <li class="mb-3">
+                  <i class="bi bi-whatsapp text-success me-2"></i>
+                  <strong>WhatsApp:</strong>
+                  <a href="https://wa.me/{{ $lokasi->whatsapp }}" target="_blank">
+                    {{ $lokasi->whatsapp }}
+                  </a>
+                </li>
+              @endif
+
+              @if($lokasi->phone)
+                <li class="mb-3">
+                  <i class="bi bi-telephone-fill text-info me-2"></i>
+                  <strong>Telepon:</strong>
+                  <a href="tel:{{ $lokasi->phone }}">
+                    {{ $lokasi->phone }}
+                  </a>
+                </li>
+              @endif
+
+              @if($lokasi->email)
+                <li class="mb-0">
+                  <i class="bi bi-envelope-fill text-danger me-2"></i>
+                  <strong>Email:</strong>
+                  <a href="mailto:{{ $lokasi->email }}">
+                    {{ $lokasi->email }}
+                  </a>
+                </li>
+              @endif
+            </ul>
+          </div>
+        </div>
+      
     </div>
-
-    {{-- Kolom Tulisan --}}
-    <div class="col-md-6">
-      <h5 class="fw-semibold mb-4">Kunjungi Kami</h5>
-      {{-- <p class="text-muted">
-        (Tulisan ini bisa diisi dengan kata-kata sambutan, penjelasan lokasi, atau info tambahan).
-      </p> --}}
-
-      <ul class="list-unstyled">
-  <li>
-    <strong>Alamat:</strong>
-    <a href="https://www.google.com/maps/search/?api=1&query=Jl.+Pulau+Saelus+Gg.+IV+No.8,+Pedungan,+Denpasar+Bali"
-       target="_blank" class="text-primary text-decoration-none">
-      Jl. Pulau Saelus Gg. IV No.8 Br. Pande Kelurahan. Pedungan Kecamatan Denpasar Selatan. Denpasar - Bali
-    </a>
-  </li>
-
-  <li>
-    <strong>WhatsApp:</strong>
-    <a href="https://wa.me/6281214251202" target="_blank" class="text-primary text-decoration-none">
-      +62 812-1425-1202
-    </a>
-  </li>
-
-  <li>
-    <strong>Telepon:</strong>
-    <a href="https://wa.me/6289635043530" target="_blank" class="text-primary text-decoration-none">
-      +62 896-3504-3530
-    </a>
-  </li>
-
-  <li>
-    <strong>Email:</strong>
-    <a href="mailto:infoarindra@gmail.com" class="text-primary text-decoration-none">
-      infoarindra@gmail.com
-    </a>
-  </li>
-</ul>
-
-
   </div>
-</div>
+</section>
+
+
 
 @endsection

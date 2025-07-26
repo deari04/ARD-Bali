@@ -137,5 +137,13 @@ Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(functi
 
     // Location page
     Route::get('/location', [LocationController::class, 'index'])->name('location');
-    
+    Route::get('/location/create', [LocationController::class, 'create'])->name('location.create');
+    Route::post('/location', [LocationController::class, 'store'])->name('location.store');
+    Route::get('/location/{id}/edit', [LocationController::class, 'edit'])->name('location.edit');
+    Route::put('/location/{id}', [LocationController::class, 'update'])->name('location.update');
+    Route::delete('/location/{id}', [LocationController::class, 'destroy'])->name('location.destroy');
 });
+
+
+    
+

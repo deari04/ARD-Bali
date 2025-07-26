@@ -22,11 +22,11 @@ use App\Http\Controllers\watersportController;
 use App\Http\Controllers\vwController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminAuthController;
-use App\Http\Controllers\GalleryAController;
+use App\Http\Controllers\galleryController;
 use App\Http\Controllers\restoController;
 use App\Http\Controllers\hotelController;
 
-use App\Http\Controllers\Admin\GalleryController;
+use App\Http\Controllers\Admin\DashboardGalleryController;
 use App\Http\Controllers\Admin\LocationController;
 
 
@@ -45,9 +45,8 @@ Route::get('/service', function () {
     return view('service');
 })->name('service');
 
-Route::get('/gallery', function () {
-    return view('gallery');
-})->name('gallery');
+Route::get('/galeri', [galleryController::class, 'index'])->name('galeri.index');
+Route::post('/galeri', [galleryController::class, 'store'])->name('galeri.store');
 
 Route::get('/location', function () {
     return view('location');
@@ -122,16 +121,17 @@ Route::prefix('admin')->name('admin.')->group(function () {
 // })->name('login');
 
 
-// Semua route yang perlu login admin
 Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(function () {
-    Route::post('/logout', [AdminAuthController::class, 'logout'])->name('logout');
-
-    // Dashboard
     Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
 
-    // Gallery CRUD
-    Route::resource('gallery', GalleryController::class);
-    Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery');
+    // Gallery
+    Route::get('/gallery', [DashboardGalleryController::class, 'index'])->name('gallery.index');
+    Route::post('/gallery', [DashboardGalleryController::class, 'store'])->name('gallery.store');
+    Route::put('/gallery/{id}', [DashboardGalleryController::class, 'update'])->name('gallery.update');
+    Route::delete('/gallery/{id}', [DashboardGalleryController::class, 'destroy'])->name('gallery.destroy');
+
+
+
 
     // Konten layanan
     // Route::get('/service', [ServiceController::class, 'index'])->name('service.index');

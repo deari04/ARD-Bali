@@ -12,7 +12,7 @@
 }
 
 .navbar .nav-link:hover {
-    color: #f39c12 !important; /* kuning/oranye */
+    color: #f39c12 !important; 
 }
 
 .navbar-brand {
@@ -21,7 +21,7 @@
 }
 
 .text-orange {
-    color: #ff7f00 !important; /* oranye */
+    color: #ff7f00 !important; 
 }
 
 .tagline-section h5 {
@@ -55,7 +55,7 @@
 }
 
 .whatsapp-float:hover {
-  transform: scale(1.15); /* Membesar sedikit tanpa merusak bentuk */
+  transform: scale(1.15); 
 }
 
 .rounded-circle {
@@ -73,7 +73,7 @@
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
-/* Grid layanan lainnya */
+
 .text-primary:hover {
     text-decoration: underline;
     color: #0a58ca !important;
@@ -95,7 +95,6 @@
 }
 
   body {
-    /* background-image: url('https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=1600'); */
     background-image: url('/assets/images/background.png');
     background-size: cover;
     background-attachment: fixed;

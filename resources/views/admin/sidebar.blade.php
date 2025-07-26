@@ -51,6 +51,16 @@
     </a>
 </li>
 
+<!-- Link YouTube -->
+<li class="nav-item">
+    <a href="{{ route('admin.youtube.index') }}" 
+       class="nav-link {{ request()->is('admin/youtube') ? 'active' : '' }}">
+        <i class="nav-icon fab fa-youtube"></i>
+        <p>Youtube</p>
+    </a>
+</li>
+
+
 
 
         <!-- LOCATION -->

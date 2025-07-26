@@ -290,13 +290,12 @@
   </div>
 </div>
 
-
-{{-- Container Lokasi --}}
-
+<!-- Container Lokasi -->
 <div class="container content-overlay mb-5">
   <h2 class="fw-bold text-center mb-4">Lokasi ARD Bali</h2>
   <div class="row align-items-center">
-    {{-- Kolom Map --}}
+    
+    <!-- Kolom Map -->
     <div class="col-md-6 mb-4 mb-md-0">
       <div class="ratio ratio-16x9 rounded-4 shadow-sm">
         <iframe
@@ -306,46 +305,39 @@
       </div>
     </div>
 
-    {{-- Kolom Tulisan --}}
+    <!-- Kolom Tulisan -->
     <div class="col-md-6">
       <h5 class="fw-semibold mb-4">Kunjungi Kami</h5>
-      {{-- <p class="text-muted">
-        (Tulisan ini bisa diisi dengan kata-kata sambutan, penjelasan lokasi, atau info tambahan).
-      </p> --}}
-
       <ul class="list-unstyled">
-  <li>
-    <strong>Alamat:</strong>
-    <a href="https://www.google.com/maps/search/?api=1&query=Jl.+Pulau+Saelus+Gg.+IV+No.8,+Pedungan,+Denpasar+Bali"
-       target="_blank" class="text-primary text-decoration-none">
-      Jl. Pulau Saelus Gg. IV No.8 Br. Pande Kelurahan. Pedungan Kecamatan Denpasar Selatan. Denpasar - Bali
-    </a>
-  </li>
-
-  <li>
-    <strong>WhatsApp:</strong>
-    <a href="https://wa.me/6281214251202" target="_blank" class="text-primary text-decoration-none">
-      +62 812-1425-1202
-    </a>
-  </li>
-
-  <li>
-    <strong>Telepon:</strong>
-    <a href="https://wa.me/6289635043530" target="_blank" class="text-primary text-decoration-none">
-      +62 896-3504-3530
-    </a>
-  </li>
-
-  <li>
-    <strong>Email:</strong>
-    <a href="mailto:infoarindra@gmail.com" class="text-primary text-decoration-none">
-      infoarindra@gmail.com
-    </a>
-  </li>
-</ul>
-
-
+        <li class="mb-2">
+          <strong>Alamat:</strong>
+          <a href="https://www.google.com/maps/search/?api=1&query=Jl.+Pulau+Saelus+Gg.+IV+No.8,+Pedungan,+Denpasar+Bali"
+             target="_blank" class="text-primary text-decoration-none">
+            Jl. Pulau Saelus Gg. IV No.8, Br. Pande, Kel. Pedungan, Kec. Denpasar Selatan, Denpasar - Bali
+          </a>
+        </li>
+        <li class="mb-2">
+          <strong>WhatsApp:</strong>
+          <a href="https://wa.me/6281214251202" target="_blank" class="text-primary text-decoration-none">
+            +62 812-1425-1202
+          </a>
+        </li>
+        <li class="mb-2">
+          <strong>Telepon:</strong>
+          <a href="https://wa.me/6289635043530" target="_blank" class="text-primary text-decoration-none">
+            +62 896-3504-3530
+          </a>
+        </li>
+        <li class="mb-2">
+          <strong>Email:</strong>
+          <a href="mailto:infoarindra@gmail.com" class="text-primary text-decoration-none">
+            infoarindra@gmail.com
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
+
 
 @endsection

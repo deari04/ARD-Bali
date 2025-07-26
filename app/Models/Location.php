@@ -9,7 +9,14 @@ class Location extends Model
 {
     use HasFactory;
 
+    protected $table = 'location';
+
     protected $fillable = [
-        
+        'title',
+        'address',
+        'phone',
+        'whatsapp',
+        'email',
+        'maps_embed_url',
     ];
 }

@@ -100,48 +100,13 @@
     {{-- Kolom teks --}}
     <div class="col-md-7">
       <h2 class="fw-bold">Tentang Kami</h2>
-      <p class="text-muted">
+      <p class="text-dark">
         ARD ORGANIZER BALI adalah perusahaan yang bergerak melayani penyelenggaraan Event atau penyedia jasa event dalam sekala besar maupun kecil. <br>
         Dengan pelayanan yang mengutamakan kenyamanan dan menjadi sarana konsultasi bagi klien untuk berbagi ide-ide kreatif, konsep inovatif, dan bekerja profesional memfasilitasi kebutuhan serta kepuasan klien sebagai mitra bisnis.
       </p>
     </div>
   </div>
 </div>
-
-
-<div class="container content-overlay my-5" id="why-ard-bali">
-  <div class="row align-items-center">
-    <div class="col-12 text-center mb-4">
-      <h2 class="fw-bold">Why ARD Bali</h2>
-    </div>
-    <div class="col-12">
-        <ul class="list-unstyled p-4">
-          <li class="mb-3">
-            <h5 class="fw-semibold mb-1">Penyedia Jasa Event Terbaik</h5>
-            <p class="text-muted mb-0">Momentum kami ciptakan agar waktu yang telah kalian luangkan menjadi sangat berkesan. Totalitas pelayanan dan event yang menyenangkan adalah prioritas kami.</p>
-          </li>
-          <li class="mb-3">
-            <h5 class="fw-semibold mb-1">Creative Thinking</h5>
-            <p class="text-muted mb-0">Berpikir kreatif adalah kunci utama tim kami untuk menciptakan karya yang unik dan menarik.</p>
-          </li>
-          <li class="mb-3">
-            <h5 class="fw-semibold mb-1">Solid TeamWork</h5>
-            <p class="text-muted mb-0">Tim yang kompak dan berpengalaman siap membantu kelancaran acara dari awal sampai akhir dengan dedikasi tinggi.</p>
-          </li>
-          <li class="mb-3">
-            <h5 class="fw-semibold mb-1">Fun</h5>
-            <p class="text-muted mb-0">Kami menghadirkan rangkaian acara yang menyenangkan agar momen Anda penuh kesan positif.</p>
-          </li>
-          <li class="mb-3">
-            <h5 class="fw-semibold mb-1">Reliable</h5>
-            <p class="text-muted mb-0">Kami adalah partner terpercaya yang selalu hadir dengan solusi tepat dan komitmen penuh.</p>
-          </li>
-        </ul>
-    </div>
-  </div>
-</div>
-
-
 
 
 <div class="container content-overlay mb-5">
@@ -283,80 +248,68 @@
 
 
 {{-- Container Lokasi --}}
-
 @php
   use App\Models\Location;
-  $lokasi = Location::latest()->first(); // atau where('id', 1)
+  $lokasi = Location::latest()->first();
 @endphp
 
 <section class="py-5">
   <div class="container content-overlay">
     <div class="shadow-sm rounded-4 overflow-hidden">
       
-        {{-- Judul --}}
-        <h2 class="card-title text-center fw-bold mb-5">
-          {{ $lokasi->title ?? 'Lokasi ARD Bali' }}
-        </h2>
+      {{-- Judul --}}
+      <h2 class="card-title text-center fw-bold mb-5">
+        {{ $lokasi->title ?? 'Lokasi ARD Bali' }}
+      </h2>
 
-        <div class="row g-4">
-          {{-- Google Maps --}}
-          <div class="col-md-6">
-            <div class="ratio ratio-16x9 rounded-4 border">
-              @if($lokasi && $lokasi->maps_embed_url)
-                {{-- Tampilkan iframe langsung dari database --}}
-                {!! $lokasi->maps_embed_url !!}
-              @else
-                <div class="d-flex align-items-center justify-content-center bg-light">
-                  <p class="text-muted">Maps belum tersedia</p>
-                </div>
-              @endif
-            </div>
-          </div>
-
-          {{-- Kontak --}}
-          <div class="col-md-6 d-flex flex-column justify-content-center">
-            <h5 class="fw-semibold mb-4">Kunjungi Kami</h5>
-            <ul class="list-unstyled">
-              @if($lokasi && $lokasi->address)
-                <li class="mb-3">
-                  <i class="bi bi-geo-alt-fill text-primary me-2"></i>
-                  <strong>Alamat:</strong> {{ $lokasi->address }}
-                </li>
-              @endif
-
-              @if($lokasi && $lokasi->whatsapp)
-                <li class="mb-3">
-                  <i class="bi bi-whatsapp text-success me-2"></i>
-                  <strong>WhatsApp:</strong>
-                  <a href="https://wa.me/{{ $lokasi->whatsapp }}" target="_blank">
-                    {{ $lokasi->whatsapp }}
-                  </a>
-                </li>
-              @endif
-
-              @if($lokasi && $lokasi->phone)
-                <li class="mb-3">
-                  <i class="bi bi-telephone-fill text-info me-2"></i>
-                  <strong>Telepon:</strong>
-                  <a href="tel:{{ $lokasi->phone }}">
-                    {{ $lokasi->phone }}
-                  </a>
-                </li>
-              @endif
-
-              @if($lokasi && $lokasi->email)
-                <li class="mb-0">
-                  <i class="bi bi-envelope-fill text-danger me-2"></i>
-                  <strong>Email:</strong>
-                  <a href="mailto:{{ $lokasi->email }}">
-                    {{ $lokasi->email }}
-                  </a>
-                </li>
-              @endif
-            </ul>
+      <div class="row g-4">
+        {{-- Google Maps --}}
+        <div class="col-md-6">
+          <div class="ratio ratio-16x9 rounded-4 border">
+            @if(!empty($lokasi->maps_embed_url))
+              {!! $lokasi->maps_embed_url !!}
+            @else
+              <div class="d-flex align-items-center justify-content-center bg-light">
+                <p class="text-muted m-0">Maps belum tersedia</p>
+              </div>
+            @endif
           </div>
         </div>
-      
+
+        {{-- Kontak --}}
+        <div class="col-md-6 d-flex flex-column justify-content-center">
+          <h5 class="fw-semibold mb-4">Kunjungi Kami</h5>
+          <ul class="list-unstyled">
+            @if(!empty($lokasi->address))
+              <li class="mb-3">
+                <i class="bi bi-geo-alt-fill text-primary me-2"></i>
+                <strong>Alamat:</strong> 
+                <span class="text-primary fw-5">{{ $lokasi->address }}</span>
+              </li>
+            @endif
+
+            @if(!empty($lokasi->whatsapp))
+              <li class="mb-3">
+                <i class="bi bi-whatsapp text-success me-2"></i>
+                <strong>WhatsApp:</strong>
+                <a href="https://wa.me/{{ $lokasi->whatsapp }}" target="_blank">
+                  {{ $lokasi->whatsapp }}
+                </a>
+              </li>
+            @endif
+
+            @if(!empty($lokasi->phone))
+              <li class="mb-3">
+                <i class="bi bi-telephone-fill text-info me-2"></i>
+                <strong>Telepon:</strong>
+                <a href="tel:{{ $lokasi->phone }}">
+                  {{ $lokasi->phone }}
+                </a>
+              </li>
+            @endif
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </section>

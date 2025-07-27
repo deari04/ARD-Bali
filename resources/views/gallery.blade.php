@@ -100,7 +100,7 @@
 <div class="container py-5 main-container">
     <div class="text-center mb-5 bg-white bg-opacity-75 p-3 rounded">
         <h1 class="gallery-title">Galeri Publik</h1>
-        <p class="text-muted gallery-description">Lihat dan unggah momen terbaikmu. Semua orang bisa berpartisipasi!</p>
+        <p class="text-dark gallery-description">Lihat dan unggah momen terbaikmu. Semua orang bisa berpartisipasi!</p>
     </div>
 
     <!-- Grid Galeri -->

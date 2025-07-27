@@ -12,7 +12,7 @@ class ServiceCategoryController extends Controller
 {
     public function index()
     {
-        $categories = ServiceCategory::where('is_active', true)->orderBy('name')->get();
+        $categories = ServiceCategory::where('is_active', true)->orderBy('order_position')->get();
         return view('admin.service_categories.index', compact('categories'));
     }
 
@@ -29,25 +29,32 @@ class ServiceCategoryController extends Controller
     }
 
     public function store(Request $request)
-    {
-        $request->validate([
-            'name' => 'required|string|max:100',
-            'description' => 'nullable|string',
-            'icon_class' => 'nullable|string',
-            'image_path' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
-        ]);
+{
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'description' => 'nullable|string',
+        'icon_class' => 'nullable|string',
+        'is_active' => 'sometimes',
+    ]);
 
-        $data = $request->only(['name', 'description', 'icon_class']);
-        $data['slug'] = Str::slug($request->name);
+    $slug = Str::slug($request->name);
 
-        if ($request->hasFile('image_path')) {
-            $data['image_path'] = $request->file('image_path')->store('service_categories', 'public');
-        }
+    // Ambil posisi urutan terakhir
+    $maxOrder = ServiceCategory::max('order_position') ?? 0;
 
-        ServiceCategory::create($data);
+    ServiceCategory::create([
+        'name' => $request->name,
+        'slug' => $slug,
+        'description' => $request->description,
+        'icon_class' => $request->icon_class,
+        'is_active' => $request->has('is_active'),
+        'order_position' => $maxOrder + 1, // 👈 posisi ditambahkan di sini
+    ]);
 
-        return redirect()->route('admin.service-categories.index')->with('success', 'Kategori layanan berhasil ditambahkan.');
-    }
+    return redirect()->route('admin.service-categories.index')
+        ->with('success', 'Kategori layanan berhasil ditambahkan.');
+}
+
 
     public function edit(ServiceCategory $service_category)
     {
@@ -67,7 +74,6 @@ class ServiceCategoryController extends Controller
         $data['slug'] = Str::slug($request->name);
 
         if ($request->hasFile('image_path')) {
-            // Hapus gambar lama
             if ($service_category->image_path) {
                 Storage::disk('public')->delete($service_category->image_path);
             }
@@ -90,12 +96,4 @@ class ServiceCategoryController extends Controller
 
         return redirect()->route('admin.service-categories.index')->with('success', 'Kategori layanan berhasil dihapus.');
     }
-
-    public function services()
-    {
-        return $this->hasMany(Service::class, 'category_id');
-    }
-
-    
-
 }

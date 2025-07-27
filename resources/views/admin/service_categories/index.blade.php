@@ -20,14 +20,16 @@
                 <div class="card-body">
                     <table class="table table-bordered table-hover mb-0">
                         <thead class="bg-dark text-white">
-                            <tr>
+                           <tr>
                                 <th>#</th>
                                 <th>Nama</th>
                                 <th>Slug</th>
                                 <th>Icon</th>
+                                <th>Urutan</th>
                                 <th>Status</th>
                                 <th>Aksi</th>
                             </tr>
+
                         </thead>
                         <tbody>
                             @foreach($categories as $index => $cat)
@@ -36,6 +38,7 @@
                                     <td>{{ $cat->name }}</td>
                                     <td>{{ $cat->slug }}</td>
                                     <td><i class="{{ $cat->icon_class }}"></i></td>
+                                    <td>{{ $cat->order_position }}</td>
                                     <td>
                                         @if($cat->is_active)
                                             <span class="badge bg-success">Aktif</span>

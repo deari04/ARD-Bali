@@ -5,26 +5,35 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\YoutubeLink;
 use App\Models\InstagramStory;
+use App\Models\ServiceCategory;
 
 class HomeController extends Controller
 {
-    /**
-     * Tampilkan halaman beranda dengan data YouTube dan Instagram Story.
-     */
     public function index()
     {
-        // Ambil 2 link YouTube yang aktif dan urut sesuai posisi
+        // Ambil 2 link YouTube yang aktif
         $youtubeLinks = YoutubeLink::where('is_active', 1)
                                    ->orderBy('order_position')
                                    ->take(2)
                                    ->get();
 
-        // Ambil satu Instagram Story terbaru yang aktif
+        // Ambil 1 Instagram Story terbaru yang aktif
         $instagramStory = InstagramStory::where('is_active', 1)
                                         ->latest()
                                         ->first();
 
-        // Kirim data ke tampilan home
-        return view('home', compact('youtubeLinks', 'instagramStory'));
+        // Ambil kategori layanan aktif + 1 service aktif (hanya image) dengan kolom spesifik
+        $serviceCategories = ServiceCategory::select('id', 'name', 'description')
+            ->with(['services' => function ($query) {
+                $query->where('is_active', true)
+                      ->select('id', 'category_id', 'image_path')
+                      ->latest()
+                      ->limit(6);
+            }])
+            ->where('is_active', true)
+            ->orderBy('order_position')
+            ->get();
+
+        return view('home', compact('youtubeLinks', 'instagramStory', 'serviceCategories'));
     }
 }

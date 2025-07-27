@@ -53,6 +53,12 @@
                             <input type="file" name="image_path" class="form-control">
                         </div> --}}
 
+                         <div class="mb-3">
+                            <label for="slug" class="form-label">Urutan</label>
+                            <input type="text" name="slug" class="form-control" value="{{ old('slug') }}" required>
+                        </div>
+
+
                         <div class="mb-3 form-check">
                             <input type="checkbox" name="is_active" class="form-check-input" id="is_active" {{ $service_category->is_active ? 'checked' : '' }}>
                             <label class="form-check-label" for="is_active">Aktif</label>

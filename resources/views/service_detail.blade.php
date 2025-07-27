@@ -26,7 +26,7 @@
         @if($services->count() > 0)
             @foreach ($services as $service)
                 @php
-                    $noWa = $whatsappNumber ?? '6287824565254'; // Nomor WhatsApp dari setting
+                    $noWa = $whatsappNumber ?? '621214251202'; // Nomor WhatsApp dari setting
                     $pesan = $service->whatsapp_message ?: "Halo, saya tertarik dengan layanan {$service->name}";
                 @endphp
 

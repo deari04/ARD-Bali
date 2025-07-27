@@ -32,12 +32,14 @@ class AdminServiceController extends Controller
             'description' => 'nullable|string',
             'whatsapp_message' => 'nullable|string',
             'image_path' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
-            'is_active' => 'sometimes|boolean',
+            'is_active' => 'nullable|boolean', // Changed from 'sometimes' to 'nullable'
         ]);
 
         $data = $request->only(['category_id', 'name', 'description', 'whatsapp_message']);
         $data['slug'] = Str::slug($request->name);
-        $data['is_active'] = $request->has('is_active');
+        
+        // Fix checkbox handling - convert to boolean properly
+        $data['is_active'] = $request->has('is_active') ? true : false;
 
         if ($request->hasFile('image_path')) {
             $data['image_path'] = $request->file('image_path')->store('services', 'public');
@@ -62,12 +64,14 @@ class AdminServiceController extends Controller
             'description' => 'nullable|string',
             'whatsapp_message' => 'nullable|string',
             'image_path' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
-            'is_active' => 'sometimes|boolean',
+            'is_active' => 'nullable|boolean', // Changed from 'sometimes' to 'nullable'
         ]);
 
         $data = $request->only(['category_id', 'name', 'description', 'whatsapp_message']);
         $data['slug'] = Str::slug($request->name);
-        $data['is_active'] = $request->has('is_active');
+        
+        // Fix checkbox handling - convert to boolean properly
+        $data['is_active'] = $request->has('is_active') ? true : false;
 
         if ($request->hasFile('image_path')) {
             if ($service->image_path) {

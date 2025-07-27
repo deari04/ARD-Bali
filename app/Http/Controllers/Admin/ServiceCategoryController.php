@@ -96,4 +96,6 @@ class ServiceCategoryController extends Controller
         return $this->hasMany(Service::class, 'category_id');
     }
 
+    
+
 }

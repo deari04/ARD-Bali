@@ -54,7 +54,7 @@
 <div class="container py-5">
     <div class="text-center mb-5 bg-white bg-opacity-75 p-3 rounded">
         <h1 class="fw-bold">OUR SERVICE</h1>
-        <p class="text-muted">Berbagai layanan profesional untuk kebutuhan acara Anda</p>
+        <p class="text-dark">Berbagai layanan profesional untuk kebutuhan acara Anda</p>
     </div>
 
     <div class="row">

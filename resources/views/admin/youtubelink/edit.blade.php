@@ -1,4 +1,5 @@
 @extends('layouts.admin')
+@include('admin.sidebar')
 
 @section('content')
 <div class="container mt-4">

@@ -26,15 +26,11 @@ use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\galleryController;
 use App\Http\Controllers\restoController;
 use App\Http\Controllers\hotelController;
-
+use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\Admin\DashboardGalleryController;
 use App\Http\Controllers\Admin\LocationController;
 use App\Http\Controllers\Admin\AdminYoutubeController;
 use App\Http\Controllers\Admin\AdminInstagramStoryController;
-
-
-
-
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -42,9 +38,11 @@ use App\Http\Controllers\Admin\AdminInstagramStoryController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/service', function () {
-    return view('service');
-})->name('service');
+// Route::get('/service', function () {
+//     return view('service');
+// })->name('service');
+
+Route::get('/service', [ServiceController::class, 'index'])->name('service');
 
 Route::get('/galeri', [galleryController::class, 'index'])->name('galeri.index');
 Route::post('/galeri', [galleryController::class, 'store'])->name('galeri.store');
@@ -109,6 +107,9 @@ Route::get('/vw', [vwController::class, 'index']);
 Route::get('/resto', [restoController::class, 'index']);
 Route::get('/outbond', [hotelController::class, 'index']);
 
+// Halaman public
+Route::get('/service', [\App\Http\Controllers\ServiceController::class, 'index'])->name('service');
+Route::get('/layanan/{slug}', [\App\Http\Controllers\ServiceController::class, 'show'])->name('layanan.show');
 
 
 // Route login dan logout tidak perlu auth middleware
@@ -151,6 +152,17 @@ Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(functi
     Route::get('/location/{id}/edit', [LocationController::class, 'edit'])->name('location.edit');
     Route::put('/location/{id}', [LocationController::class, 'update'])->name('location.update');
     Route::delete('/location/{id}', [LocationController::class, 'destroy'])->name('location.destroy');
+
+    // Service page
+    Route::resource('service-categories', \App\Http\Controllers\Admin\ServiceCategoryController::class);
+    Route::get('/service', [ServiceController::class, 'index'])->name('service');
+    Route::get('/layanan/{slug}', [ServiceController::class, 'show'])->name('layanan.show');
+
+// Untuk halaman admin
+Route::resource('services', \App\Http\Controllers\Admin\AdminServiceController::class)->names('admin.services');
+
+
+
 });
 
 

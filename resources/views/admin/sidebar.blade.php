@@ -18,30 +18,30 @@
           </a>
         </li>
 
-        <!-- SERVICE -->
-        <li class="nav-item has-treeview {{ request()->is('services*') ? 'menu-open' : '' }}">
-          <a href="#" class="nav-link {{ request()->is('services*') ? 'active' : '' }}">
-            <i class="nav-icon fas fa-concierge-bell"></i>
-            <p>
-              Service
-              <i class="right fas fa-angle-left"></i>
-            </p>
-          </a>
-          <ul class="nav nav-treeview">
-            <li class="nav-item">
-              {{-- <a href="{{ route('services.web') }}" class="nav-link {{ request()->is('services/web') ? 'active' : '' }}"> --}}
-                <i class="far fa-circle nav-icon"></i>
-                <p>Web Service</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              {{-- <a href="{{ route('services.design') }}" class="nav-link {{ request()->is('services/design') ? 'active' : '' }}"> --}}
-                <i class="far fa-circle nav-icon"></i>
-                <p>Design Service</p>
-              </a>
-            </li>
-          </ul>
-        </li>
+      <!-- SERVICE -->
+      <li class="nav-item has-treeview {{ request()->is('admin/service-categories*') || request()->is('admin/services*') ? 'menu-open' : '' }}">
+        <a href="#" class="nav-link {{ request()->is('admin/service-categories*') || request()->is('admin/services*') ? 'active' : '' }}">
+          <i class="nav-icon fas fa-concierge-bell"></i>
+          <p>
+            Service
+            <i class="right fas fa-angle-left"></i>
+          </p>
+        </a>
+        <ul class="nav nav-treeview">
+          <li class="nav-item">
+            <a href="{{ route('admin.service-categories.index') }}" class="nav-link {{ request()->is('admin/service-categories*') ? 'active' : '' }}">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Service Category</p>
+            </a>
+          </li>
+          {{-- <li class="nav-item">
+            <a href="{{ route('admin.services.index') }}" class="nav-link {{ request()->is('admin/services*') ? 'active' : '' }}">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Services</p>
+            </a>
+          </li> --}}
+        </ul>
+      </li>
 
         <!-- GALLERY -->
       <li class="nav-item">

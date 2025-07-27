@@ -32,15 +32,7 @@ use App\Http\Controllers\Admin\LocationController;
 use App\Http\Controllers\Admin\AdminYoutubeController;
 use App\Http\Controllers\Admin\AdminInstagramStoryController;
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 Route::get('/', [HomeController::class, 'index'])->name('home');
-
-// Route::get('/service', function () {
-//     return view('service');
-// })->name('service');
 
 Route::get('/service', [ServiceController::class, 'index'])->name('service');
 
@@ -61,7 +53,7 @@ Route::get('/layanan/{slug}', function ($slug) {
     ];
 
     if (in_array($slug, $allowed)) {
-        $viewPath = 'layanan.' . $slug . '.' . $slug; // contoh: layanan.adventure.adventure
+        $viewPath = 'layanan.' . $slug . '.' . $slug;
         if (view()->exists($viewPath)) {
             return view($viewPath);
         }
@@ -84,7 +76,9 @@ Route::get('/layanan/adventure/{slug}', function ($slug) {
     return view($viewPath);
 });
 
+Route::get('/layanan/{slug}', [ServiceController::class, 'show'])->name('layanan.show');
 
+// Individual service routes
 Route::get('/outbond', [OutbondController::class, 'index']);
 Route::get('/gathering', [gatheringController::class, 'index']);
 Route::get('/adventure', [adventureController::class, 'index'])->name('adventure');
@@ -105,21 +99,18 @@ Route::get('/paintball', [paintballController::class, 'index']);
 Route::get('/watersport', [watersportController::class, 'index']);
 Route::get('/vw', [vwController::class, 'index']);
 Route::get('/resto', [restoController::class, 'index']);
-Route::get('/outbond', [hotelController::class, 'index']);
+Route::get('/hotel', [hotelController::class, 'index']); // Fixed: was '/outbond'
 
-// Halaman public
-Route::get('/service', [\App\Http\Controllers\ServiceController::class, 'index'])->name('service');
-Route::get('/layanan/{slug}', [\App\Http\Controllers\ServiceController::class, 'show'])->name('layanan.show');
+// Public service routes
+Route::get('/layanan/{slug}', [ServiceController::class, 'show'])->name('layanan.show');
 
-
-// Route login dan logout tidak perlu auth middleware
+// Admin login routes (no auth middleware)
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/login', [AdminAuthController::class, 'showLoginForm'])->name('login');
     Route::post('/login', [AdminAuthController::class, 'login']);
 });
 
-
-
+// Admin protected routes
 Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
 
@@ -130,22 +121,22 @@ Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(functi
     Route::delete('/gallery/{id}', [DashboardGalleryController::class, 'destroy'])->name('gallery.destroy');
 
     // YouTube Link
-    Route::get('/youtube', [\App\Http\Controllers\Admin\AdminYoutubeController::class, 'index'])->name('youtube.index');
-    Route::get('/youtube/create', [\App\Http\Controllers\Admin\AdminYoutubeController::class, 'create'])->name('youtube.create');
-    Route::post('/youtube', [\App\Http\Controllers\Admin\AdminYoutubeController::class, 'store'])->name('youtube.store');
-    Route::get('/youtube/{id}/edit', [\App\Http\Controllers\Admin\AdminYoutubeController::class, 'edit'])->name('youtube.edit');
-    Route::put('/youtube/{id}', [\App\Http\Controllers\Admin\AdminYoutubeController::class, 'update'])->name('youtube.update');
-    Route::delete('/youtube/{id}', [\App\Http\Controllers\Admin\AdminYoutubeController::class, 'destroy'])->name('youtube.destroy');
+    Route::get('/youtube', [AdminYoutubeController::class, 'index'])->name('youtube.index');
+    Route::get('/youtube/create', [AdminYoutubeController::class, 'create'])->name('youtube.create');
+    Route::post('/youtube', [AdminYoutubeController::class, 'store'])->name('youtube.store');
+    Route::get('/youtube/{id}/edit', [AdminYoutubeController::class, 'edit'])->name('youtube.edit');
+    Route::put('/youtube/{id}', [AdminYoutubeController::class, 'update'])->name('youtube.update');
+    Route::delete('/youtube/{id}', [AdminYoutubeController::class, 'destroy'])->name('youtube.destroy');
 
     // Instagram Story
-    Route::get('/instagram', [\App\Http\Controllers\Admin\AdminInstagramStoryController::class, 'index'])->name('instagram.index');
-    Route::get('/instagram/create', [\App\Http\Controllers\Admin\AdminInstagramStoryController::class, 'create'])->name('instagram.create');
-    Route::post('/instagram', [\App\Http\Controllers\Admin\AdminInstagramStoryController::class, 'store'])->name('instagram.store');
-    Route::get('/instagram/{id}/edit', [\App\Http\Controllers\Admin\AdminInstagramStoryController::class, 'edit'])->name('instagram.edit');
-    Route::put('/instagram/{id}', [\App\Http\Controllers\Admin\AdminInstagramStoryController::class, 'update'])->name('instagram.update');
-    Route::delete('/instagram/{id}', [\App\Http\Controllers\Admin\AdminInstagramStoryController::class, 'destroy'])->name('instagram.destroy');
+    Route::get('/instagram', [AdminInstagramStoryController::class, 'index'])->name('instagram.index');
+    Route::get('/instagram/create', [AdminInstagramStoryController::class, 'create'])->name('instagram.create');
+    Route::post('/instagram', [AdminInstagramStoryController::class, 'store'])->name('instagram.store');
+    Route::get('/instagram/{id}/edit', [AdminInstagramStoryController::class, 'edit'])->name('instagram.edit');
+    Route::put('/instagram/{id}', [AdminInstagramStoryController::class, 'update'])->name('instagram.update');
+    Route::delete('/instagram/{id}', [AdminInstagramStoryController::class, 'destroy'])->name('instagram.destroy');
 
-    // Location page
+    // Location
     Route::get('/location', [LocationController::class, 'index'])->name('location');
     Route::get('/location/create', [LocationController::class, 'create'])->name('location.create');
     Route::post('/location', [LocationController::class, 'store'])->name('location.store');
@@ -153,18 +144,9 @@ Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(functi
     Route::put('/location/{id}', [LocationController::class, 'update'])->name('location.update');
     Route::delete('/location/{id}', [LocationController::class, 'destroy'])->name('location.destroy');
 
-    // Service page
+    // Service Categories
     Route::resource('service-categories', \App\Http\Controllers\Admin\ServiceCategoryController::class);
-    Route::get('/service', [ServiceController::class, 'index'])->name('service');
-    Route::get('/layanan/{slug}', [ServiceController::class, 'show'])->name('layanan.show');
 
-// Untuk halaman admin
-Route::resource('services', \App\Http\Controllers\Admin\AdminServiceController::class)->names('admin.services');
-
-
-
+    // Services - FIXED: Using proper resource route syntax
+    Route::resource('services', \App\Http\Controllers\Admin\AdminServiceController::class);
 });
-
-
-    
-

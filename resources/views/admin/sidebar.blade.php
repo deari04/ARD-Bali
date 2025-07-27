@@ -34,12 +34,12 @@
               <p>Service Category</p>
             </a>
           </li>
-          {{-- <li class="nav-item">
+          <li class="nav-item">
             <a href="{{ route('admin.services.index') }}" class="nav-link {{ request()->is('admin/services*') ? 'active' : '' }}">
               <i class="far fa-circle nav-icon"></i>
               <p>Services</p>
             </a>
-          </li> --}}
+          </li>
         </ul>
       </li>
 

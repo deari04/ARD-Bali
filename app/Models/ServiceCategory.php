@@ -13,4 +13,10 @@ class ServiceCategory extends Model
         'icon_class',
         'is_active',
     ];
+
+    public function services()
+    {
+        return $this->hasMany(Service::class, 'category_id');
+    }
+
 }

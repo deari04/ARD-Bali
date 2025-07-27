@@ -308,12 +308,14 @@
           {{-- Google Maps --}}
           <div class="col-md-6">
             <div class="ratio ratio-16x9 rounded-4 border">
-              <iframe
-                src="{{ $lokasi->maps_embed_url }}"
-                allowfullscreen
-                loading="lazy"
-                class="w-100 h-100 border-0">
-              </iframe>
+              @if($lokasi && $lokasi->maps_embed_url)
+                {{-- Tampilkan iframe langsung dari database --}}
+                {!! $lokasi->maps_embed_url !!}
+              @else
+                <div class="d-flex align-items-center justify-content-center bg-light">
+                  <p class="text-muted">Maps belum tersedia</p>
+                </div>
+              @endif
             </div>
           </div>
 
@@ -321,14 +323,14 @@
           <div class="col-md-6 d-flex flex-column justify-content-center">
             <h5 class="fw-semibold mb-4">Kunjungi Kami</h5>
             <ul class="list-unstyled">
-              @if($lokasi->address)
+              @if($lokasi && $lokasi->address)
                 <li class="mb-3">
                   <i class="bi bi-geo-alt-fill text-primary me-2"></i>
                   <strong>Alamat:</strong> {{ $lokasi->address }}
                 </li>
               @endif
 
-              @if($lokasi->whatsapp)
+              @if($lokasi && $lokasi->whatsapp)
                 <li class="mb-3">
                   <i class="bi bi-whatsapp text-success me-2"></i>
                   <strong>WhatsApp:</strong>
@@ -338,7 +340,7 @@
                 </li>
               @endif
 
-              @if($lokasi->phone)
+              @if($lokasi && $lokasi->phone)
                 <li class="mb-3">
                   <i class="bi bi-telephone-fill text-info me-2"></i>
                   <strong>Telepon:</strong>
@@ -348,7 +350,7 @@
                 </li>
               @endif
 
-              @if($lokasi->email)
+              @if($lokasi && $lokasi->email)
                 <li class="mb-0">
                   <i class="bi bi-envelope-fill text-danger me-2"></i>
                   <strong>Email:</strong>
@@ -364,7 +366,6 @@
     </div>
   </div>
 </section>
-
 
 
 @endsection

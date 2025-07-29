@@ -2,6 +2,8 @@
 
 @section('content')
 <style>
+
+    
     .main-container {
         margin-top: 90px; /* agar tidak tertutup navbar fixed-top */
     }
@@ -59,34 +61,43 @@
         color: #7f8c8d;
     }
 
-    .modal-backdrop-blur {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.4);
-        backdrop-filter: blur(6px);
-        z-index: 1040;
-        display: none;
-    }
+   .modal-backdrop-blur {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(6px);
+    z-index: 1040;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
 
-    .upload-modal {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) scale(0.9);
-        transition: all 0.3s ease;
-        opacity: 0;
-        z-index: 1050;
-        max-width: 600px;
-        width: 90%;
-    }
+.modal-backdrop-blur.show {
+    display: block !important;
+    opacity: 1;
+}
 
-    .upload-modal.show {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1);
-    }
+.upload-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+    z-index: 1050;
+    max-width: 600px;
+    width: 90%;
+    pointer-events: none;
+}
+
+.upload-modal.show {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    pointer-events: auto;
+}
 
     .upload-form {
         background: white;
@@ -166,24 +177,37 @@
 
 <!-- JS Interaksi Modal -->
 <script>
-    const openBtn = document.getElementById('showUploadForm');
-    const closeBtn = document.getElementById('closeUploadForm');
-    const modal = document.getElementById('uploadModal');
-    const backdrop = document.getElementById('uploadBackdrop');
+    document.addEventListener('DOMContentLoaded', function () {
+        const openBtn = document.getElementById('showUploadForm');
+        const closeBtn = document.getElementById('closeUploadForm');
+        const modal = document.getElementById('uploadModal');
+        const backdrop = document.getElementById('uploadBackdrop');
 
-    openBtn.addEventListener('click', () => {
-        modal.classList.remove('d-none');
-        backdrop.classList.remove('d-none');
-    });
+        function showModal() {
+            modal.classList.remove('d-none');
+            backdrop.classList.remove('d-none');
 
-    closeBtn.addEventListener('click', () => {
-        modal.classList.add('d-none');
-        backdrop.classList.add('d-none');
-    });
+            // delay sedikit agar CSS transition bisa aktif
+            setTimeout(() => {
+                modal.classList.add('show');
+                backdrop.classList.add('show');
+            }, 10);
+        }
 
-    backdrop.addEventListener('click', () => {
-        modal.classList.add('d-none');
-        backdrop.classList.add('d-none');
+        function hideModal() {
+            modal.classList.remove('show');
+            backdrop.classList.remove('show');
+
+            setTimeout(() => {
+                modal.classList.add('d-none');
+                backdrop.classList.add('d-none');
+            }, 300);
+        }
+
+        if (openBtn) openBtn.addEventListener('click', showModal);
+        if (closeBtn) closeBtn.addEventListener('click', hideModal);
+        if (backdrop) backdrop.addEventListener('click', hideModal);
     });
 </script>
+
 @endsection

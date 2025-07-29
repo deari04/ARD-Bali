@@ -18,6 +18,13 @@
           </a>
         </li>
 
+            {{-- SLIDER MANAGEMENT - TAMBAHAN BARU --}}
+            <li class="nav-item">
+                <a href="{{ route('admin.sliders.index') }}" class="nav-link {{ request()->routeIs('admin.sliders.*') ? 'active' : '' }}">
+                    <i class="fas fa-images"></i> Kelola Slider
+                </a>
+            </li>
+
       <!-- SERVICE -->
       <li class="nav-item has-treeview {{ request()->is('admin/service-categories*') || request()->is('admin/services*') ? 'menu-open' : '' }}">
         <a href="#" class="nav-link {{ request()->is('admin/service-categories*') || request()->is('admin/services*') ? 'active' : '' }}">

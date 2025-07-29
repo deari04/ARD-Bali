@@ -50,10 +50,10 @@
 
 </style>
 
-{{-- Carousel Fullscreen dengan Tagline di Bagian Bawah --}}
-<div id="carouselExample" class="carousel slide position-relative" data-bs-ride="carousel" data-bs-interval="5000" style="height: 103vh; overflow: hidden;">
 
-  {{-- Isi slide --}}
+{{-- <div id="carouselExample" class="carousel slide position-relative" data-bs-ride="carousel" data-bs-interval="5000" style="height: 103vh; overflow: hidden;">
+
+
   <div class="carousel-inner w-100 h-100">
     <div class="carousel-item active h-100">
       <img src="{{ asset('assets/images/Outbond.jpg') }}" class="d-block w-100 h-100 object-fit-cover" alt="slide">
@@ -67,7 +67,6 @@
     </div>
   </div>
 
-  {{-- Tagline di bagian bawah carousel --}}
   <div class="position-absolute bottom-0 start-0 w-100 text-center mb-4 px-3">
     <div class="bg-dark bg-opacity-45 p-3 rounded mx-auto d-inline-block">
       <h5 class="fw-bold text-white mb-2">
@@ -85,7 +84,47 @@
     </div>
   </div>
 
-</div>
+</div> --}}
+
+
+@php
+  use App\Models\Slider;
+  $sliders = Slider::active()->ordered()->get();
+@endphp
+
+@if($sliders->count() > 0)
+  <div id="carouselExample" class="carousel slide position-relative" data-bs-ride="carousel" data-bs-interval="5000" style="height: 103vh; overflow: hidden;">
+
+    <div class="carousel-inner w-100 h-100">
+      @foreach ($sliders as $key => $slider)
+        <div class="carousel-item {{ $key == 0 ? 'active' : '' }} h-100">
+          <img src="{{ $slider->image_path }}" class="d-block w-100 h-100 object-fit-cover" alt="slide">
+        </div>
+      @endforeach
+    </div>
+
+    <div class="position-absolute bottom-0 start-0 w-100 text-center mb-4 px-3">
+      <div class="bg-dark bg-opacity-45 p-3 rounded mx-auto d-inline-block">
+        <h5 class="fw-bold text-white mb-2">
+          @if($sliders->first())
+            {!! $sliders->first()->headline_text !!}
+          @endif
+        </h5>
+
+        @if($sliders->first()->subheadline_text)
+          <p class="text-white mb-0">
+            {!! $sliders->first()->subheadline_text !!}
+          </p>
+        @endif
+      </div>
+    </div>
+
+  </div>
+@else
+  <div class="text-center py-5">
+    <p>Belum ada slider yang ditampilkan.</p>
+  </div>
+@endif
 
 
 
@@ -125,7 +164,7 @@
           <img src="{{ asset('storage/' . $service->image_path) }}" class="card-img-top rounded-top-4 layanan-card-img" alt="{{ $service->title }}">
         </a>
         <div class="card-body layanan-card-body">
-          <h5 class="card-title text-uppercase">{{ $category->name }}</h5>
+          <h5 class="card-title text-uppercase text-center fw-bold mb-3">{{ $category->name }}</h5>
           <p class="card-text flex-grow-1">{{ $category->description }}</p>
           <a href="https://wa.me/6281214251202?text=Halo,%20saya%20tertarik%20dengan%20layanan%20{{ urlencode($category->name) }}" target="_blank" class="btn btn-outline-success mt-auto rounded-pill">Pesan Sekarang</a>
         </div>
@@ -149,7 +188,7 @@
             <img src="{{ asset('storage/' . $service->image_path) }}" class="card-img-top rounded-top-4 layanan-card-img" alt="{{ $service->title }}">
           </a>
           <div class="card-body layanan-card-body">
-            <h5 class="card-title text-uppercase">{{ $category->name }}</h5>
+            <h5 class="card-title text-uppercase text-center fw-bold mb-3">{{ $category->name }}</h5>
             <p class="card-text flex-grow-1">{{ $category->description }}</p>
             <a href="https://wa.me/6281214251202?text=Halo,%20saya%20tertarik%20dengan%20layanan%20{{ urlencode($category->name) }}" target="_blank" class="btn btn-outline-success mt-auto rounded-pill">Pesan Sekarang</a>
           </div>

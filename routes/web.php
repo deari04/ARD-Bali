@@ -31,6 +31,7 @@ use App\Http\Controllers\Admin\DashboardGalleryController;
 use App\Http\Controllers\Admin\LocationController;
 use App\Http\Controllers\Admin\AdminYoutubeController;
 use App\Http\Controllers\Admin\AdminInstagramStoryController;
+use App\Http\Controllers\Admin\SliderController; // Tambahan import
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
@@ -149,4 +150,7 @@ Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(functi
 
     // Services - FIXED: Using proper resource route syntax
     Route::resource('services', \App\Http\Controllers\Admin\AdminServiceController::class);
+
+    Route::resource('sliders', SliderController::class);
+    Route::patch('sliders/{slider}/toggle', [SliderController::class, 'toggle'])->name('sliders.toggle');
 });

@@ -104,7 +104,7 @@
                 <td>
                   <div class="btn-group" role="group">
                     {{-- Toggle Status Button --}}
-                    <form method="POST" action="{{ route('admin.sliders.toggle', $slider->id) }}" class="d-inline">
+                    {{-- <form method="POST" action="{{ route('admin.sliders.toggle', $slider->id) }}" class="d-inline">
                       @csrf
                       @method('PATCH')
                       <button type="submit" 
@@ -112,7 +112,7 @@
                               title="{{ $slider->is_active ? 'Nonaktifkan' : 'Aktifkan' }}">
                         <i class="fas {{ $slider->is_active ? 'fa-eye-slash' : 'fa-eye' }}"></i>
                       </button>
-                    </form>
+                    </form> --}}
 
                     {{-- Edit Button --}}
                     <a href="{{ route('admin.sliders.edit', $slider->id) }}" 

@@ -35,4 +35,10 @@ class Service extends Model
     {
         return $this->belongsTo(ServiceCategory::class, 'category_id');
     }
+
+    public function images()
+{
+    return $this->hasMany(ServiceImage::class);
+}
+
 }

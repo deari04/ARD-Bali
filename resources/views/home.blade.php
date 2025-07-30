@@ -151,19 +151,44 @@
 <div class="container content-overlay mb-5">
   <h2 class="mb-5 text-center fw-bold">Layanan Kami</h2>
 
-  {{-- Tampilan GRID untuk desktop dan tablet --}}
-  <div class="row g-4 d-none d-md-flex">
-    @foreach ($serviceCategories as $category)
+<div class="row g-4">
+  @foreach ($mainServiceCategories as $category)
     @php
-        $service = $category->services->first(); // ambil satu service dari relasi
+        $service = $category->services->first();
+        $images = $service && $service->images->count() > 0 ? $service->images : collect([$service]);
     @endphp
     @if ($service)
     <div class="col-md-4">
       <div class="card h-100 shadow-sm border-0 rounded-4 hover-shadow">
-        <a href="{{ $category->slug ? route('layanan.show', $category->slug) : '#' }}">
-          <img src="{{ asset('storage/' . $service->image_path) }}" class="card-img-top rounded-top-4 layanan-card-img" alt="{{ $service->title }}">
-        </a>
-        <div class="card-body layanan-card-body">
+
+        {{-- Carousel jika foto lebih dari 1 --}}
+        @if ($images->count() > 1)
+          <div id="carouselService{{ $loop->index }}" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+            <div class="carousel-inner rounded-top-4">
+              @foreach ($images as $imgIndex => $image)
+                <div class="carousel-item {{ $imgIndex === 0 ? 'active' : '' }}">
+                  <img src="{{ asset('storage/' . $image->image_path) }}" class="d-block w-100 layanan-card-img" alt="...">
+                </div>
+              @endforeach
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselService{{ $loop->index }}" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon bg-dark rounded-circle" aria-hidden="true"></span>
+              <span class="visually-hidden">Sebelumnya</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselService{{ $loop->index }}" data-bs-slide="next">
+              <span class="carousel-control-next-icon bg-dark rounded-circle" aria-hidden="true"></span>
+              <span class="visually-hidden">Berikutnya</span>
+            </button>
+          </div>
+
+        {{-- Jika hanya 1 gambar --}}
+        @else
+          <a href="{{ route('layanan.show', $category->slug) }}">
+            <img src="{{ asset('storage/' . $service->image_path) }}" class="card-img-top rounded-top-4 layanan-card-img" alt="{{ $category->name }}">
+          </a>
+        @endif
+
+        <div class="card-body layanan-card-body d-flex flex-column">
           <h5 class="card-title text-uppercase text-center fw-bold mb-3">{{ $category->name }}</h5>
           <p class="card-text flex-grow-1">{{ $category->description }}</p>
           <a href="https://wa.me/6281214251202?text=Halo,%20saya%20tertarik%20dengan%20layanan%20{{ urlencode($category->name) }}" target="_blank" class="btn btn-outline-success mt-auto rounded-pill">Pesan Sekarang</a>
@@ -171,70 +196,27 @@
       </div>
     </div>
     @endif
+  @endforeach
+</div>
+
+
+
+{{-- Bagian Layanan Tambahan --}}
+<div class="my-5 text-center">
+  {{-- <h4 class="mb-3 fw-bold">Layanan Tambahan</h4> --}}
+  <div class="d-flex flex-wrap justify-content-center align-items-center gap-2">
+    @foreach ($additionalServiceCategories as $category)
+      <a href="{{ route('layanan.show', $category->slug) }}" class="text-decoration-none text-primary fw-semibold px-2">
+        {{ $category->name }}
+      </a>
+      @if (!$loop->last)
+        <span class="text-muted">|</span>
+      @endif
     @endforeach
   </div>
+</div>
 
-  {{-- Tampilan SLIDE untuk HP --}}
-  <div id="layananCarousel" class="carousel slide d-block d-md-none" data-bs-ride="carousel">
-    <div class="carousel-inner">
-      @foreach ($serviceCategories as $index => $category)
-      @php
-          $service = $category->services->first();
-      @endphp
-      @if ($service)
-      <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
-        <div class="card mx-3 shadow-sm border-0 rounded-4 hover-shadow h-100">
-          <a href="{{ $category->slug ? route('layanan.show', $category->slug) : '#' }}">
-            <img src="{{ asset('storage/' . $service->image_path) }}" class="card-img-top rounded-top-4 layanan-card-img" alt="{{ $service->title }}">
-          </a>
-          <div class="card-body layanan-card-body">
-            <h5 class="card-title text-uppercase text-center fw-bold mb-3">{{ $category->name }}</h5>
-            <p class="card-text flex-grow-1">{{ $category->description }}</p>
-            <a href="https://wa.me/6281214251202?text=Halo,%20saya%20tertarik%20dengan%20layanan%20{{ urlencode($category->name) }}" target="_blank" class="btn btn-outline-success mt-auto rounded-pill">Pesan Sekarang</a>
-          </div>
-        </div>
-      </div>
-      @endif
-      @endforeach
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#layananCarousel" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon bg-dark rounded-circle" aria-hidden="true"></span>
-      <span class="visually-hidden">Sebelumnya</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#layananCarousel" data-bs-slide="next">
-      <span class="carousel-control-next-icon bg-dark rounded-circle" aria-hidden="true"></span>
-      <span class="visually-hidden">Berikutnya</span>
-    </button>
-  </div>
 
-  {{-- Bagian Layanan Tambahan --}}
-  <div class="my-5 text-center">
-    @php
-      $services = [
-        ['name' => 'Adventure', 'url' => '/layanan/adventure'],
-        ['name' => 'Event Production', 'url' => '/layanan/eventproduction'],
-        ['name' => 'Music Event', 'url' => '/layanan/music'],
-        ['name' => 'Multimedia', 'url' => '/layanan/multimedia'],
-        ['name' => 'Artis Management', 'url' => '/layanan/artismanagement'],
-        ['name' => 'Transportasi', 'url' => '/layanan/transportasi'],
-        ['name' => 'Tour Guide', 'url' => '/layanan/tourguide'],
-        ['name' => 'Launching Produk', 'url' => '/layanan/launchingproduk'],
-        ['name' => 'Rekomendasi Resto', 'url' => '/layanan/resto'],
-        ['name' => 'Rekomendasi Hotel', 'url' => '/layanan/hotel'],
-      ];
-    @endphp
-
-    <div class="d-flex flex-wrap justify-content-center align-items-center gap-2">
-      @foreach ($services as $index => $service)
-        <a href="{{ url($service['url']) }}" class="text-decoration-none text-primary fw-semibold px-2">
-          {{ $service['name'] }}
-        </a>
-        @if ($index !== count($services) - 1)
-          <span class="text-muted">|</span>
-        @endif
-      @endforeach
-    </div>
-  </div>
 </div>
 
 

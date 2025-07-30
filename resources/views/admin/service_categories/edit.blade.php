@@ -54,15 +54,17 @@
                         </div> --}}
 
                          <div class="mb-3">
-                            <label for="slug" class="form-label">Urutan</label>
-                            <input type="text" name="slug" class="form-control" value="{{ old('slug') }}" required>
+                            <label for="order_position" class="form-label">Urutan</label>
+                            <input type="number" name="order_position" class="form-control" value="{{ old('order_position', $service_category->order_position) }}" required>
                         </div>
 
 
-                        <div class="mb-3 form-check">
-                            <input type="checkbox" name="is_active" class="form-check-input" id="is_active" {{ $service_category->is_active ? 'checked' : '' }}>
+                       <div class="mb-3 form-check">
+                            <input type="hidden" name="is_active" value="0">
+                            <input type="checkbox" name="is_active" class="form-check-input" id="is_active" value="1" {{ old('is_active', $service_category->is_active) ? 'checked' : '' }}>
                             <label class="form-check-label" for="is_active">Aktif</label>
                         </div>
+
 
                         <button type="submit" class="btn btn-primary">Update</button>
                         <a href="{{ route('admin.service-categories.index') }}" class="btn btn-secondary">Batal</a>

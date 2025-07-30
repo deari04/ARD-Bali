@@ -10,11 +10,12 @@ use Illuminate\Support\Facades\Storage;
 
 class ServiceCategoryController extends Controller
 {
-    public function index()
-    {
-        $categories = ServiceCategory::where('is_active', true)->orderBy('order_position')->get();
-        return view('admin.service_categories.index', compact('categories'));
-    }
+   public function index()
+{
+    $categories = ServiceCategory::orderBy('order_position')->get(); // tanpa filter
+    return view('admin.service_categories.index', compact('categories'));
+}
+
 
     public function show($slug)
     {
@@ -34,7 +35,9 @@ class ServiceCategoryController extends Controller
         'name' => 'required|string|max:255',
         'description' => 'nullable|string',
         'icon_class' => 'nullable|string',
-        'is_active' => 'sometimes',
+         'order_position' => 'required|integer|min:1',
+       'is_active' => $request->input('is_active') == 1,
+
     ]);
 
     $slug = Str::slug($request->name);
@@ -61,30 +64,35 @@ class ServiceCategoryController extends Controller
         return view('admin.service_categories.edit', compact('service_category'));
     }
 
-    public function update(Request $request, ServiceCategory $service_category)
-    {
-        $request->validate([
-            'name' => 'required|string|max:100',
-            'description' => 'nullable|string',
-            'icon_class' => 'nullable|string',
-            'image_path' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
-        ]);
+   public function update(Request $request, ServiceCategory $service_category)
+{
+    $request->validate([
+        'name' => 'required|string|max:100',
+        'description' => 'nullable|string',
+        'icon_class' => 'nullable|string',
+         'order_position' => 'required|integer|min:1',
+        'image_path' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+    ]);
 
-        $data = $request->only(['name', 'description', 'icon_class']);
-        $data['slug'] = Str::slug($request->name);
+     $data = $request->only(['name', 'description', 'icon_class', 'order_position']);
+    $data['slug'] = Str::slug($request->name);
+  $data['is_active'] = $request->input('is_active') == 1;
+ 
 
-        if ($request->hasFile('image_path')) {
-            if ($service_category->image_path) {
-                Storage::disk('public')->delete($service_category->image_path);
-            }
 
-            $data['image_path'] = $request->file('image_path')->store('service_categories', 'public');
+    if ($request->hasFile('image_path')) {
+        if ($service_category->image_path) {
+            Storage::disk('public')->delete($service_category->image_path);
         }
 
-        $service_category->update($data);
-
-        return redirect()->route('admin.service-categories.index')->with('success', 'Kategori layanan berhasil diperbarui.');
+        $data['image_path'] = $request->file('image_path')->store('service_categories', 'public');
     }
+
+    $service_category->update($data);
+
+    return redirect()->route('admin.service-categories.index')->with('success', 'Kategori layanan berhasil diperbarui.');
+}
+
 
     public function destroy(ServiceCategory $service_category)
     {

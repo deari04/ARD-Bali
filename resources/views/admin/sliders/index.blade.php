@@ -3,45 +3,34 @@
 
 @section('content')
 <div class="content-wrapper">
-  <div class="content-header">
-    <div class="container-fluid">
-      <div class="row mb-2">
-        <div class="col-sm-6">
-          <h1 class="m-0">Kelola Slider</h1>
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">Kelola Slider</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Slider</li>
+                    </ol>
+                </div>
+            </div>
         </div>
-        <div class="col-sm-6">
-          <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">Slider</li>
-          </ol>
-        </div>
-      </div>
     </div>
-  </div>
 
-  <section class="content">
-    <div class="container-fluid">
-      
-      {{-- Alert Messages --}}
-      @if(session('success'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-          {{ session('success') }}
-          <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-        </div>
-      @endif
+    <section class="content">
+        <div class="container-fluid">
+            
+            @if(session('success'))
+                <div class="alert alert-success alert-dismissible fade show">{{ session('success') }}</div>
+            @endif
 
-      @if(session('error'))
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-          {{ session('error') }}
-          <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-        </div>
-      @endif
-
-      <div class="mb-3">
-        <a href="{{ route('admin.sliders.create') }}" class="btn btn-primary">
-          <i class="fas fa-plus"></i> Tambah Slider
-        </a>
-      </div>
+            <div class="mb-3">
+                <a href="{{ route('admin.sliders.create') }}" class="btn btn-primary">
+                    <i class="fas fa-plus"></i> Tambah Slider
+                </a>
+            </div>
 
       <div class="card">
         <div class="card-header">
@@ -104,7 +93,7 @@
                 <td>
                   <div class="btn-group" role="group">
                     {{-- Toggle Status Button --}}
-                    {{-- <form method="POST" action="{{ route('admin.sliders.toggle', $slider->id) }}" class="d-inline">
+                    <form method="POST" action="{{ route('admin.sliders.toggle', $slider->id) }}" class="d-inline">
                       @csrf
                       @method('PATCH')
                       <button type="submit" 
@@ -112,7 +101,7 @@
                               title="{{ $slider->is_active ? 'Nonaktifkan' : 'Aktifkan' }}">
                         <i class="fas {{ $slider->is_active ? 'fa-eye-slash' : 'fa-eye' }}"></i>
                       </button>
-                    </form> --}}
+                    </form>
 
                     {{-- Edit Button --}}
                     <a href="{{ route('admin.sliders.edit', $slider->id) }}" 
@@ -144,7 +133,7 @@
         </div>
       </div>
 
-    </div>
-  </section>
+        </div>
+    </section>
 </div>
 @endsection

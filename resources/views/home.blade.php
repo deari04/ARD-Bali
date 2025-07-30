@@ -96,24 +96,24 @@
   <div id="carouselExample" class="carousel slide position-relative" data-bs-ride="carousel" data-bs-interval="5000" style="height: 103vh; overflow: hidden;">
 
     <div class="carousel-inner w-100 h-100">
-      @foreach ($sliders as $key => $slider)
-        <div class="carousel-item {{ $key == 0 ? 'active' : '' }} h-100">
-          <img src="{{ $slider->image_path }}" class="d-block w-100 h-100 object-fit-cover" alt="slide">
-        </div>
+      @foreach ($sliders as $slider)
+        @foreach (($slider->image_path ?? []) as $index => $img)
+          <div class="carousel-item {{ ($loop->parent->first && $loop->first) ? 'active' : '' }} h-100">
+            <img src="{{ asset($img) }}" class="d-block w-100 h-100 object-fit-cover" alt="slide">
+          </div>
+        @endforeach
       @endforeach
     </div>
 
+    {{-- TEXT HANYA SEKALI UNTUK SEMUA FOTO --}}
     <div class="position-absolute bottom-0 start-0 w-100 text-center mb-4 px-3">
       <div class="bg-dark bg-opacity-45 p-3 rounded mx-auto d-inline-block">
         <h5 class="fw-bold text-white mb-2">
-          @if($sliders->first())
-            {!! $sliders->first()->headline_text !!}
-          @endif
+          {{ $sliders->first()->headline_text }}
         </h5>
-
         @if($sliders->first()->subheadline_text)
           <p class="text-white mb-0">
-            {!! $sliders->first()->subheadline_text !!}
+            {{ $sliders->first()->subheadline_text }}
           </p>
         @endif
       </div>

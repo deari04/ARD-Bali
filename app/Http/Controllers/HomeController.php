@@ -39,7 +39,7 @@ class HomeController extends Controller
 
     // Pisahkan 6 layanan utama dan sisanya sebagai tambahan
     $mainServiceCategories = $serviceCategories->take(6);
-    $additionalServiceCategories = $serviceCategories->skip(6);
+    $additionalServiceCategories = $serviceCategories->take(50);
 
     return view('home', compact(
         'youtubeLinks',

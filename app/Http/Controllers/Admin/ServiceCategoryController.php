@@ -51,7 +51,7 @@ class ServiceCategoryController extends Controller
         'description' => $request->description,
         'icon_class' => $request->icon_class,
         'is_active' => $request->has('is_active'),
-        'order_position' => $maxOrder + 1, // 👈 posisi ditambahkan di sini
+        'order_position' => $maxOrder + 1, 
     ]);
 
     return redirect()->route('admin.service-categories.index')

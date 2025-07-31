@@ -147,7 +147,7 @@
   </div>
 </div>
 
-
+{{-- Layanan Kami --}}
 <div class="container content-overlay mb-5">
   <h2 class="mb-5 text-center fw-bold">Layanan Kami</h2>
 
@@ -223,40 +223,40 @@
 {{-- Container Video YouTube --}}
 <div class="container content-overlay mb-5">
   <h2 class="text-center fw-bold mb-4">Youtube</h2>
-  <div class="row justify-content-center g-4">
+
+  {{-- YouTube Videos --}}
+  <div class="row justify-content-center g-4 mb-4">
     @foreach ($youtubeLinks as $link)
       @if ($link->youtube_id)
-      <div class="col-md-6">
-        <div class="ratio ratio-16x9 rounded-4 shadow-sm">
-          <iframe 
-            src="https://www.youtube.com/embed/{{ $link->youtube_id }}" 
-            title="{{ $link->title }}" 
-            allowfullscreen>
-          </iframe>
+        <div class="col-md-6">
+          <div class="ratio ratio-16x9 rounded-4 shadow-sm">
+            <iframe 
+              src="https://www.youtube.com/embed/{{ $link->youtube_id }}" 
+              title="{{ $link->title }}" 
+              allowfullscreen>
+            </iframe>
+          </div>
         </div>
-      </div>
       @endif
     @endforeach
   </div>
-</div>
 
-
- {{-- SECTION TESTIMONI INSTAGRAM STORY --}}
-@if($instagramStory && $instagramStory->is_active)
-    <div class="d-flex justify-content-center mt-n4">
-        <a href="{{ $instagramStory->story_url }}" target="_blank" class="text-decoration-none">
-            <div class="rounded-circle bg-white shadow d-flex justify-content-center align-items-center"
-                 style="width: 180px; height: 180px; margin-top: 10px; margin-bottom: 30px; transition: 0.3s;">
-                 
-                <div class="rounded-circle bg-dark d-flex justify-content-center align-items-center"
-                     style="width: 170px; height: 170px;">
-                    <span class="text-primary fw-bold" style="font-size: 1.8rem;">TESTIMONI</span>
-                </div>
-            </div>
-        </a>
+  {{-- SECTION TESTIMONI INSTAGRAM STORY --}}
+  @if($instagramStory && $instagramStory->is_active)
+    <div class="d-flex justify-content-center">
+      <a href="{{ $instagramStory->story_url }}" target="_blank" class="text-decoration-none">
+        <div class="rounded-circle bg-white shadow d-flex justify-content-center align-items-center"
+             style="width: 180px; height: 180px; margin-bottom: 30px; transition: 0.3s;">
+             
+          <div class="rounded-circle bg-dark d-flex justify-content-center align-items-center"
+               style="width: 170px; height: 170px;">
+            <span class="text-primary fw-bold" style="font-size: 1.8rem;">TESTIMONI</span>
+          </div>
+        </div>
+      </a>
     </div>
-@endif
-
+  @endif
+</div>
 
 
 {{-- Container Our Client --}}

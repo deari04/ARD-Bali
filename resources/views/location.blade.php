@@ -7,6 +7,10 @@
 @endphp
 
 <style>
+  .main-container {
+    margin-top: 90px; /* agar tidak tertutup navbar fixed-top */
+  }
+
   .section-title {
     font-size: 2.5rem;
     font-weight: 700;
@@ -60,7 +64,7 @@
   }
 </style>
 
-<div class="container mb-5 bg-white bg-opacity-75 p-3 rounded py-5">
+<div class="container main-container mb-5 bg-white bg-opacity-75 p-3 rounded py-5">
   <div class="text-center mb-5">
     <h1 class="section-title">{{ $lokasi->title ?? 'Lokasi ARD Bali' }}</h1>
     <p class="section-subtitle text-dark">{{ $lokasi->description ?? 'Temukan lokasi kami dan hubungi kami untuk informasi lebih lanjut' }}</p>
@@ -84,7 +88,7 @@
       @if($lokasi->address)
         <h5 class="fw-semibold text-primary mb-2">Alamat:</h5>
         <p class="text-dark fs-5 lh-lg" style="font-weight: 500;">
-        {{ $lokasi->address }}
+          {{ $lokasi->address }}
         </p>
       @endif
     </div>

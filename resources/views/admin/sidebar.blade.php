@@ -10,13 +10,13 @@
     <!-- Sidebar Menu -->
     <nav class="mt-2">
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-        <!-- HOME -->
-        <li class="nav-item">
-          <a href="{{ route('home') }}" class="nav-link {{ request()->is('home') ? 'active' : '' }}">
-            <i class="nav-icon fas fa-home"></i>
-            <p>Home</p>
-          </a>
-        </li>
+        <!-- LOGOUT -->
+          <li class="nav-item">
+            <a href="{{ route('home') }}" class="nav-link {{ request()->is('home') ? 'active' : '' }} text-danger">
+              <i class="nav-icon fas fa-sign-out-alt"></i>
+              <p>Logout</p>
+            </a>
+          </li>
 
             {{-- SLIDER MANAGEMENT - TAMBAHAN BARU --}}
             <li class="nav-item">

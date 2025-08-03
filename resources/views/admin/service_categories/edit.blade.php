@@ -37,11 +37,11 @@
                             <textarea name="description" class="form-control" rows="3">{{ old('description', $service_category->description) }}</textarea>
                         </div>
 
-                        <div class="mb-3">
-                            <label for="icon_class" class="form-label">Icon Bootstrap <small class="text-muted">(cth: <code>bi bi-briefcase</code>)</small></label>
-                            <input type="text" name="icon_class" class="form-control" value="{{ old('icon_class', $service_category->icon_class) }}">
+                        <div class="mb-3" style="display: none;">
+                            <label for="icon_class" class="form-label">Icon Bootstrap (contoh: <code>bi bi-briefcase</code>)</label>
+                            <input type="text" name="icon_class" class="form-control" value="{{ old('icon_class', 'bi bi-briefcase') }}">
                         </div>
-
+                        
                         {{-- Uncomment if you want to include image upload --}}
                         {{-- <div class="mb-3">
                             <label for="image_path" class="form-label">Gambar</label>

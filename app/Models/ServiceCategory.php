@@ -16,7 +16,13 @@ class ServiceCategory extends Model
         'icon_class',
         'is_active',
         'order_position',
-        'image' // jika kategori punya gambar sendiri
+        'image_path' // Ganti 'image' dengan 'image_path' untuk konsistensi
+    ];
+
+    // Tambahkan cast untuk memastikan tipe data yang benar
+    protected $casts = [
+        'is_active' => 'boolean',
+        'order_position' => 'integer',
     ];
 
     /**

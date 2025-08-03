@@ -23,10 +23,10 @@
 <!-- Services Cards -->
 <div class="container py-5">
     <div class="row">
-        @if($services->count() > 0)
+        @if(isset($services) && $services->count() > 0)
             @foreach ($services as $service)
                 @php
-                    $noWa = $whatsappNumber ?? '621214251202'; // Nomor WhatsApp dari setting
+                    $noWa = $whatsappNumber ?? '6281234567890'; // fallback nomor WA
                     $pesan = $service->whatsapp_message ?: "Halo, saya tertarik dengan layanan {$service->name}";
                 @endphp
 
@@ -78,7 +78,7 @@
     </div>
 </div>
 
-<!-- Script Deteksi Mobile/Desktop untuk WhatsApp -->
+<!-- WhatsApp Script -->
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const links = document.querySelectorAll('.wa-link');

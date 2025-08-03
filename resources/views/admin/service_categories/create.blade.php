@@ -37,7 +37,8 @@
                             <textarea name="description" class="form-control" rows="3">{{ old('description') }}</textarea>
                         </div>
 
-                        <div class="mb-3">
+                        {{-- Icon disembunyikan --}}
+                        <div class="mb-3" style="display: none;">
                             <label for="icon_class" class="form-label">Icon Bootstrap (contoh: <code>bi bi-briefcase</code>)</label>
                             <input type="text" name="icon_class" class="form-control" value="{{ old('icon_class', 'bi bi-briefcase') }}">
                         </div>
@@ -50,15 +51,14 @@
                         </div> 
                         --}}
 
+                        {{-- PERBAIKAN: Ganti field slug dengan order_position --}}
                         <div class="mb-3">
-                            <label for="slug" class="form-label">Urutan</label>
-                            <input type="text" name="slug" class="form-control" value="{{ old('slug') }}" required>
+                            <label for="order_position" class="form-label">Urutan</label>
+                            <input type="number" name="order_position" class="form-control" value="{{ old('order_position', 1) }}" min="1" required>
                         </div>
 
-
-
                         <div class="form-check mb-3">
-                            <input type="checkbox" name="is_active" class="form-check-input" id="is_active" checked>
+                            <input type="checkbox" name="is_active" class="form-check-input" id="is_active" value="1" {{ old('is_active', true) ? 'checked' : '' }}>
                             <label class="form-check-label" for="is_active">Aktif</label>
                         </div>
 

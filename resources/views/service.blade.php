@@ -13,6 +13,7 @@
         <p class="text-dark">Berbagai layanan profesional untuk kebutuhan acara Anda</p>
     </div>
 
+    @if (!empty($categories) && is_iterable($categories))
     <div class="row">
         @foreach ($categories as $category)
             <div class="col-lg-4 col-md-6 mb-4">
@@ -30,5 +31,11 @@
             </div>
         @endforeach
     </div>
+@else
+    <div class="text-center text-danger">
+        <p>Data kategori tidak tersedia.</p>
+    </div>
+@endif
+
 </div>
 @endsection

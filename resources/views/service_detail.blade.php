@@ -26,7 +26,7 @@
         @if(isset($services) && $services->count() > 0)
             @foreach ($services as $service)
                 @php
-                    $noWa = $whatsappNumber ?? '6281234567890'; // fallback nomor WA
+                    $noWa = $whatsappNumber ?? '628'; // fallback nomor WA
                     $pesan = $service->whatsapp_message ?: "Halo, saya tertarik dengan layanan {$service->name}";
                 @endphp
 

@@ -12,7 +12,7 @@
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <!-- LOGOUT -->
           <li class="nav-item">
-            <a href="{{ route('home') }}" class="nav-link {{ request()->is('home') ? 'active' : '' }} text-danger">
+            <a href="{{ route('admin.login') }}" class="nav-link {{ request()->is('home') ? 'active' : '' }} text-danger">
               <i class="nav-icon fas fa-sign-out-alt"></i>
               <p>Logout</p>
             </a>

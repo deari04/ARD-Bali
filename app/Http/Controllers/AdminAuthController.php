@@ -26,11 +26,20 @@ class AdminAuthController extends Controller
     }
 
     public function logout(Request $request)
-{
-    Auth::guard('admin')->logout();
-    $request->session()->invalidate();
-    $request->session()->regenerateToken();
+    {
+        Auth::guard('admin')->logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        
+        return redirect()->route('admin.login')->with('success', 'Berhasil logout');
+    }
 
-    return redirect()->route('admin.login')->with('status', 'Anda berhasil logout.');
-}
+//     public function logout(Request $request)
+// {
+//     Auth::guard('admin')->logout();
+//     $request->session()->invalidate();
+//     $request->session()->regenerateToken();
+
+//     return redirect()->route('admin.login')->with('status', 'Anda berhasil logout.');
+// }
 }

@@ -109,6 +109,7 @@ Route::get('/layanan/{slug}', [ServiceController::class, 'show'])->name('layanan
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/login', [AdminAuthController::class, 'showLoginForm'])->name('login');
     Route::post('/login', [AdminAuthController::class, 'login']);
+    Route::post('/logout', [AdminAuthController::class, 'logout'])->name('logout');
 });
 
 // Admin protected routes

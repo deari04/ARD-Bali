@@ -22,9 +22,73 @@
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@1.13.1/css/OverlayScrollbars.min.css">
   
+    <!-- Custom CSS untuk Sidebar Full Height -->
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      .wrapper {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* Sidebar Full Height Fix */
+      .main-sidebar {
+        position: fixed !important;
+        top: 0 !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        min-height: 100vh !important;
+        height: 100vh !important;
+        overflow: hidden;
+      }
+
+      .sidebar {
+        height: calc(100vh - 57px) !important;
+        overflow-y: auto !important;
+        overflow-x: hidden;
+        padding-bottom: 30px;
+      }
+
+      /* Custom Scrollbar */
+      .sidebar::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      .sidebar::-webkit-scrollbar-track {
+        background: #2c3b41;
+      }
+
+      .sidebar::-webkit-scrollbar-thumb {
+        background: #4b545c;
+        border-radius: 3px;
+      }
+
+      .sidebar::-webkit-scrollbar-thumb:hover {
+        background: #6c757d;
+      }
+
+      /* Ensure brand logo doesn't scroll */
+      .brand-link {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        background: #343a40;
+      }
+
+      /* Adjust content wrapper */
+      .content-wrapper {
+        min-height: 100vh;
+      }
+    </style>
+
   @yield('styles')
 </head>
-<body class="hold-transition sidebar-mini">
+<body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
   @yield('content')
 </div>
@@ -59,7 +123,6 @@
 <script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@1.13.1/js/jquery.overlayScrollbars.min.js"></script>
 <!-- AdminLTE -->
 <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
-
 
 </body>
 </html>

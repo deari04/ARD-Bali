@@ -69,9 +69,9 @@
                                         <td>{{ $loc->phone ?? '-' }}</td>
                                         <td>{{ $loc->whatsapp ?? '-' }}</td>
                                         <td>{{ $loc->email ?? '-' }}</td>
-                                        <td class="d-flex align-items-center">
+                                        <td>
                                             <a href="{{ route('admin.location.edit', $loc->id) }}"
-                                                class="btn btn-sm btn-warning me-2">Edit</a> {{-- Tambahan me-2 untuk jarak --}}
+                                                class="btn btn-sm btn-warning me-2">Edit</a>
                                             <form action="{{ route('admin.location.destroy', $loc->id) }}" method="POST"
                                                 class="d-inline">
                                                 @csrf

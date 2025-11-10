@@ -32,6 +32,7 @@ use App\Http\Controllers\Admin\LocationController;
 use App\Http\Controllers\Admin\AdminYoutubeController;
 use App\Http\Controllers\Admin\AdminInstagramStoryController;
 use App\Http\Controllers\Admin\SliderController; // Tambahan import
+use App\Http\Controllers\Admin\DashboardController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
@@ -115,6 +116,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
 // Admin protected routes
 Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
+    // Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     // Gallery
     Route::get('/gallery', [DashboardGalleryController::class, 'index'])->name('gallery.index');

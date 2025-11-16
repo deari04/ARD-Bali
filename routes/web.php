@@ -111,13 +111,14 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/login', [AdminAuthController::class, 'showLoginForm'])->name('login');
     Route::post('/login', [AdminAuthController::class, 'login']);
     Route::post('/logout', [AdminAuthController::class, 'logout'])->name('logout');
+    // Route::post('/logout', [AdminAuthController::class, 'logout'])->name('logout')->middleware('nocache');
 });
 
 // Admin protected routes
 Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
     // Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     // Gallery
     Route::get('/gallery', [DashboardGalleryController::class, 'index'])->name('gallery.index');

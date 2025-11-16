@@ -25,6 +25,8 @@ class AdminAuthController extends Controller
         ]);
     }
 
+
+    // Function logout baru
     public function logout(Request $request)
     {
         Auth::guard('admin')->logout();
@@ -34,6 +36,7 @@ class AdminAuthController extends Controller
         return redirect()->route('admin.login')->with('success', 'Berhasil logout');
     }
 
+}
 //     public function logout(Request $request)
 // {
 //     Auth::guard('admin')->logout();
@@ -42,4 +45,4 @@ class AdminAuthController extends Controller
 
 //     return redirect()->route('admin.login')->with('status', 'Anda berhasil logout.');
 // }
-}
+

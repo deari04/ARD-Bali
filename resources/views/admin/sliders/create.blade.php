@@ -59,14 +59,22 @@
                     <input type="number" name="order_position" id="order_position" class="form-control" value="{{ old('order_position', 0) }}">
                 </div>
 
-                <div class="mb-3">
+                {{-- <div class="mb-3">
                     <label class="form-label">Upload Foto Slider (Max 10)</label>
                     <input type="file" name="images[]" id="images" class="form-control" accept="image/*" multiple onchange="previewMultipleImages(this)">
                     <small class="text-muted">Format: JPG, PNG, GIF. Maks 2MB per file</small>
 
                     <div id="imagePreview" class="mt-3 d-flex flex-wrap gap-2"></div>
-                </div>
+                </div> --}}
+                <div class="mb-3">
+                    <label class="form-label">Upload Foto Slider (Max 10)</label>
+                    <input type="file" name="images[]" id="images" class="form-control" 
+                        accept="image/jpeg,image/png,image/gif,image/webp" multiple 
+                        onchange="previewMultipleImages(this)">
+                    <small class="text-muted">Format: JPG, PNG, GIF, WebP. Maks 2MB per file</small>
 
+                    <div id="imagePreview" class="mt-3 d-flex flex-wrap gap-2"></div>
+                </div>
                 <div class="mb-3">
                     <input type="checkbox" id="is_active" name="is_active" value="1" checked>
                     <label for="is_active">Aktifkan Slider</label>

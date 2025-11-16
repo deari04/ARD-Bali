@@ -56,10 +56,10 @@
                                         <td class="text-center">
                                             @if ($slider->image_path)
                                                 <img src="{{ $slider->image_url }}" alt="Preview" class="img-thumbnail"
-                                                    style="width: 80px; height: 50px; object-fit: cover;">
+                                                    style="width: 120px; height: 80px; object-fit: cover;">
                                             @else
                                                 <div class="bg-light d-flex align-items-center justify-content-center border rounded"
-                                                    style="width: 80px; height: 50px;">
+                                                    style="width: 120px; height: 80px;">
                                                     <small class="text-muted">
                                                         <i class="fas fa-image"></i>
                                                     </small>

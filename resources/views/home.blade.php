@@ -17,12 +17,12 @@
         }
 
         /* body {
-            background-image: url('https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=1600');
-            background-size: cover;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
-            background-position: center;
-          } */
+                background-image: url('https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=1600');
+                background-size: cover;
+                background-attachment: fixed;
+                background-repeat: no-repeat;
+                background-position: center;
+              } */
 
         .content-overlay {
             background-color: rgba(255, 255, 255, 0.9);
@@ -179,30 +179,43 @@
         </div>
     @endif
 
+{{-- Container About --}}
+<div class="container content-overlay my-5" id="tentang-kami">
+    <div class="row align-items-center">
+        {{-- Kolom Gambar --}}
+        <div class="col-md-5 mb-4 mb-md-0">
+            <img src="{{ asset('assets/images/team.jpeg') }}" class="img-fluid rounded-4 shadow"
+                style="height: 350px; object-fit: cover; width: 100%;" alt="Our Team">
+        </div>
 
-
-    {{-- Container About --}}
-    <div class="container content-overlay my-5" id="tentang-kami">
-        <div class="row align-items-center">
-            {{-- Kolom gambar --}}
-            <div class="col-md-5 mb-4 mb-md-0">
-                <img src="{{ asset('assets/images/team.jpeg') }}" class="img-fluid rounded-4 shadow"
-                    style="height: 350px; object-fit: cover; width: 100%;" alt="our Team">
+        {{-- Kolom Teks --}}
+        <div class="col-md-7 ps-md-4">
+            {{-- Heading dengan garis dekoratif --}}
+            <div class="mb-4">
+                <h2 class="fw-bold mb-3">Tentang Kami</h2>
+                <div
+                    style="width: 60px; height: 4px; background: linear-gradient(90deg, #FF6B35 0%, #FFA500 100%); border-radius: 2px;">
+                </div>
             </div>
 
-            {{-- Kolom teks --}}
-            <div class="col-md-7">
-                <h2 class="fw-bold">Tentang Kami</h2>
-                <p class="text-dark">
+            {{-- Paragraf pertama dengan accent --}}
+            <div class="mb-4 p-4 rounded-3"
+                style="background-color: #fff; border-left: 5px solid #FF6B35; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);">
+                <p class="text-dark mb-0" style="line-height: 1.7; font-weight: 500;">
                     ARD ORGANIZER BALI adalah perusahaan yang bergerak melayani penyelenggaraan Event atau penyedia jasa
-                    event dalam sekala besar maupun kecil. <br>
-                    Dengan pelayanan yang mengutamakan kenyamanan dan menjadi sarana konsultasi bagi klien untuk berbagi
-                    ide-ide kreatif, konsep inovatif, dan bekerja profesional memfasilitasi kebutuhan serta kepuasan klien
-                    sebagai mitra bisnis.
+                    event dalam skala besar maupun kecil.
                 </p>
             </div>
+
+            {{-- Paragraf kedua --}}
+            <p class="text-dark" style="line-height: 1.7; font-weight: 500;">
+                Dengan pelayanan yang mengutamakan kenyamanan dan menjadi sarana konsultasi bagi klien untuk berbagi
+                ide-ide kreatif, konsep inovatif, dan bekerja profesional memfasilitasi kebutuhan serta kepuasan klien
+                sebagai mitra bisnis.
+            </p>
         </div>
     </div>
+</div>
 
     {{-- Layanan Kami --}}
     <div class="container content-overlay mb-5">

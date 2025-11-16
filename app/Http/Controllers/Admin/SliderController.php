@@ -36,7 +36,7 @@ class SliderController extends Controller
             'subheadline_text' => 'nullable|string',
             'order_position' => 'nullable|integer',
             'is_active' => 'nullable|boolean',
-            'images.*' => 'required|image|mimes:jpg,jpeg,png,gif|max:2048'
+            'images.*' => 'required|image|mimes:jpg,jpeg,png,gif,webp|max:2048'
         ]);
 
         $imagePaths = [];
@@ -83,7 +83,7 @@ class SliderController extends Controller
             'subheadline_text' => 'nullable|string',
             'order_position' => 'nullable|integer',
             'is_active' => 'nullable|boolean',
-            'images.*' => 'nullable|image|mimes:jpg,jpeg,png,gif|max:2048',
+            'images.*' => 'nullable|image|mimes:jpg,jpeg,png,gif,webp|max:2048',
             'remove_images' => 'nullable|array'
         ]);
 

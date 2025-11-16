@@ -158,10 +158,20 @@
                 <label for="name" class="form-label fw-semibold"><i class="fas fa-user me-1"></i>Nama</label>
                 <input type="text" class="form-control shadow-sm" id="name" name="visitor_name" required>
             </div>
-            <div class="mb-3">
-                <label for="photo" class="form-label fw-semibold"><i class="fas fa-image me-1"></i>Pilih Foto</label>
-                <input type="file" class="form-control shadow-sm" id="photo" name="image" required>
-            </div>
+<div class="mb-3">
+    <label for="photo" class="form-label fw-semibold">
+        <i class="fas fa-image me-1"></i>Pilih Foto
+    </label>
+    <input type="file" class="form-control shadow-sm" id="photo" name="image" 
+        accept="image/jpeg,image/png,image/gif,image/webp" required 
+        onchange="validateFileSize(this)">
+    <small class="text-muted d-block mt-2">
+        📋 Format: JPG, PNG, GIF, WebP | Ukuran maksimal: <strong>2MB</strong>
+    </small>
+    <div id="fileWarning" class="alert alert-warning mt-2" style="display: none; padding: 8px 12px; font-size: 0.9rem;">
+        <i class="fas fa-exclamation-triangle me-2"></i><span id="warningText"></span>
+    </div>
+</div>
             <div class="mb-3">
                 <label for="comment" class="form-label fw-semibold"><i class="fas fa-comment me-1"></i>Komentar</label>
                 <textarea class="form-control shadow-sm" id="comment" name="description" rows="3" required></textarea>
@@ -177,6 +187,38 @@
 
 <!-- JS Interaksi Modal -->
 <script>
+    function validateFileSize(input) {
+    const warning = document.getElementById('fileWarning');
+    const warningText = document.getElementById('warningText');
+    const maxSize = 2 * 1024 * 1024; // 2MB
+
+    if (input.files.length === 0) {
+        warning.style.display = 'none';
+        return;
+    }
+
+    const file = input.files[0];
+
+    // Validasi ukuran
+    if (file.size > maxSize) {
+        warningText.textContent = `File terlalu besar! (${(file.size / 1024 / 1024).toFixed(2)}MB) Maksimal 2MB`;
+        warning.style.display = 'block';
+        input.value = '';
+        return;
+    }
+
+    // Validasi format
+    const allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
+    if (!allowedTypes.includes(file.type)) {
+        warningText.textContent = `Format tidak didukung! Gunakan JPG, PNG, GIF, atau WebP`;
+        warning.style.display = 'block';
+        input.value = '';
+        return;
+    }
+
+    warning.style.display = 'none';
+}
+
     document.addEventListener('DOMContentLoaded', function () {
         const openBtn = document.getElementById('showUploadForm');
         const closeBtn = document.getElementById('closeUploadForm');

@@ -3,16 +3,36 @@
 
 @section('content')
 <div class="content-wrapper">
+
     <div class="content-header">
         <div class="container-fluid">
-            <h3 class="mb-4">Edit Kategori Layanan</h3>
+
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h3 class="mb-0">Edit Kategori Layanan</h3>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item">
+                            <a href="{{ route('admin.dashboard') }}">Dashboard</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="{{ route('admin.service-categories.index') }}">Kategori Layanan</a>
+                        </li>
+                        <li class="breadcrumb-item active">Edit</li>
+                    </ol>
+                </div>
+            </div>
+
         </div>
     </div>
 
     <section class="content">
         <div class="container-fluid">
+
             <div class="card shadow-sm">
                 <div class="card-body">
+
                     @if ($errors->any())
                         <div class="alert alert-danger">
                             <ul class="mb-0">
@@ -38,40 +58,32 @@
                         </div>
 
                         <div class="mb-3" style="display: none;">
-                            <label for="icon_class" class="form-label">Icon Bootstrap (contoh: <code>bi bi-briefcase</code>)</label>
+                            <label for="icon_class" class="form-label">Icon Bootstrap</label>
                             <input type="text" name="icon_class" class="form-control" value="{{ old('icon_class', 'bi bi-briefcase') }}">
                         </div>
-                        
-                        {{-- Uncomment if you want to include image upload --}}
-                        {{-- <div class="mb-3">
-                            <label for="image_path" class="form-label">Gambar</label>
-                            @if ($service_category->image_path)
-                                <div class="mb-2">
-                                    <img src="{{ asset('storage/' . $service_category->image_path) }}" alt="Gambar" width="150">
-                                </div>
-                            @endif
-                            <input type="file" name="image_path" class="form-control">
-                        </div> --}}
 
-                         <div class="mb-3">
+                        <div class="mb-3">
                             <label for="order_position" class="form-label">Urutan</label>
                             <input type="number" name="order_position" class="form-control" value="{{ old('order_position', $service_category->order_position) }}" required>
                         </div>
 
-
-                       <div class="mb-3 form-check">
+                        <div class="mb-3 form-check">
                             <input type="hidden" name="is_active" value="0">
-                            <input type="checkbox" name="is_active" class="form-check-input" id="is_active" value="1" {{ old('is_active', $service_category->is_active) ? 'checked' : '' }}>
+                            <input type="checkbox" name="is_active" class="form-check-input" id="is_active" value="1"
+                                   {{ old('is_active', $service_category->is_active) ? 'checked' : '' }}>
                             <label class="form-check-label" for="is_active">Aktif</label>
                         </div>
 
-
                         <button type="submit" class="btn btn-primary">Update</button>
                         <a href="{{ route('admin.service-categories.index') }}" class="btn btn-secondary">Batal</a>
+
                     </form>
+
                 </div>
             </div>
+
         </div>
     </section>
+
 </div>
 @endsection

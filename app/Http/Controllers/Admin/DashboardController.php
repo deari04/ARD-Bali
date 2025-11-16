@@ -17,17 +17,16 @@ class DashboardController extends Controller
         $totalLokasi = Location::count();
         $totalKategori = ServiceCategory::count();
         
-        $servicePopuler = Service::where('status', 'aktif')
-                                ->orderBy('view_count', 'desc')
-                                ->take(5)
-                                ->get();
-        
+        // Hapus ->get() setelah paginate()
+        $serviceList = Service::orderBy('id', 'asc')
+                        ->paginate(10);
+
         return view('admin.dashboard', compact(
             'totalServiceAktif',
             'totalGaleri',
             'totalLokasi',
             'totalKategori',
-            'servicePopuler'
+            'serviceList'
         ));
     }
 }

@@ -3,21 +3,40 @@
 
 @section('content')
 <div class="content-wrapper">
+
     <div class="content-header">
         <div class="container-fluid">
-            <h1 class="m-0">Kelola Video YouTube</h1>
+
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">Kelola Video YouTube</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item">
+                            <a href="{{ route('admin.dashboard') }}">Dashboard</a>
+                        </li>
+                        <li class="breadcrumb-item active">Video YouTube</li>
+                    </ol>
+                </div>
+            </div>
+
         </div>
     </div>
 
     <section class="content">
         <div class="container-fluid">
+
             <div class="card shadow-sm">
+
                 <div class="card-header d-flex justify-content-between align-items-center">
-                    <strong>Daftar Video</strong>
-                    <a href="{{ route('admin.youtube.create') }}" class="btn btn-sm btn-primary">+ Tambah Video</a>
+                    <a href="{{ route('admin.youtube.create') }}" class="btn btn-primary btn-sm">
+                        <i class="fas fa-plus"></i> Tambah Video
+                    </a>
                 </div>
 
                 <div class="card-body">
+
                     @if(session('success'))
                         <div class="alert alert-success">{{ session('success') }}</div>
                     @endif
@@ -69,9 +88,12 @@
                             </tbody>
                         </table>
                     </div>
-                </div> <!-- /.card-body -->
-            </div> <!-- /.card -->
-        </div> <!-- /.container-fluid -->
+
+                </div><!-- /.card-body -->
+            </div><!-- /.card -->
+
+        </div>
     </section>
+
 </div>
 @endsection

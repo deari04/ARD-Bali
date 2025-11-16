@@ -38,7 +38,7 @@
 
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">Form Edit Lokasi: {{ $location->title }}</h3>
+            <h3 class="card-title">Form Edit Lokasi</h3>
         </div>
         <div class="card-body">
             <form action="{{ route('admin.location.update', $location->id) }}" method="POST">

@@ -88,7 +88,7 @@
                                     <div class="icon">
                                         <i class="fas fa-th"></i>
                                     </div>
-                                    <a href="{{  route('admin.service-categories.index') }}" class="small-box-footer">
+                                    <a href="{{ route('admin.service-categories.index') }}" class="small-box-footer">
                                         Lihat Semua <i class="fas fa-arrow-circle-right"></i>
                                     </a>
                                 </div>
@@ -101,7 +101,7 @@
                             <div class="col-md-12">
                                 <div class="card">
                                     <div class="card-header border-0">
-                                        <h3 class="card-title">Service Paling Populer</h3>
+                                        <h3 class="card-title">Daftar Service</h3>
                                         <div class="card-tools">
                                             <a href="{{ route('admin.services.index') }}" class="btn btn-tool btn-sm">
                                                 <i class="fas fa-external-link-alt"></i>
@@ -116,16 +116,13 @@
                                                     <th>Nama Service</th>
                                                     <th>Kategori</th>
                                                     <th>Status</th>
-                                                    <th>Views</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @forelse ($servicePopuler as $index => $service)
+                                                @forelse ($serviceList as $index => $service)
                                                     <tr>
                                                         <td>{{ $index + 1 }}</td>
-                                                        <td>
-                                                            <strong>{{ $service->name }}</strong>
-                                                        </td>
+                                                        <td><strong>{{ $service->name }}</strong></td>
                                                         <td>{{ $service->category->name ?? '-' }}</td>
                                                         <td>
                                                             @if ($service->status == 'aktif')
@@ -134,15 +131,10 @@
                                                                 <span class="badge badge-secondary">Nonaktif</span>
                                                             @endif
                                                         </td>
-                                                        <td>
-                                                            <span
-                                                                class="badge badge-primary">{{ $service->view_count ?? 0 }}
-                                                                views</span>
-                                                        </td>
                                                     </tr>
                                                 @empty
                                                     <tr>
-                                                        <td colspan="5" class="text-center text-muted">
+                                                        <td colspan="4" class="text-center text-muted">
                                                             <i class="fas fa-info-circle"></i> Belum ada data service
                                                         </td>
                                                     </tr>
@@ -151,6 +143,10 @@
                                         </table>
                                     </div>
                                 </div>
+                                <div class="d-flex justify-content-center mt-3">
+                                    {{ $serviceList->links('pagination::bootstrap-5') }}
+                                </div>
+
                             </div>
                         </div>
                     </div>

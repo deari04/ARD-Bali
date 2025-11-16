@@ -3,10 +3,23 @@
 
 @section('content')
 <div class="content-wrapper">
+
+    <!-- Breadcrumb -->
     <div class="content-header">
         <div class="container-fluid">
-            <h3 class="mb-3">Kelola Instagram Story</h3>
-            <a href="{{ route('admin.instagram.create') }}" class="btn btn-primary mb-3">+ Tambah Link</a>
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h3 class="m-0">Kelola Instagram Story</h3>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
+                        <li class="breadcrumb-item active">Instagram Story</li>
+                    </ol>
+                </div>
+            </div>
+
+            <a href="{{ route('admin.instagram.create') }}" class="btn btn-primary mb-3"> <i class="fas fa-plus"></i> Tambah Link</a>
 
             <div class="card">
                 <div class="card-body">
@@ -37,10 +50,15 @@
                                     </td>
                                     <td>
                                         <a href="{{ route('admin.instagram.edit', $story->id) }}" class="btn btn-sm btn-warning">Edit</a>
-                                        <form action="{{ route('admin.instagram.destroy', $story->id) }}" method="POST" class="d-inline">
+
+                                        <form action="{{ route('admin.instagram.destroy', $story->id) }}" 
+                                              method="POST" class="d-inline">
                                             @csrf
                                             @method('DELETE')
-                                            <button onclick="return confirm('Yakin ingin menghapus?')" class="btn btn-sm btn-danger">Hapus</button>
+                                            <button onclick="return confirm('Yakin ingin menghapus?')"
+                                                    class="btn btn-sm btn-danger">
+                                                Hapus
+                                            </button>
                                         </form>
                                     </td>
                                 </tr>

@@ -3,15 +3,34 @@
 
 @section('content')
 <div class="content-wrapper">
+
     <div class="content-header">
         <div class="container-fluid">
-            <h3 class="mb-4">Kelola Kategori Layanan</h3>
-            <a href="{{ route('admin.service-categories.create') }}" class="btn btn-primary mb-3">+ Tambah Kategori</a>
+
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h3 class="mb-0">Kelola Kategori Layanan</h3>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item">
+                            <a href="{{ route('admin.dashboard') }}">Dashboard</a>
+                        </li>
+                        <li class="breadcrumb-item active">Kategori Layanan</li>
+                    </ol>
+                </div>
+            </div>
+
+            <a href="{{ route('admin.service-categories.create') }}" class="btn btn-primary mb-3">
+                 <i class="fas fa-plus"></i> Tambah Kategori
+            </a>
+
         </div>
     </div>
 
     <section class="content">
         <div class="container-fluid">
+
             @if(session('success'))
                 <div class="alert alert-success">{{ session('success') }}</div>
             @endif
@@ -24,7 +43,7 @@
                                 <th>#</th>
                                 <th>Nama</th>
                                 <th>Slug</th>
-                                <th>Deskripsi</th> <!-- Ganti dari Icon ke Deskripsi -->
+                                <th>Deskripsi</th>
                                 <th>Urutan</th>
                                 <th>Status</th>
                                 <th>Aksi</th>
@@ -41,9 +60,7 @@
                                         <td>{{ $index + 1 }}</td>
                                         <td>{{ $cat->name }}</td>
                                         <td>{{ $cat->slug }}</td>
-                                        <td>
-                                            {{ $cat->description ?? '-' }} <!-- Ganti icon menjadi deskripsi -->
-                                        </td>
+                                        <td>{{ $cat->description ?? '-' }}</td>
                                         <td>{{ $cat->order_position }}</td>
                                         <td>
                                             @if($cat->is_active)
@@ -67,6 +84,7 @@
                     </table>
                 </div>
             </div>
+
         </div>
     </section>
 </div>

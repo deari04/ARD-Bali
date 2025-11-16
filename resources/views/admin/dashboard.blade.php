@@ -82,13 +82,13 @@
                             <div class="col-lg-3 col-6">
                                 <div class="small-box bg-danger">
                                     <div class="inner">
-                                        <h3>5</h3>
+                                        <h3>{{ $totalKategori }}</h3>
                                         <p>Kategori Service</p>
                                     </div>
                                     <div class="icon">
                                         <i class="fas fa-th"></i>
                                     </div>
-                                    <a href="#" class="small-box-footer">
+                                    <a href="{{  route('admin.service-categories.index') }}" class="small-box-footer">
                                         Lihat Semua <i class="fas fa-arrow-circle-right"></i>
                                     </a>
                                 </div>

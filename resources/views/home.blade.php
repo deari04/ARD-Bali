@@ -17,12 +17,12 @@
         }
 
         /* body {
-                background-image: url('https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=1600');
-                background-size: cover;
-                background-attachment: fixed;
-                background-repeat: no-repeat;
-                background-position: center;
-              } */
+                                                background-image: url('https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=1600');
+                                                background-size: cover;
+                                                background-attachment: fixed;
+                                                background-repeat: no-repeat;
+                                                background-position: center;
+                                              } */
 
         .content-overlay {
             background-color: rgba(255, 255, 255, 0.9);
@@ -100,43 +100,135 @@
                 min-height: 400px;
             }
         }
+
+
+        /* ===== SLIDER UNTUK MOBILE ===== */
+
+        /* Desktop - tetap grid biasa */
+        @media (min-width: 768px) {
+            .layanan-cards-container {
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+            .scroll-indicator {
+                display: none;
+            }
+        }
+
+        /* Mobile - horizontal scroll slider */
+        @media (max-width: 767.98px) {
+            .layanan-slider-wrapper {
+                position: relative;
+                overflow: hidden;
+            }
+
+            .layanan-cards-container {
+                display: flex;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                overflow-y: hidden;
+                scroll-snap-type: x mandatory;
+                scroll-behavior: smooth;
+                -webkit-overflow-scrolling: touch;
+                gap: 1rem;
+                padding: 1rem 0.5rem;
+                margin: 0 -15px;
+                /* Extend to screen edges */
+            }
+
+            /* Sembunyikan scrollbar tapi tetap bisa scroll */
+            .layanan-cards-container::-webkit-scrollbar {
+                display: none;
+            }
+
+            .layanan-cards-container {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+
+            .layanan-card-wrapper {
+                flex: 0 0 85%;
+                /* Card width di mobile */
+                max-width: 85%;
+                scroll-snap-align: center;
+                padding-left: 0.5rem;
+                padding-right: 0.5rem;
+            }
+
+            /* Card pertama dimulai dari kiri */
+            .layanan-card-wrapper:first-child {
+                margin-left: 15px;
+            }
+
+            /* Card terakhir ada space di kanan */
+            .layanan-card-wrapper:last-child {
+                margin-right: 15px;
+            }
+        }
+
+        /* Styling card */
+        .hover-shadow {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hover-shadow:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15) !important;
+        }
+
+        .layanan-card-img {
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .layanan-card-body {
+            min-height: 200px;
+        }
+
+
+        /* ===== LAYANAN TAMBAHAN ===== */
+        .additional-services a {
+            font-size: 0.85rem;
+            border: 1px solid #0d6efd;
+            border-radius: 50px;
+            padding: 6px 14px;
+            white-space: nowrap;
+            transition: all 0.25s ease;
+        }
+
+        .additional-services a:hover {
+            background-color: #0d6efd;
+            color: #fff !important;
+        }
+
+        /* Spacing khusus layanan tambahan */
+        .additional-services-wrapper {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+        }
+
+        /* Mobile optimization */
+        @media (max-width: 992px) {
+            .additional-services-wrapper {
+                margin-top: 4.5rem;
+                padding-top: 2.5rem;
+            }
+
+            .additional-services {
+                gap: 8px !important;
+            }
+
+            .additional-services a {
+                font-size: 0.8rem;
+                padding: 6px 12px;
+                margin: 4px 3px;
+                /* INI KUNCI UTAMA */
+                line-height: 1.2;
+            }
+        }
     </style>
 
-
-    {{-- <div id="carouselExample" class="carousel slide position-relative" data-bs-ride="carousel" data-bs-interval="5000" style="height: 103vh; overflow: hidden;">
-
-
-  <div class="carousel-inner w-100 h-100">
-    <div class="carousel-item active h-100">
-      <img src="{{ asset('assets/images/Outbond.jpg') }}" class="d-block w-100 h-100 object-fit-cover" alt="slide">
-    </div>
-    <div class="carousel-item h-100">
-      <img src="{{ asset('assets/images/slide-2.jpg') }}" class="d-block w-100 h-100 object-fit-cover" alt="slide">
-    </div>
-    <div class="carousel-item h-100">
-      <img src="https://images.pexels.com/photos/464321/pexels-photo-464321.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-           class="d-block w-100 h-100 object-fit-cover" alt="slide">
-    </div>
-  </div>
-
-  <div class="position-absolute bottom-0 start-0 w-100 text-center mb-4 px-3">
-    <div class="bg-dark bg-opacity-45 p-3 rounded mx-auto d-inline-block">
-      <h5 class="fw-bold text-white mb-2">
-        <a href="/layanan/outbond" class="text-warning text-decoration-none">OUTBOUND BALI</a>
-        |
-        <a href="/layanan/tour" class="text-warning text-decoration-none">TOUR BALI</a>
-        |
-        <a href="#tentang-kami" class="text-warning text-decoration-none">EVENT ORGANIZER BALI</a>
-      </h5>
-
-      <p class="text-white mb-0">
-        OUTBOUND BALI | TOUR & TRAVEL | GATHERING | MICE | SHOW MANAGEMENT | PRIVATE TOUR | ARTIST MANAGEMENT |
-        ENTERTAINMENT | EVENT EQUIPMENT | MULTIMEDIA
-      </p>
-    </div>
-  </div>
-
-</div> --}}
 
 
     @php
@@ -179,109 +271,119 @@
         </div>
     @endif
 
-{{-- Container About --}}
-<div class="container content-overlay my-5" id="tentang-kami">
-    <div class="row align-items-center">
-        {{-- Kolom Gambar --}}
-        <div class="col-md-5 mb-4 mb-md-0">
-            <img src="{{ asset('assets/images/team.jpeg') }}" class="img-fluid rounded-4 shadow"
-                style="height: 350px; object-fit: cover; width: 100%;" alt="Our Team">
-        </div>
-
-        {{-- Kolom Teks --}}
-        <div class="col-md-7 ps-md-4">
-            {{-- Heading dengan garis dekoratif --}}
-            <div class="mb-4">
-                <h2 class="fw-bold mb-3">Tentang Kami</h2>
-                <div
-                    style="width: 60px; height: 4px; background: linear-gradient(90deg, #FF6B35 0%, #FFA500 100%); border-radius: 2px;">
-                </div>
+    {{-- Container About --}}
+    <div class="container content-overlay my-5" id="tentang-kami">
+        <div class="row align-items-center">
+            {{-- Kolom Gambar --}}
+            <div class="col-md-5 mb-4 mb-md-0">
+                <img src="{{ asset('assets/images/team.jpeg') }}" class="img-fluid rounded-4 shadow"
+                    style="height: 350px; object-fit: cover; width: 100%;" alt="Our Team">
             </div>
 
-            {{-- Paragraf pertama dengan accent --}}
-            <div class="mb-4 p-4 rounded-3"
-                style="background-color: #fff; border-left: 5px solid #FF6B35; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);">
-                <p class="text-dark mb-0" style="line-height: 1.7; font-weight: 500;">
-                    ARD ORGANIZER BALI adalah perusahaan yang bergerak melayani penyelenggaraan Event atau penyedia jasa
-                    event dalam skala besar maupun kecil.
+            {{-- Kolom Teks --}}
+            <div class="col-md-7 ps-md-4">
+                {{-- Heading dengan garis dekoratif --}}
+                <div class="mb-4">
+                    <h2 class="fw-bold mb-3">Tentang Kami</h2>
+                    <div
+                        style="width: 60px; height: 4px; background: linear-gradient(90deg, #FF6B35 0%, #FFA500 100%); border-radius: 2px;">
+                    </div>
+                </div>
+
+                {{-- Paragraf pertama dengan accent --}}
+                <div class="mb-4 p-4 rounded-3"
+                    style="background-color: #fff; border-left: 5px solid #FF6B35; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);">
+                    <p class="text-dark mb-0" style="line-height: 1.7; font-weight: 500;">
+                        ARD ORGANIZER BALI adalah perusahaan yang bergerak melayani penyelenggaraan Event atau penyedia jasa
+                        event dalam skala besar maupun kecil.
+                    </p>
+                </div>
+
+                {{-- Paragraf kedua --}}
+                <p class="text-dark" style="line-height: 1.7; font-weight: 500;">
+                    Dengan pelayanan yang mengutamakan kenyamanan dan menjadi sarana konsultasi bagi klien untuk berbagi
+                    ide-ide kreatif, konsep inovatif, dan bekerja profesional memfasilitasi kebutuhan serta kepuasan klien
+                    sebagai mitra bisnis.
                 </p>
             </div>
-
-            {{-- Paragraf kedua --}}
-            <p class="text-dark" style="line-height: 1.7; font-weight: 500;">
-                Dengan pelayanan yang mengutamakan kenyamanan dan menjadi sarana konsultasi bagi klien untuk berbagi
-                ide-ide kreatif, konsep inovatif, dan bekerja profesional memfasilitasi kebutuhan serta kepuasan klien
-                sebagai mitra bisnis.
-            </p>
         </div>
     </div>
-</div>
+
+    {{-- Layanan Kami --}}
 
     {{-- Layanan Kami --}}
     <div class="container content-overlay mb-5">
         <h2 class="mb-5 text-center fw-bold">Layanan Kami</h2>
 
-        <div class="row g-4">
-            @foreach ($mainServiceCategories as $category)
-                @php
-                    $service = $category->services->first();
-                    $images = $service && $service->images->count() > 0 ? $service->images : collect([$service]);
-                @endphp
-                @if ($service)
-                    <div class="col-md-4">
-                        <div class="card h-100 shadow-sm border-0 rounded-4 hover-shadow">
+        {{-- Wrapper untuk slider di mobile --}}
+        <div class="layanan-slider-wrapper">
+            <div class="row g-4 layanan-cards-container">
+                @foreach ($mainServiceCategories as $category)
+                    @php
+                        $service = $category->services->first();
+                        $images = $service && $service->images->count() > 0 ? $service->images : collect([$service]);
+                    @endphp
+                    @if ($service)
+                        <div class="col-md-4 layanan-card-wrapper">
+                            <div class="card h-100 shadow-sm border-0 rounded-4 hover-shadow">
 
-                            {{-- Carousel jika foto lebih dari 1 --}}
-                            @if ($images->count() > 1)
-                                <div id="carouselService{{ $loop->index }}" class="carousel slide" data-bs-ride="carousel"
-                                    data-bs-interval="3000">
-                                    <div class="carousel-inner rounded-top-4">
-                                        @foreach ($images as $imgIndex => $image)
-                                            <div class="carousel-item {{ $imgIndex === 0 ? 'active' : '' }}">
-                                                <img src="{{ asset('storage/' . $image->image_path) }}"
-                                                    class="d-block w-100 layanan-card-img" alt="...">
-                                            </div>
-                                        @endforeach
+                                {{-- Carousel jika foto lebih dari 1 --}}
+                                @if ($images->count() > 1)
+                                    <div id="carouselService{{ $loop->index }}" class="carousel slide"
+                                        data-bs-ride="carousel" data-bs-interval="3000">
+                                        <div class="carousel-inner rounded-top-4">
+                                            @foreach ($images as $imgIndex => $image)
+                                                <div class="carousel-item {{ $imgIndex === 0 ? 'active' : '' }}">
+                                                    <img src="{{ asset('storage/' . $image->image_path) }}"
+                                                        class="d-block w-100 layanan-card-img" alt="...">
+                                                </div>
+                                            @endforeach
+                                        </div>
+                                        <button class="carousel-control-prev" type="button"
+                                            data-bs-target="#carouselService{{ $loop->index }}" data-bs-slide="prev">
+                                            <span class="carousel-control-prev-icon bg-dark rounded-circle"
+                                                aria-hidden="true"></span>
+                                            <span class="visually-hidden">Sebelumnya</span>
+                                        </button>
+                                        <button class="carousel-control-next" type="button"
+                                            data-bs-target="#carouselService{{ $loop->index }}" data-bs-slide="next">
+                                            <span class="carousel-control-next-icon bg-dark rounded-circle"
+                                                aria-hidden="true"></span>
+                                            <span class="visually-hidden">Berikutnya</span>
+                                        </button>
                                     </div>
-                                    <button class="carousel-control-prev" type="button"
-                                        data-bs-target="#carouselService{{ $loop->index }}" data-bs-slide="prev">
-                                        <span class="carousel-control-prev-icon bg-dark rounded-circle"
-                                            aria-hidden="true"></span>
-                                        <span class="visually-hidden">Sebelumnya</span>
-                                    </button>
-                                    <button class="carousel-control-next" type="button"
-                                        data-bs-target="#carouselService{{ $loop->index }}" data-bs-slide="next">
-                                        <span class="carousel-control-next-icon bg-dark rounded-circle"
-                                            aria-hidden="true"></span>
-                                        <span class="visually-hidden">Berikutnya</span>
-                                    </button>
+
+                                    {{-- Jika hanya 1 gambar --}}
+                                @else
+                                    <a href="{{ route('layanan.show', $category->slug) }}">
+                                        <img src="{{ asset('storage/' . $service->image_path) }}"
+                                            class="card-img-top rounded-top-4 layanan-card-img"
+                                            alt="{{ $category->name }}">
+                                    </a>
+                                @endif
+
+                                <div class="card-body layanan-card-body d-flex flex-column">
+                                    <h5 class="card-title text-uppercase text-center fw-bold mb-3">{{ $category->name }}
+                                    </h5>
+                                    <p class="card-text flex-grow-1">{{ $category->description }}</p>
+                                    <a href="https://wa.me/6281214251202?text=Halo,%20saya%20tertarik%20dengan%20layanan%20{{ urlencode($category->name) }}"
+                                        target="_blank" class="btn btn-outline-success mt-auto rounded-pill">Pesan
+                                        Sekarang</a>
                                 </div>
-
-                                {{-- Jika hanya 1 gambar --}}
-                            @else
-                                <a href="{{ route('layanan.show', $category->slug) }}">
-                                    <img src="{{ asset('storage/' . $service->image_path) }}"
-                                        class="card-img-top rounded-top-4 layanan-card-img" alt="{{ $category->name }}">
-                                </a>
-                            @endif
-
-                            <div class="card-body layanan-card-body d-flex flex-column">
-                                <h5 class="card-title text-uppercase text-center fw-bold mb-3">{{ $category->name }}</h5>
-                                <p class="card-text flex-grow-1">{{ $category->description }}</p>
-                                <a href="https://wa.me/6281214251202?text=Halo,%20saya%20tertarik%20dengan%20layanan%20{{ urlencode($category->name) }}"
-                                    target="_blank" class="btn btn-outline-success mt-auto rounded-pill">Pesan Sekarang</a>
                             </div>
                         </div>
-                    </div>
-                @endif
-            @endforeach
+                    @endif
+                @endforeach
+            </div>
+
+            {{-- Scroll indicator untuk mobile --}}
+            <div class="scroll-indicator d-md-none text-center mt-3">
+                <small class="text-muted"><i class="bi bi-arrow-left-right"></i> Geser untuk melihat lebih banyak</small>
+            </div>
         </div>
 
-
-
         {{-- Bagian Layanan Tambahan --}}
-        <div class="my-5 text-center">
-            {{-- <h4 class="mb-3 fw-bold">Layanan Tambahan</h4> --}}
+        {{-- <div class="my-5 text-center">
             <div class="d-flex flex-wrap justify-content-center align-items-center gap-2">
                 @foreach ($additionalServiceCategories as $category)
                     <a href="{{ route('layanan.show', $category->slug) }}"
@@ -293,9 +395,20 @@
                     @endif
                 @endforeach
             </div>
+        </div> --}}
+        <div class="my-5 text-center additional-services-wrapper">
+            <div class="d-flex flex-wrap justify-content-center additional-services">
+                @foreach ($additionalServiceCategories as $category)
+                    <a href="{{ route('layanan.show', $category->slug) }}"
+                        class="text-decoration-none text-primary fw-semibold">
+                        {{ $category->name }}
+                    </a>
+                @endforeach
+            </div>
         </div>
 
 
+    </div>
     </div>
 
 
@@ -461,5 +574,40 @@
             </div>
         </div>
     </section>
+
+    <script>
+        // Opsional: Tambah touch/drag gesture yang lebih smooth
+        document.addEventListener('DOMContentLoaded', function() {
+            const slider = document.querySelector('.layanan-cards-container');
+
+            if (slider && window.innerWidth < 768) {
+                let isDown = false;
+                let startX;
+                let scrollLeft;
+
+                slider.addEventListener('mousedown', (e) => {
+                    isDown = true;
+                    startX = e.pageX - slider.offsetLeft;
+                    scrollLeft = slider.scrollLeft;
+                });
+
+                slider.addEventListener('mouseleave', () => {
+                    isDown = false;
+                });
+
+                slider.addEventListener('mouseup', () => {
+                    isDown = false;
+                });
+
+                slider.addEventListener('mousemove', (e) => {
+                    if (!isDown) return;
+                    e.preventDefault();
+                    const x = e.pageX - slider.offsetLeft;
+                    const walk = (x - startX) * 2;
+                    slider.scrollLeft = scrollLeft - walk;
+                });
+            }
+        });
+    </script>
 
 @endsection
